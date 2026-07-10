@@ -1,0 +1,110 @@
+/* hvab-blocks/blocks/color-input/color-input.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block color-input
+ * @summary Native color input chrome.
+ * @host input[type="color"]
+ * @modifiers hb-color-input_size_s|m|l|xl
+ * @states :disabled, [disabled], [aria-disabled="true"], [aria-invalid="true"]
+ * @tokens --hb-color-input-*
+ * @docs ./README.md
+ */
+
+.hb-color-input {
+  --_color-input-control-width: var(--hb-size-control-height-m);
+  --_color-input-control-height: var(--hb-size-control-height-m);
+  --_color-input-control-padding: 2px; /* Local swatch padding inside the native input. */
+  --_color-input-control-radius: var(--hb-radius-m);
+  --_color-input-control-background: transparent;
+  --_color-input-control-border-width: var(--hb-size-border-width);
+  --_color-input-control-border-color: var(--hb-color-line-generic);
+  --_color-input-swatch-radius: var(--hb-radius-s);
+  --_color-input-focus-ring-width: var(--hb-focus-ring-width);
+  --_color-input-focus-ring-color: var(--hb-color-line-focus);
+  --_color-input-focus-ring-offset: -1px; /* Component geometry: ring sits on top of the border. */
+
+  box-sizing: border-box;
+  width: var(--hb-color-input-control-width, var(--_color-input-control-width));
+  height: var(--hb-color-input-control-height, var(--_color-input-control-height));
+  padding: var(--hb-color-input-control-padding, var(--_color-input-control-padding));
+  appearance: none;
+  cursor: pointer;
+  background: var(--hb-color-input-control-background, var(--_color-input-control-background));
+  border: var(--hb-color-input-control-border-width, var(--_color-input-control-border-width)) solid
+    var(--hb-color-input-control-border-color, var(--_color-input-control-border-color));
+  border-radius: var(--hb-color-input-control-radius, var(--_color-input-control-radius));
+  transition:
+    background-color var(--hb-duration-fast) var(--hb-ease-linear),
+    border-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-color-input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.hb-color-input::-webkit-color-swatch {
+  border: 0;
+  border-radius: var(--hb-color-input-swatch-radius, var(--_color-input-swatch-radius));
+}
+
+.hb-color-input::-moz-color-swatch {
+  border: 0;
+  border-radius: var(--hb-color-input-swatch-radius, var(--_color-input-swatch-radius));
+}
+
+.hb-color-input:hover {
+  --_color-input-control-border-color: var(--hb-color-line-generic-hover);
+}
+
+.hb-color-input:focus-visible {
+  --_color-input-control-border-color: var(--hb-color-line-generic-active);
+
+  outline: var(--hb-color-input-focus-ring-width, var(--_color-input-focus-ring-width)) solid
+    var(--hb-color-input-focus-ring-color, var(--_color-input-focus-ring-color));
+  outline-offset: var(--hb-color-input-focus-ring-offset, var(--_color-input-focus-ring-offset));
+}
+
+/* Sizes */
+.hb-color-input.hb-color-input_size_s {
+  --_color-input-control-width: var(--hb-size-control-height-s);
+  --_color-input-control-height: var(--hb-size-control-height-s);
+  --_color-input-control-radius: var(--hb-radius-s);
+  --_color-input-swatch-radius: var(--hb-radius-xs);
+}
+
+.hb-color-input.hb-color-input_size_m {
+  --_color-input-control-width: var(--hb-size-control-height-m);
+  --_color-input-control-height: var(--hb-size-control-height-m);
+  --_color-input-control-radius: var(--hb-radius-m);
+  --_color-input-swatch-radius: var(--hb-radius-s);
+}
+
+.hb-color-input.hb-color-input_size_l {
+  --_color-input-control-width: var(--hb-size-control-height-l);
+  --_color-input-control-height: var(--hb-size-control-height-l);
+  --_color-input-control-radius: var(--hb-radius-l);
+  --_color-input-swatch-radius: var(--hb-radius-m);
+}
+
+.hb-color-input.hb-color-input_size_xl {
+  --_color-input-control-width: var(--hb-size-control-height-xl);
+  --_color-input-control-height: var(--hb-size-control-height-xl);
+  --_color-input-control-radius: var(--hb-radius-xl);
+  --_color-input-swatch-radius: var(--hb-radius-l);
+}
+
+/* State: invalid. */
+.hb-color-input[aria-invalid='true'] {
+  --_color-input-control-border-color: var(--hb-color-line-danger);
+  --_color-input-focus-ring-color: var(--hb-color-line-danger);
+}
+
+/* State: disabled */
+.hb-color-input:disabled,
+.hb-color-input[disabled],
+.hb-color-input[aria-disabled='true'] {
+  --_color-input-control-background: var(--hb-color-base-generic-accent-disabled);
+  --_color-input-control-border-color: transparent;
+
+  cursor: not-allowed;
+}

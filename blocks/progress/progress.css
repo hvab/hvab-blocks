@@ -1,0 +1,94 @@
+/* hvab-blocks/blocks/progress/progress.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block progress
+ * @summary Static progress bar: track plus a fill sized by a public value token.
+ * @host div[role="progressbar"]
+ * @elements hb-progress__item
+ * @modifiers hb-progress_size_xs|s|m, hb-progress_theme_info|success|warning|danger
+ * @states [data-loading], [aria-busy="true"]
+ * @tokens --hb-progress-*
+ * @docs ./README.md
+ *
+ * The block does not compute the value — the consumer sets --hb-progress-value (e.g. inline
+ * style="--hb-progress-value: 42%") and mirrors it into aria-valuenow/min/max.
+ */
+
+.hb-progress {
+  --_progress-value: 0%;
+  --_progress-height: 10px;
+  --_progress-radius: var(--hb-radius-xs);
+  --_progress-track-background: var(--hb-color-base-generic);
+  --_progress-fill-background: var(--hb-color-base-neutral-medium);
+  --_progress-fill-background-image: none;
+  --_progress-fill-animation: none;
+
+  height: var(--hb-progress-height, var(--_progress-height));
+  overflow: hidden;
+  background-color: var(--hb-progress-track-background, var(--_progress-track-background));
+  border-radius: var(--hb-progress-radius, var(--_progress-radius));
+}
+
+.hb-progress__item {
+  width: var(--hb-progress-value, var(--_progress-value));
+  height: 100%;
+  background-color: var(--hb-progress-fill-background, var(--_progress-fill-background));
+  background-image: var(--hb-progress-fill-background-image, var(--_progress-fill-background-image));
+  transition:
+    width var(--hb-duration-slow) var(--hb-ease-out),
+    background-color var(--hb-duration-slow) var(--hb-ease-out);
+  animation: var(--hb-progress-fill-animation, var(--_progress-fill-animation));
+}
+
+/* Sizes */
+.hb-progress.hb-progress_size_xs {
+  --_progress-height: 4px;
+}
+
+.hb-progress.hb-progress_size_s {
+  --_progress-height: 10px;
+}
+
+.hb-progress.hb-progress_size_m {
+  --_progress-height: 20px;
+}
+
+/* Themes */
+.hb-progress.hb-progress_theme_info {
+  --_progress-fill-background: var(--hb-color-base-info-medium);
+}
+
+.hb-progress.hb-progress_theme_success {
+  --_progress-fill-background: var(--hb-color-base-positive-medium);
+}
+
+.hb-progress.hb-progress_theme_warning {
+  --_progress-fill-background: var(--hb-color-base-warning-medium);
+}
+
+.hb-progress.hb-progress_theme_danger {
+  --_progress-fill-background: var(--hb-color-base-danger-medium);
+}
+
+/* State: loading (indeterminate); stripes move over the fill and freeze under reduced motion. */
+.hb-progress[data-loading],
+.hb-progress[aria-busy='true'] {
+  --_progress-fill-background-image: repeating-linear-gradient(
+    -45deg,
+    var(--hb-color-sfx-fade) 0,
+    var(--hb-color-sfx-fade) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  --_progress-fill-animation: hb-progress-loading var(--hb-duration-slow) var(--hb-ease-linear) infinite;
+}
+
+@keyframes hb-progress-loading {
+  from {
+    background-position: -12px 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,85 @@
+/* hvab-blocks/blocks/card/card.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block card
+ * @summary Container surface: background, border, shadow, radius, and default padding.
+ * @host div, section, a, button
+ * @modifiers hb-card_view_filled|raised (outlined is the unmodified default)
+ * @states [data-clickable], [aria-selected="true"], [data-selected]
+ * @tokens --hb-card-*
+ * @docs ./README.md
+ *
+ * Content and inner layout are owned by the consumer. Hover only reacts when [data-clickable]
+ * is set by the consumer (link/button host).
+ */
+
+.hb-card {
+  --_card-padding: var(--hb-gap-5);
+  --_card-radius: var(--hb-radius-l);
+  --_card-background: transparent;
+  --_card-border-width: var(--hb-size-border-width);
+  --_card-border-color: var(--hb-color-line-generic);
+  --_card-ring: 0 0 0 0 transparent;
+  --_card-shadow: 0 0 0 0 transparent;
+  --_card-focus-ring-width: var(--hb-focus-ring-width);
+  --_card-focus-ring-color: var(--hb-color-line-focus);
+  --_card-focus-ring-offset: var(--hb-focus-ring-offset);
+
+  box-sizing: border-box;
+  display: block;
+  padding: var(--hb-card-padding, var(--_card-padding));
+  background-color: var(--hb-card-background, var(--_card-background));
+  border: var(--hb-card-border-width, var(--_card-border-width)) solid
+    var(--hb-card-border-color, var(--_card-border-color));
+  border-radius: var(--hb-card-radius, var(--_card-radius));
+  box-shadow: var(--hb-card-ring, var(--_card-ring)), var(--hb-card-shadow, var(--_card-shadow));
+  transition:
+    background-color var(--hb-duration-fast) var(--hb-ease-linear),
+    border-color var(--hb-duration-fast) var(--hb-ease-linear),
+    box-shadow var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+/* Views */
+.hb-card.hb-card_view_filled {
+  --_card-background: var(--hb-color-base-generic);
+  --_card-border-color: transparent;
+}
+
+.hb-card.hb-card_view_raised {
+  --_card-background: var(--hb-color-base-float);
+  --_card-border-color: transparent;
+  --_card-shadow: 0 1px 5px var(--hb-color-sfx-shadow);
+}
+
+/* Clickable host; the consumer sets the attribute when the card behaves like a link/button. */
+.hb-card[data-clickable] {
+  cursor: pointer;
+}
+
+.hb-card[data-clickable]:hover {
+  --_card-border-color: var(--hb-color-line-generic-hover);
+}
+
+.hb-card.hb-card_view_filled[data-clickable]:hover {
+  --_card-background: var(--hb-color-base-generic-hover);
+  --_card-border-color: transparent;
+}
+
+.hb-card.hb-card_view_raised[data-clickable]:hover {
+  --_card-background: var(--hb-color-base-float-hover);
+  --_card-border-color: transparent;
+  --_card-shadow: 0 3px 10px var(--hb-color-sfx-shadow);
+}
+
+.hb-card[data-clickable]:focus-visible {
+  outline: var(--hb-card-focus-ring-width, var(--_card-focus-ring-width)) solid
+    var(--hb-card-focus-ring-color, var(--_card-focus-ring-color));
+  outline-offset: var(--hb-card-focus-ring-offset, var(--_card-focus-ring-offset));
+}
+
+/* State: selected */
+.hb-card[aria-selected='true'],
+.hb-card[data-selected] {
+  --_card-ring: inset 0 0 0 2px var(--hb-color-line-brand);
+  --_card-border-color: transparent;
+}

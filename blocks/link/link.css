@@ -1,0 +1,81 @@
+/* hvab-blocks/blocks/link/link.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block link
+ * @summary Chrome for a native anchor.
+ * @host a
+ * @modifiers hb-link_view_normal|primary|secondary, hb-link_underline, hb-link_visitable
+ * @states :hover, :visited (with hb-link_visitable), :focus-visible, [aria-disabled="true"], [data-disabled]
+ * @tokens --hb-link-*
+ * @docs ./README.md
+ *
+ * Router logic and rel/target are the consumer's responsibility.
+ */
+
+.hb-link {
+  --_link-text-color: var(--hb-color-text-link);
+  --_link-text-color-hover: var(--hb-color-text-link-hover);
+  --_link-text-color-visited: var(--hb-color-text-link-visited);
+  --_link-text-color-visited-hover: var(--hb-color-text-link-visited-hover);
+  --_link-text-decoration: none;
+  --_link-radius: var(--hb-radius-xs);
+  --_link-focus-ring-width: var(--hb-focus-ring-width);
+  --_link-focus-ring-color: var(--hb-color-line-focus);
+  --_link-focus-ring-offset: var(--hb-focus-ring-offset);
+
+  box-sizing: border-box;
+  color: var(--hb-link-text-color, var(--_link-text-color));
+  text-decoration: var(--hb-link-text-decoration, var(--_link-text-decoration));
+  touch-action: manipulation;
+  cursor: pointer;
+  border-radius: var(--hb-link-radius, var(--_link-radius));
+  transition: color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-link:hover {
+  color: var(--hb-link-text-color-hover, var(--_link-text-color-hover));
+}
+
+.hb-link:focus-visible {
+  outline: var(--hb-link-focus-ring-width, var(--_link-focus-ring-width)) solid
+    var(--hb-link-focus-ring-color, var(--_link-focus-ring-color));
+  outline-offset: var(--hb-link-focus-ring-offset, var(--_link-focus-ring-offset));
+}
+
+/* Views */
+.hb-link.hb-link_view_normal {
+  --_link-text-color: var(--hb-color-text-link);
+}
+
+.hb-link.hb-link_view_primary {
+  --_link-text-color: var(--hb-color-text-primary);
+}
+
+.hb-link.hb-link_view_secondary {
+  --_link-text-color: var(--hb-color-text-secondary);
+}
+
+/* Modifiers */
+.hb-link.hb-link_underline {
+  --_link-text-decoration: underline;
+}
+
+.hb-link.hb-link_visitable:visited {
+  color: var(--hb-link-text-color-visited, var(--_link-text-color-visited));
+}
+
+.hb-link.hb-link_visitable:visited:hover {
+  color: var(--hb-link-text-color-visited-hover, var(--_link-text-color-visited-hover));
+}
+
+/* State: disabled for app/headless wrappers. The consumer must remove navigation/handlers. */
+.hb-link[aria-disabled='true'],
+.hb-link[data-disabled] {
+  --_link-text-color: var(--hb-color-text-hint);
+  --_link-text-color-hover: var(--hb-color-text-hint);
+  --_link-text-color-visited: var(--hb-color-text-hint);
+  --_link-text-color-visited-hover: var(--hb-color-text-hint);
+
+  pointer-events: none;
+  cursor: not-allowed;
+}

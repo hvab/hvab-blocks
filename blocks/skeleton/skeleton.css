@@ -1,0 +1,127 @@
+/* hvab-blocks/blocks/skeleton/skeleton.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block skeleton
+ * @summary Loading placeholder block with shimmer or pulse animation.
+ * @host div, span
+ * @modifiers hb-skeleton_size_xs|s|m|l|xl, hb-skeleton_variant_circle|square|text, hb-skeleton_animation_gradient|pulse
+ * @tokens --hb-skeleton-*
+ * @docs ./README.md
+ *
+ * Animation durations are component constants, not on the motion scale, so this block
+ * carries its own `prefers-reduced-motion` guard instead of relying on `--hb-duration-*`.
+ */
+
+.hb-skeleton {
+  --_skeleton-height: auto;
+  --_skeleton-radius: var(--hb-radius-s);
+  --_skeleton-background: var(--hb-color-base-generic);
+  --_skeleton-shimmer-color: var(--hb-color-base-generic);
+  --_skeleton-animation: none;
+
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: 100%;
+  height: var(--hb-skeleton-height, var(--_skeleton-height));
+  overflow: hidden;
+  background-color: var(--hb-skeleton-background, var(--_skeleton-background));
+  border-radius: var(--hb-skeleton-radius, var(--_skeleton-radius));
+}
+
+/* Sizes */
+.hb-skeleton.hb-skeleton_size_xs {
+  --_skeleton-height: var(--hb-size-control-height-xs);
+  --_skeleton-radius: var(--hb-radius-xs);
+}
+
+.hb-skeleton.hb-skeleton_size_s {
+  --_skeleton-height: var(--hb-size-control-height-s);
+  --_skeleton-radius: var(--hb-radius-s);
+}
+
+.hb-skeleton.hb-skeleton_size_m {
+  --_skeleton-height: var(--hb-size-control-height-m);
+  --_skeleton-radius: var(--hb-radius-m);
+}
+
+.hb-skeleton.hb-skeleton_size_l {
+  --_skeleton-height: var(--hb-size-control-height-l);
+  --_skeleton-radius: var(--hb-radius-l);
+}
+
+.hb-skeleton.hb-skeleton_size_xl {
+  --_skeleton-height: var(--hb-size-control-height-xl);
+  --_skeleton-radius: var(--hb-radius-xl);
+}
+
+/* Variants */
+.hb-skeleton.hb-skeleton_variant_circle {
+  --_skeleton-radius: var(--hb-radius-round);
+
+  width: auto;
+  aspect-ratio: 1;
+}
+
+.hb-skeleton.hb-skeleton_variant_square {
+  width: auto;
+  aspect-ratio: 1;
+}
+
+.hb-skeleton.hb-skeleton_variant_text {
+  display: block;
+  width: 100%;
+  height: 1em;
+  margin-block: calc((1lh - 1em) / 2);
+}
+
+/* Animation: gradient shimmer from left to right. */
+.hb-skeleton.hb-skeleton_animation_gradient::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--hb-skeleton-shimmer-color, var(--_skeleton-shimmer-color))
+  );
+  animation: var(--hb-skeleton-animation, var(--_skeleton-animation));
+}
+
+.hb-skeleton.hb-skeleton_animation_gradient {
+  --_skeleton-animation: hb-skeleton-shimmer 1.2s var(--hb-ease-out) infinite;
+}
+
+/* Animation: pulse the whole placeholder. */
+.hb-skeleton.hb-skeleton_animation_pulse {
+  --_skeleton-animation: hb-skeleton-pulse 1.5s var(--hb-ease-linear) infinite;
+
+  animation: var(--hb-skeleton-animation, var(--_skeleton-animation));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb-skeleton.hb-skeleton_animation_gradient,
+  .hb-skeleton.hb-skeleton_animation_pulse {
+    --_skeleton-animation: none;
+  }
+}
+
+@keyframes hb-skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes hb-skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}

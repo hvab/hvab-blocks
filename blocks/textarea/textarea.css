@@ -1,0 +1,129 @@
+/* hvab-blocks/blocks/textarea/textarea.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block textarea
+ * @summary Native multiline textarea chrome.
+ * @host textarea
+ * @modifiers hb-textarea_size_s|m|l|xl, hb-textarea_resize_none|vertical|horizontal|both
+ * @states :disabled, [disabled], [aria-disabled="true"], [aria-invalid="true"]
+ * @tokens --hb-textarea-*
+ * @docs ./README.md
+ */
+
+.hb-textarea {
+  --_textarea-min-height: calc(var(--hb-size-control-height-m) * 3);
+  --_textarea-padding-inline: var(--hb-size-control-padding-m);
+  --_textarea-padding-block: var(--hb-gap-2);
+  --_textarea-radius: var(--hb-radius-m);
+  --_textarea-font-size: var(--hb-typography-body-short-size);
+  --_textarea-line: var(--hb-typography-body-short-line);
+  --_textarea-text-color: var(--hb-color-text-primary);
+  --_textarea-placeholder-color: var(--hb-color-text-hint);
+  --_textarea-background: transparent;
+  --_textarea-border-width: var(--hb-size-border-width);
+  --_textarea-border-color: var(--hb-color-line-generic);
+  --_textarea-focus-ring-width: var(--hb-focus-ring-width);
+  --_textarea-focus-ring-color: var(--hb-color-line-focus);
+  --_textarea-focus-ring-offset: -1px; /* Component geometry: ring sits on top of the border. */
+  --_textarea-resize: vertical;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--hb-textarea-min-height, var(--_textarea-min-height));
+  padding-block: var(--hb-textarea-padding-block, var(--_textarea-padding-block));
+  padding-inline: var(--hb-textarea-padding-inline, var(--_textarea-padding-inline));
+  overflow-x: hidden;
+  font-family: inherit;
+  font-size: var(--hb-textarea-font-size, var(--_textarea-font-size));
+  line-height: var(--hb-textarea-line, var(--_textarea-line));
+  color: var(--hb-textarea-text-color, var(--_textarea-text-color));
+  resize: var(--hb-textarea-resize, var(--_textarea-resize));
+  background: var(--hb-textarea-background, var(--_textarea-background));
+  border: var(--hb-textarea-border-width, var(--_textarea-border-width)) solid
+    var(--hb-textarea-border-color, var(--_textarea-border-color));
+  border-radius: var(--hb-textarea-radius, var(--_textarea-radius));
+  transition:
+    background-color var(--hb-duration-fast) var(--hb-ease-linear),
+    border-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-textarea::placeholder {
+  color: var(--hb-textarea-placeholder-color, var(--_textarea-placeholder-color));
+}
+
+.hb-textarea:hover {
+  --_textarea-border-color: var(--hb-color-line-generic-hover);
+}
+
+.hb-textarea:focus-visible {
+  --_textarea-border-color: var(--hb-color-line-generic-active);
+
+  outline: var(--hb-textarea-focus-ring-width, var(--_textarea-focus-ring-width)) solid
+    var(--hb-textarea-focus-ring-color, var(--_textarea-focus-ring-color));
+  outline-offset: var(--hb-textarea-focus-ring-offset, var(--_textarea-focus-ring-offset));
+}
+
+/* Sizes */
+.hb-textarea.hb-textarea_size_s {
+  --_textarea-min-height: calc(var(--hb-size-control-height-s) * 3);
+  --_textarea-padding-inline: var(--hb-size-control-padding-s);
+  --_textarea-padding-block: var(--hb-gap-1);
+  --_textarea-radius: var(--hb-radius-s);
+}
+
+.hb-textarea.hb-textarea_size_m {
+  --_textarea-min-height: calc(var(--hb-size-control-height-m) * 3);
+  --_textarea-padding-inline: var(--hb-size-control-padding-m);
+  --_textarea-padding-block: var(--hb-gap-2);
+  --_textarea-radius: var(--hb-radius-m);
+}
+
+.hb-textarea.hb-textarea_size_l {
+  --_textarea-min-height: calc(var(--hb-size-control-height-l) * 3);
+  --_textarea-padding-inline: var(--hb-size-control-padding-l);
+  --_textarea-padding-block: var(--hb-gap-2);
+  --_textarea-radius: var(--hb-radius-l);
+}
+
+.hb-textarea.hb-textarea_size_xl {
+  --_textarea-min-height: calc(var(--hb-size-control-height-xl) * 3);
+  --_textarea-padding-inline: var(--hb-size-control-padding-xl);
+  --_textarea-padding-block: var(--hb-gap-3);
+  --_textarea-radius: var(--hb-radius-xl);
+  --_textarea-font-size: var(--hb-typography-body-2-size);
+  --_textarea-line: var(--hb-typography-body-2-line);
+}
+
+/* Resize */
+.hb-textarea.hb-textarea_resize_none {
+  --_textarea-resize: none;
+}
+
+.hb-textarea.hb-textarea_resize_vertical {
+  --_textarea-resize: vertical;
+}
+
+.hb-textarea.hb-textarea_resize_horizontal {
+  --_textarea-resize: horizontal;
+}
+
+.hb-textarea.hb-textarea_resize_both {
+  --_textarea-resize: both;
+}
+
+/* State: invalid. */
+.hb-textarea[aria-invalid='true'] {
+  --_textarea-border-color: var(--hb-color-line-danger);
+  --_textarea-focus-ring-color: var(--hb-color-line-danger);
+}
+
+/* State: disabled */
+.hb-textarea:disabled,
+.hb-textarea[disabled],
+.hb-textarea[aria-disabled='true'] {
+  --_textarea-text-color: var(--hb-color-text-hint);
+  --_textarea-background: var(--hb-color-base-generic-accent-disabled);
+  --_textarea-border-color: transparent;
+
+  cursor: not-allowed;
+}

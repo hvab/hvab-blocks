@@ -1,0 +1,165 @@
+/* hvab-blocks/blocks/button/button.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block button
+ * @summary Interactive primitive for actions and link-like actions.
+ * @host button, a
+ * @modifiers hb-button_view_normal|action|outlined|flat, hb-button_size_xs|s|m|l|xl
+ * @states :disabled, [aria-disabled="true"], [data-disabled], [data-loading], [aria-busy="true"]
+ * @tokens --hb-button-*
+ * @docs ./README.md
+ */
+
+.hb-button {
+  /* Component token defaults: flat view. */
+  --_button-height: var(--hb-size-control-height-m);
+  --_button-padding: var(--hb-size-control-padding-m);
+  --_button-radius: var(--hb-radius-m);
+  --_button-font-size: var(--hb-typography-body-1-size);
+  --_button-text-color: var(--hb-color-text-primary);
+  --_button-text-color-hover: var(--hb-color-text-primary);
+  --_button-background: transparent;
+  --_button-background-hover: var(--hb-color-base-simple-hover);
+  --_button-border-width: 0;
+  --_button-border-color: currentcolor;
+  --_button-focus-ring-width: var(--hb-focus-ring-width);
+  --_button-focus-ring-offset: var(--hb-focus-ring-offset);
+  --_button-focus-ring-color: var(--hb-color-line-focus);
+  --_button-gap: var(--hb-gap-2);
+  --_button-background-image: none;
+  --_button-background-size: auto;
+  --_button-animation: none;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  gap: var(--hb-button-gap, var(--_button-gap));
+  align-items: center;
+  justify-content: center;
+  height: var(--hb-button-height, var(--_button-height));
+  padding-inline: var(--hb-button-padding, var(--_button-padding));
+  font-family: inherit;
+  font-size: var(--hb-button-font-size, var(--_button-font-size));
+  line-height: 1;
+  color: var(--hb-button-text-color, var(--_button-text-color));
+  white-space: nowrap;
+  text-decoration: none;
+  appearance: none;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--hb-button-background, var(--_button-background));
+  background-image: var(--hb-button-background-image, var(--_button-background-image));
+  background-size: var(--hb-button-background-size, var(--_button-background-size));
+  border: var(--hb-button-border-width, var(--_button-border-width)) solid
+    var(--hb-button-border-color, var(--_button-border-color));
+  border-radius: var(--hb-button-radius, var(--_button-radius));
+  transition:
+    color var(--hb-duration-fast) var(--hb-ease-linear),
+    background-color var(--hb-duration-fast) var(--hb-ease-linear),
+    border-color var(--hb-duration-fast) var(--hb-ease-linear);
+  animation: var(--hb-button-animation, var(--_button-animation));
+}
+
+.hb-button:hover {
+  color: var(--hb-button-text-color-hover, var(--_button-text-color-hover));
+  background-color: var(--hb-button-background-hover, var(--_button-background-hover));
+}
+
+.hb-button:focus-visible {
+  outline: var(--hb-button-focus-ring-width, var(--_button-focus-ring-width)) solid
+    var(--hb-button-focus-ring-color, var(--_button-focus-ring-color));
+  outline-offset: var(--hb-button-focus-ring-offset, var(--_button-focus-ring-offset));
+}
+
+/* Views */
+.hb-button.hb-button_view_normal {
+  --_button-background: var(--hb-color-base-generic);
+  --_button-background-hover: var(--hb-color-base-generic-hover);
+}
+
+.hb-button.hb-button_view_action {
+  --_button-text-color: var(--hb-color-text-brand-contrast);
+  --_button-text-color-hover: var(--hb-color-text-brand-contrast);
+  --_button-background: var(--hb-color-base-brand);
+  --_button-background-hover: var(--hb-color-base-brand-hover);
+}
+
+.hb-button.hb-button_view_outlined {
+  --_button-border-width: var(--hb-size-border-width);
+  --_button-border-color: var(--hb-color-line-generic);
+}
+
+.hb-button.hb-button_view_flat {
+  --_button-background: transparent;
+  --_button-text-color: var(--hb-color-text-primary);
+}
+
+/* Sizes */
+.hb-button.hb-button_size_xs {
+  --_button-height: var(--hb-size-control-height-xs);
+  --_button-padding: var(--hb-size-control-padding-xs);
+  --_button-radius: var(--hb-radius-xs);
+}
+
+.hb-button.hb-button_size_s {
+  --_button-height: var(--hb-size-control-height-s);
+  --_button-padding: var(--hb-size-control-padding-s);
+  --_button-radius: var(--hb-radius-s);
+}
+
+.hb-button.hb-button_size_m {
+  --_button-height: var(--hb-size-control-height-m);
+  --_button-padding: var(--hb-size-control-padding-m);
+  --_button-radius: var(--hb-radius-m);
+}
+
+.hb-button.hb-button_size_l {
+  --_button-height: var(--hb-size-control-height-l);
+  --_button-padding: var(--hb-size-control-padding-l);
+  --_button-radius: var(--hb-radius-l);
+}
+
+.hb-button.hb-button_size_xl {
+  --_button-height: var(--hb-size-control-height-xl);
+  --_button-padding: var(--hb-size-control-padding-xl);
+  --_button-radius: var(--hb-radius-xl);
+  --_button-font-size: var(--hb-typography-body-2-size);
+}
+
+/* State: disabled. */
+.hb-button:disabled,
+.hb-button[aria-disabled='true'],
+.hb-button[data-disabled] {
+  --_button-text-color: var(--hb-color-text-hint);
+  --_button-text-color-hover: var(--hb-color-text-hint);
+  --_button-background: var(--hb-color-base-generic-accent-disabled);
+  --_button-background-hover: var(--hb-color-base-generic-accent-disabled);
+  --_button-border-width: 0;
+
+  cursor: not-allowed;
+}
+
+/* State: loading. Interactivity stays under consumer control. */
+.hb-button[data-loading],
+.hb-button[aria-busy='true'] {
+  --_button-background-image: repeating-linear-gradient(
+    -45deg,
+    var(--hb-button-background, var(--_button-background)) 0,
+    var(--hb-button-background, var(--_button-background)) 4px,
+    var(--hb-button-background-hover, var(--_button-background-hover)) 4px,
+    var(--hb-button-background-hover, var(--_button-background-hover)) 8px
+  );
+  --_button-background-size: 150%;
+  --_button-animation: hb-button-loading var(--hb-duration-slow) var(--hb-ease-linear) infinite;
+
+  cursor: progress;
+}
+
+@keyframes hb-button-loading {
+  from {
+    background-position: -12px 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}

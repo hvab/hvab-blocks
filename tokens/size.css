@@ -1,0 +1,27 @@
+/* hvab-blocks/tokens/size.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation size
+ * @summary Shared control geometry for interactive blocks.
+ * @tokens --hb-size-*
+ * @docs ./README.md
+ */
+
+:root {
+  /* control height */
+  --hb-size-control-height-xs: 20px;
+  --hb-size-control-height-s: 24px;
+  --hb-size-control-height-m: 28px;
+  --hb-size-control-height-l: 36px;
+  --hb-size-control-height-xl: 44px;
+
+  /* control inline padding */
+  --hb-size-control-padding-xs: 6px;
+  --hb-size-control-padding-s: 8px;
+  --hb-size-control-padding-m: 12px;
+  --hb-size-control-padding-l: 16px;
+  --hb-size-control-padding-xl: 24px;
+
+  /* hairline border */
+  --hb-size-border-width: 1px;
+}

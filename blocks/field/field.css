@@ -1,0 +1,70 @@
+/* hvab-blocks/blocks/field/field.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block field
+ * @summary Form field layout for label, control slot, addons, and message.
+ * @elements hb-field__label, hb-field__control, hb-field__addons, hb-field__message
+ * @modifiers hb-field_layout_inline, hb-field__message_view_error|warning
+ * @tokens --hb-field-*
+ * @docs ./README.md
+ */
+
+.hb-field {
+  --_field-gap: var(--hb-gap-1);
+  --_field-column-gap: var(--hb-gap-3);
+  --_field-addons-gap: var(--hb-gap-2);
+  --_field-label-width: 12rem;
+  --_field-label-color: var(--hb-color-text-secondary);
+  --_field-label-size: var(--hb-typography-body-short-size);
+  --_field-label-line: var(--hb-typography-body-short-line);
+  --_field-message-color: var(--hb-color-text-hint);
+  --_field-message-size: var(--hb-typography-caption-2-size);
+  --_field-message-line: var(--hb-typography-caption-2-line);
+
+  display: grid;
+  gap: var(--hb-field-gap, var(--_field-gap));
+}
+
+/* Layout: label, control, and addons in one row. */
+.hb-field.hb-field_layout_inline {
+  grid-template-columns: var(--hb-field-label-width, var(--_field-label-width)) minmax(0, 1fr) auto;
+  column-gap: var(--hb-field-column-gap, var(--_field-column-gap));
+  align-items: center;
+}
+
+.hb-field__label {
+  min-width: 0;
+  font-size: var(--hb-field-label-size, var(--_field-label-size));
+  line-height: var(--hb-field-label-line, var(--_field-label-line));
+  color: var(--hb-field-label-color, var(--_field-label-color));
+  overflow-wrap: anywhere;
+}
+
+.hb-field__control {
+  width: 100%;
+  min-width: 0;
+}
+
+.hb-field__addons {
+  display: inline-flex;
+  gap: var(--hb-field-addons-gap, var(--_field-addons-gap));
+  align-items: center;
+  justify-self: end;
+}
+
+.hb-field__message {
+  grid-column: 1 / -1; /* Span full inline layout width; no-op in the vertical layout. */
+  margin: 0;
+  font-size: var(--hb-field-message-size, var(--_field-message-size));
+  line-height: var(--hb-field-message-line, var(--_field-message-line));
+  color: var(--hb-field-message-color, var(--_field-message-color));
+  overflow-wrap: anywhere;
+}
+
+.hb-field__message.hb-field__message_view_error {
+  --_field-message-color: var(--hb-color-text-danger);
+}
+
+.hb-field__message.hb-field__message_view_warning {
+  --_field-message-color: var(--hb-color-text-warning);
+}

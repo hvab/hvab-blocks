@@ -1,0 +1,200 @@
+/* hvab-blocks/blocks/text/text.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block text
+ * @summary Typography primitive for shared type scale and semantic text colors.
+ * @host any text element
+ * @modifiers hb-text_typography_*, hb-text_color_*, hb-text_overflow_ellipsis
+ * @tokens --hb-text-*
+ * @docs ./README.md
+ */
+
+.hb-text {
+  --_text-size: var(--hb-typography-body-1-size);
+  --_text-line: var(--hb-typography-body-1-line);
+  --_text-weight: var(--hb-typography-body-1-weight);
+  --_text-family: inherit;
+  --_text-color: inherit;
+
+  font-family: var(--hb-text-family, var(--_text-family));
+  font-size: var(--hb-text-size, var(--_text-size));
+  font-weight: var(--hb-text-weight, var(--_text-weight));
+  line-height: var(--hb-text-line, var(--_text-line));
+  color: var(--hb-text-color, var(--_text-color));
+}
+
+/* Typography roles: sans scale. */
+.hb-text.hb-text_typography_display-1 {
+  --_text-size: var(--hb-typography-display-1-size);
+  --_text-line: var(--hb-typography-display-1-line);
+  --_text-weight: var(--hb-typography-display-1-weight);
+}
+
+.hb-text.hb-text_typography_display-2 {
+  --_text-size: var(--hb-typography-display-2-size);
+  --_text-line: var(--hb-typography-display-2-line);
+  --_text-weight: var(--hb-typography-display-2-weight);
+}
+
+.hb-text.hb-text_typography_display-3 {
+  --_text-size: var(--hb-typography-display-3-size);
+  --_text-line: var(--hb-typography-display-3-line);
+  --_text-weight: var(--hb-typography-display-3-weight);
+}
+
+.hb-text.hb-text_typography_display-4 {
+  --_text-size: var(--hb-typography-display-4-size);
+  --_text-line: var(--hb-typography-display-4-line);
+  --_text-weight: var(--hb-typography-display-4-weight);
+}
+
+.hb-text.hb-text_typography_header-1 {
+  --_text-size: var(--hb-typography-header-1-size);
+  --_text-line: var(--hb-typography-header-1-line);
+  --_text-weight: var(--hb-typography-header-1-weight);
+}
+
+.hb-text.hb-text_typography_header-2 {
+  --_text-size: var(--hb-typography-header-2-size);
+  --_text-line: var(--hb-typography-header-2-line);
+  --_text-weight: var(--hb-typography-header-2-weight);
+}
+
+.hb-text.hb-text_typography_subheader-1 {
+  --_text-size: var(--hb-typography-subheader-1-size);
+  --_text-line: var(--hb-typography-subheader-1-line);
+  --_text-weight: var(--hb-typography-subheader-1-weight);
+}
+
+.hb-text.hb-text_typography_subheader-2 {
+  --_text-size: var(--hb-typography-subheader-2-size);
+  --_text-line: var(--hb-typography-subheader-2-line);
+  --_text-weight: var(--hb-typography-subheader-2-weight);
+}
+
+.hb-text.hb-text_typography_subheader-3 {
+  --_text-size: var(--hb-typography-subheader-3-size);
+  --_text-line: var(--hb-typography-subheader-3-line);
+  --_text-weight: var(--hb-typography-subheader-3-weight);
+}
+
+.hb-text.hb-text_typography_body-1 {
+  --_text-size: var(--hb-typography-body-1-size);
+  --_text-line: var(--hb-typography-body-1-line);
+  --_text-weight: var(--hb-typography-body-1-weight);
+}
+
+.hb-text.hb-text_typography_body-2 {
+  --_text-size: var(--hb-typography-body-2-size);
+  --_text-line: var(--hb-typography-body-2-line);
+  --_text-weight: var(--hb-typography-body-2-weight);
+}
+
+.hb-text.hb-text_typography_body-3 {
+  --_text-size: var(--hb-typography-body-3-size);
+  --_text-line: var(--hb-typography-body-3-line);
+  --_text-weight: var(--hb-typography-body-3-weight);
+}
+
+.hb-text.hb-text_typography_body-short {
+  --_text-size: var(--hb-typography-body-short-size);
+  --_text-line: var(--hb-typography-body-short-line);
+  --_text-weight: var(--hb-typography-body-short-weight);
+}
+
+.hb-text.hb-text_typography_caption-1 {
+  --_text-size: var(--hb-typography-caption-1-size);
+  --_text-line: var(--hb-typography-caption-1-line);
+  --_text-weight: var(--hb-typography-caption-1-weight);
+}
+
+.hb-text.hb-text_typography_caption-2 {
+  --_text-size: var(--hb-typography-caption-2-size);
+  --_text-line: var(--hb-typography-caption-2-line);
+  --_text-weight: var(--hb-typography-caption-2-weight);
+}
+
+/* Code roles switch to the monospace family. */
+.hb-text.hb-text_typography_code-1 {
+  --_text-size: var(--hb-typography-code-1-size);
+  --_text-line: var(--hb-typography-code-1-line);
+  --_text-weight: var(--hb-typography-code-1-weight);
+  --_text-family: var(--hb-typography-mono-family);
+}
+
+.hb-text.hb-text_typography_code-2 {
+  --_text-size: var(--hb-typography-code-2-size);
+  --_text-line: var(--hb-typography-code-2-line);
+  --_text-weight: var(--hb-typography-code-2-weight);
+  --_text-family: var(--hb-typography-mono-family);
+}
+
+.hb-text.hb-text_typography_code-3 {
+  --_text-size: var(--hb-typography-code-3-size);
+  --_text-line: var(--hb-typography-code-3-line);
+  --_text-weight: var(--hb-typography-code-3-weight);
+  --_text-family: var(--hb-typography-mono-family);
+}
+
+.hb-text.hb-text_typography_code-inline-1 {
+  --_text-size: var(--hb-typography-code-inline-1-size);
+  --_text-line: var(--hb-typography-code-inline-1-line);
+  --_text-weight: var(--hb-typography-code-inline-1-weight);
+  --_text-family: var(--hb-typography-mono-family);
+}
+
+.hb-text.hb-text_typography_code-inline-2 {
+  --_text-size: var(--hb-typography-code-inline-2-size);
+  --_text-line: var(--hb-typography-code-inline-2-line);
+  --_text-weight: var(--hb-typography-code-inline-2-weight);
+  --_text-family: var(--hb-typography-mono-family);
+}
+
+.hb-text.hb-text_typography_code-inline-3 {
+  --_text-size: var(--hb-typography-code-inline-3-size);
+  --_text-line: var(--hb-typography-code-inline-3-line);
+  --_text-weight: var(--hb-typography-code-inline-3-weight);
+  --_text-family: var(--hb-typography-mono-family);
+}
+
+/* Semantic text color roles. */
+.hb-text.hb-text_color_primary {
+  --_text-color: var(--hb-color-text-primary);
+}
+
+.hb-text.hb-text_color_secondary {
+  --_text-color: var(--hb-color-text-secondary);
+}
+
+.hb-text.hb-text_color_hint {
+  --_text-color: var(--hb-color-text-hint);
+}
+
+.hb-text.hb-text_color_brand {
+  --_text-color: var(--hb-color-text-brand);
+}
+
+.hb-text.hb-text_color_info {
+  --_text-color: var(--hb-color-text-info);
+}
+
+.hb-text.hb-text_color_positive {
+  --_text-color: var(--hb-color-text-positive);
+}
+
+.hb-text.hb-text_color_warning {
+  --_text-color: var(--hb-color-text-warning);
+}
+
+.hb-text.hb-text_color_danger {
+  --_text-color: var(--hb-color-text-danger);
+}
+
+/* Single-line ellipsis. */
+.hb-text.hb-text_overflow_ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

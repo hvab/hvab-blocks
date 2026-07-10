@@ -1,0 +1,81 @@
+/* hvab-blocks/blocks/modal/modal.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block modal
+ * @summary Veil plus a centered panel. Supports two hosts: native <dialog> and a headless div.
+ * @host div, dialog
+ * @elements hb-modal__panel
+ * @states [data-state="open"|"closed"] (div host)
+ * @tokens --hb-modal-*
+ * @docs ./README.md
+ *
+ * Host 1: native `<dialog class="hb-modal__panel">` opened with `dialog.showModal()`; the veil
+ * is `::backdrop` (top-layer owns stacking, no z-index needed), centering is UA `margin: auto`.
+ * Host 2: headless-lib div — `<div class="hb-modal" data-state="open"><div class="hb-modal__panel">`.
+ * Opening/closing, focus-trap, and scroll lock (div host) are consumer behavior. Content
+ * structure (header/body/footer/close) is the separate `dialog` block placed inside `__panel`.
+ */
+
+/* --- Div host veil --- */
+.hb-modal {
+  --_modal-veil: var(--hb-color-sfx-veil);
+  --_modal-padding: var(--hb-gap-6);
+  --_modal-visibility: visible;
+  --_modal-opacity: 1;
+
+  position: fixed;
+  inset: 0;
+  display: flex;
+  visibility: var(--hb-modal-visibility, var(--_modal-visibility));
+  align-items: center;
+  justify-content: center;
+  padding: var(--hb-modal-padding, var(--_modal-padding));
+  overflow: auto;
+  background-color: var(--hb-modal-veil, var(--_modal-veil));
+  opacity: var(--hb-modal-opacity, var(--_modal-opacity));
+  transition:
+    opacity var(--hb-duration-fast) var(--hb-ease-out),
+    visibility var(--hb-duration-fast) var(--hb-ease-out);
+}
+
+/* --- Panel shared by both hosts --- */
+.hb-modal__panel {
+  --_modal-padding: var(--hb-gap-6);
+  --_modal-veil: var(--hb-color-sfx-veil);
+  --_modal-panel-background: var(--hb-color-base-modal);
+  --_modal-panel-radius: var(--hb-radius-m);
+  --_modal-panel-text-color: var(--hb-color-text-primary);
+  --_modal-panel-shadow: 0 8px 20px 0 var(--hb-color-sfx-shadow);
+  --_modal-panel-max-inline: calc(100vw - 2 * var(--hb-modal-padding, var(--_modal-padding)));
+  --_modal-panel-max-block: calc(100vh - 2 * var(--hb-modal-padding, var(--_modal-padding)));
+  --_modal-panel-scale: 1;
+
+  box-sizing: border-box;
+  max-inline-size: var(--hb-modal-panel-max-inline, var(--_modal-panel-max-inline));
+  max-block-size: var(--hb-modal-panel-max-block, var(--_modal-panel-max-block));
+  padding: 0;
+  margin: auto; /* centers native <dialog>; harmless inside the flex div host */
+  overflow: auto;
+  color: var(--hb-modal-panel-text-color, var(--_modal-panel-text-color));
+  background-color: var(--hb-modal-panel-background, var(--_modal-panel-background));
+  border: none;
+  border-radius: var(--hb-modal-panel-radius, var(--_modal-panel-radius));
+  box-shadow: var(--hb-modal-panel-shadow, var(--_modal-panel-shadow));
+  transform: scale(var(--hb-modal-panel-scale, var(--_modal-panel-scale)));
+  transition: transform var(--hb-duration-fast) var(--hb-ease-out);
+}
+
+/* Native <dialog class="hb-modal__panel">: veil through ::backdrop; top-layer owns stacking. */
+.hb-modal__panel::backdrop {
+  background-color: var(--hb-modal-veil, var(--_modal-veil));
+}
+
+/* Div host closed state: fade the veil and scale the panel down. */
+.hb-modal[data-state='closed'] {
+  --_modal-visibility: hidden;
+  --_modal-opacity: 0;
+}
+
+.hb-modal[data-state='closed'] .hb-modal__panel {
+  --_modal-panel-scale: 0.95;
+}

@@ -1,0 +1,102 @@
+/* hvab-blocks/blocks/label/label.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block label
+ * @summary Badge/tag for statuses, counters, and key-value pairs.
+ * @host span
+ * @elements hb-label__content, hb-label__value, hb-label__separator
+ * @modifiers hb-label_size_xs|s|m, hb-label_theme_info|success|warning|danger|unknown|clear
+ * @tokens --hb-label-*
+ * @docs ./README.md
+ *
+ * Non-interactive in v1: no hover/click state, close/copy addons, or shimmer animation.
+ */
+
+.hb-label {
+  --_label-height: 24px;
+  --_label-radius: var(--hb-radius-s);
+  --_label-padding-inline: 10px;
+  --_label-font-size: var(--hb-typography-body-short-size);
+  --_label-text-color: var(--hb-color-text-misc-heavy);
+  --_label-background: var(--hb-color-base-misc-light);
+  --_label-border: none;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  height: var(--hb-label-height, var(--_label-height));
+  padding-inline: var(--hb-label-padding-inline, var(--_label-padding-inline));
+  font-size: var(--hb-label-font-size, var(--_label-font-size));
+  line-height: 1;
+  color: var(--hb-label-text-color, var(--_label-text-color));
+  white-space: nowrap;
+  background-color: var(--hb-label-background, var(--_label-background));
+  border-radius: var(--hb-label-radius, var(--_label-radius));
+  box-shadow: var(--hb-label-border, var(--_label-border));
+}
+
+.hb-label__content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hb-label__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.7;
+}
+
+.hb-label__separator {
+  margin-inline: 4px;
+}
+
+/* Sizes */
+.hb-label.hb-label_size_xs {
+  --_label-height: 20px;
+  --_label-radius: var(--hb-radius-xs);
+  --_label-padding-inline: 8px;
+}
+
+.hb-label.hb-label_size_s {
+  --_label-height: 24px;
+  --_label-radius: var(--hb-radius-s);
+  --_label-padding-inline: 10px;
+}
+
+.hb-label.hb-label_size_m {
+  --_label-height: 28px;
+  --_label-radius: var(--hb-radius-m);
+  --_label-padding-inline: 12px;
+}
+
+/* Themes */
+.hb-label.hb-label_theme_info {
+  --_label-text-color: var(--hb-color-text-info-heavy);
+  --_label-background: var(--hb-color-base-info-light);
+}
+
+.hb-label.hb-label_theme_success {
+  --_label-text-color: var(--hb-color-text-positive-heavy);
+  --_label-background: var(--hb-color-base-positive-light);
+}
+
+.hb-label.hb-label_theme_warning {
+  --_label-text-color: var(--hb-color-text-warning-heavy);
+  --_label-background: var(--hb-color-base-warning-light);
+}
+
+.hb-label.hb-label_theme_danger {
+  --_label-text-color: var(--hb-color-text-danger-heavy);
+  --_label-background: var(--hb-color-base-danger-light);
+}
+
+.hb-label.hb-label_theme_unknown {
+  --_label-text-color: var(--hb-color-text-complementary);
+  --_label-background: var(--hb-color-base-neutral-light);
+}
+
+.hb-label.hb-label_theme_clear {
+  --_label-text-color: var(--hb-color-text-complementary);
+  --_label-background: transparent;
+  --_label-border: inset 0 0 0 var(--hb-size-border-width) var(--hb-color-line-generic);
+}

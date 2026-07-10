@@ -1,0 +1,119 @@
+/* hvab-blocks/blocks/pagination/pagination.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block pagination
+ * @summary Row of page controls: native buttons/links plus a non-interactive ellipsis break.
+ * @host nav[aria-label]
+ * @elements hb-pagination__item, hb-pagination__ellipsis
+ * @modifiers hb-pagination_size_s|l|xl
+ * @states [aria-current="page"] (__item), :disabled/[aria-disabled]/[data-disabled] (__item)
+ * @tokens --hb-pagination-*
+ * @docs ./README.md
+ *
+ * Which pages to show and click handlers are computed by the consumer; CSS only styles the row.
+ */
+
+.hb-pagination {
+  --_pagination-gap: var(--hb-gap-1);
+  --_pagination-font-size: var(--hb-typography-body-1-size);
+  --_pagination-item-height: var(--hb-size-control-height-m);
+  --_pagination-item-padding: var(--hb-gap-2);
+  --_pagination-item-radius: var(--hb-radius-m);
+  --_pagination-item-color: var(--hb-color-text-primary);
+  --_pagination-item-background: transparent;
+  --_pagination-item-background-hover: var(--hb-color-base-simple-hover);
+  --_pagination-ellipsis-color: var(--hb-color-text-secondary);
+  --_pagination-focus-ring-width: var(--hb-focus-ring-width);
+  --_pagination-focus-ring-color: var(--hb-color-line-focus);
+  --_pagination-focus-ring-offset: var(--hb-focus-ring-offset);
+
+  display: flex;
+  gap: var(--hb-pagination-gap, var(--_pagination-gap));
+  align-items: center;
+  font-size: var(--hb-pagination-font-size, var(--_pagination-font-size));
+}
+
+.hb-pagination__item {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--hb-pagination-item-height, var(--_pagination-item-height));
+  height: var(--hb-pagination-item-height, var(--_pagination-item-height));
+  padding-inline: var(--hb-pagination-item-padding, var(--_pagination-item-padding));
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
+  color: var(--hb-pagination-item-color, var(--_pagination-item-color));
+  text-decoration: none;
+  appearance: none;
+  cursor: pointer;
+  user-select: none;
+  background: var(--hb-pagination-item-background, var(--_pagination-item-background));
+  border: none;
+  border-radius: var(--hb-pagination-item-radius, var(--_pagination-item-radius));
+  transition:
+    color var(--hb-duration-fast) var(--hb-ease-linear),
+    background-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-pagination__item:hover {
+  background: var(--hb-pagination-item-background-hover, var(--_pagination-item-background-hover));
+}
+
+.hb-pagination__item:focus-visible {
+  outline: var(--hb-pagination-focus-ring-width, var(--_pagination-focus-ring-width)) solid
+    var(--hb-pagination-focus-ring-color, var(--_pagination-focus-ring-color));
+  outline-offset: var(--hb-pagination-focus-ring-offset, var(--_pagination-focus-ring-offset));
+}
+
+.hb-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--hb-pagination-item-height, var(--_pagination-item-height));
+  height: var(--hb-pagination-item-height, var(--_pagination-item-height));
+  color: var(--hb-pagination-ellipsis-color, var(--_pagination-ellipsis-color));
+  user-select: none;
+}
+
+/* Sizes */
+.hb-pagination.hb-pagination_size_s {
+  --_pagination-item-height: var(--hb-size-control-height-s);
+  --_pagination-item-padding: var(--hb-gap-1);
+  --_pagination-item-radius: var(--hb-radius-s);
+}
+
+.hb-pagination.hb-pagination_size_l {
+  --_pagination-item-height: var(--hb-size-control-height-l);
+  --_pagination-item-padding: var(--hb-gap-3);
+  --_pagination-item-radius: var(--hb-radius-l);
+}
+
+.hb-pagination.hb-pagination_size_xl {
+  --_pagination-item-height: var(--hb-size-control-height-xl);
+  --_pagination-item-padding: var(--hb-gap-4);
+  --_pagination-item-radius: var(--hb-radius-xl);
+  --_pagination-font-size: var(--hb-typography-body-2-size);
+}
+
+/* State: current page; overrides the hover token so hover stays brand-colored. */
+.hb-pagination__item[aria-current='page'] {
+  --_pagination-item-color: var(--hb-color-text-brand-contrast);
+  --_pagination-item-background: var(--hb-color-base-brand);
+  --_pagination-item-background-hover: var(--hb-color-base-brand);
+
+  cursor: default;
+}
+
+/* State: disabled */
+.hb-pagination__item:disabled,
+.hb-pagination__item[aria-disabled='true'],
+.hb-pagination__item[data-disabled] {
+  --_pagination-item-color: var(--hb-color-text-hint);
+  --_pagination-item-background: transparent;
+  --_pagination-item-background-hover: transparent;
+
+  cursor: not-allowed;
+}

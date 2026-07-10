@@ -1,0 +1,133 @@
+/* hvab-blocks/blocks/toast/toast.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block toast
+ * @summary Notification card plus the hb-toaster region the consumer stacks them into.
+ * @host div (hb-toaster: fixed region; hb-toast: div[role="status"])
+ * @elements hb-toast__icon, hb-toast__content, hb-toast__title, hb-toast__message, hb-toast__actions, hb-toast__close
+ * @modifiers hb-toast_theme_info|success|warning|danger
+ * @tokens --hb-toast-*, --hb-toaster-*
+ * @docs ./README.md
+ *
+ * Two tightly coupled classes in one file — the region is meaningless without cards, and the
+ * card lives in the region. Queueing, auto-dismiss timers, enter/exit animation, and portal/
+ * stacking are ENTIRELY the consumer's responsibility; CSS only styles the card and lays out
+ * the region (fixed, bottom-end corner by default).
+ */
+
+/* --- Region --- */
+.hb-toaster {
+  --_toaster-width: 320px;
+  --_toaster-gap: var(--hb-gap-2);
+  --_toaster-inset-block: var(--hb-gap-3);
+  --_toaster-inset-inline: var(--hb-gap-3);
+
+  position: fixed;
+  inset-block-end: var(--hb-toaster-inset-block, var(--_toaster-inset-block));
+  inset-inline-end: var(--hb-toaster-inset-inline, var(--_toaster-inset-inline));
+  display: flex;
+  flex-direction: column;
+  gap: var(--hb-toaster-gap, var(--_toaster-gap));
+  align-items: flex-end;
+  width: var(--hb-toaster-width, var(--_toaster-width));
+}
+
+/* --- Card --- */
+.hb-toast {
+  --_toast-padding: var(--hb-gap-4);
+  --_toast-radius: var(--hb-radius-l);
+  --_toast-gap: var(--hb-gap-2);
+  --_toast-background: var(--hb-color-base-float);
+  --_toast-text-color: var(--hb-color-text-primary);
+  --_toast-border-width: var(--hb-size-border-width);
+  --_toast-border-color: var(--hb-color-line-generic);
+  --_toast-shadow: 0 0 15px 0 var(--hb-color-sfx-shadow);
+  --_toast-icon-color: var(--hb-color-text-secondary);
+  --_toast-title-padding-inline-end: var(--hb-gap-5);
+  --_toast-title-size: var(--hb-typography-subheader-2-size);
+  --_toast-title-line: var(--hb-typography-subheader-2-line);
+  --_toast-title-weight: var(--hb-typography-subheader-2-weight);
+  --_toast-message-color: var(--hb-color-text-secondary);
+  --_toast-message-size: var(--hb-typography-body-1-size);
+  --_toast-message-line: var(--hb-typography-body-1-line);
+  --_toast-message-indent: var(--hb-gap-1);
+  --_toast-actions-gap: var(--hb-gap-2);
+  --_toast-actions-indent: var(--hb-gap-3);
+  --_toast-close-offset-block: var(--hb-gap-2);
+  --_toast-close-offset-inline: var(--hb-gap-2);
+
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--hb-toast-gap, var(--_toast-gap));
+  width: 100%;
+  padding: var(--hb-toast-padding, var(--_toast-padding));
+  color: var(--hb-toast-text-color, var(--_toast-text-color));
+  background-color: var(--hb-toast-background, var(--_toast-background));
+  border: var(--hb-toast-border-width, var(--_toast-border-width)) solid
+    var(--hb-toast-border-color, var(--_toast-border-color));
+  border-radius: var(--hb-toast-radius, var(--_toast-radius));
+  box-shadow: var(--hb-toast-shadow, var(--_toast-shadow));
+}
+
+.hb-toast__icon {
+  flex: 0 0 auto;
+  color: var(--hb-toast-icon-color, var(--_toast-icon-color));
+}
+
+.hb-toast__content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.hb-toast__title {
+  padding-inline-end: var(--hb-toast-title-padding-inline-end, var(--_toast-title-padding-inline-end));
+  font-size: var(--hb-toast-title-size, var(--_toast-title-size));
+  font-weight: var(--hb-toast-title-weight, var(--_toast-title-weight));
+  line-height: var(--hb-toast-title-line, var(--_toast-title-line));
+}
+
+.hb-toast__message {
+  font-size: var(--hb-toast-message-size, var(--_toast-message-size));
+  line-height: var(--hb-toast-message-line, var(--_toast-message-line));
+  color: var(--hb-toast-message-color, var(--_toast-message-color));
+}
+
+.hb-toast__title + .hb-toast__message {
+  margin-block-start: var(--hb-toast-message-indent, var(--_toast-message-indent));
+}
+
+.hb-toast__actions {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--hb-toast-actions-gap, var(--_toast-actions-gap));
+  margin-block-start: var(--hb-toast-actions-indent, var(--_toast-actions-indent));
+}
+
+.hb-toast__close {
+  position: absolute;
+  inset-block-start: var(--hb-toast-close-offset-block, var(--_toast-close-offset-block));
+  inset-inline-end: var(--hb-toast-close-offset-inline, var(--_toast-close-offset-inline));
+}
+
+/* Themes tint the whole surface (base-*-light) and icon color (text-*-heavy),
+   matching alert and label. */
+.hb-toast.hb-toast_theme_info {
+  --_toast-background: var(--hb-color-base-info-light);
+  --_toast-icon-color: var(--hb-color-text-info-heavy);
+}
+
+.hb-toast.hb-toast_theme_success {
+  --_toast-background: var(--hb-color-base-positive-light);
+  --_toast-icon-color: var(--hb-color-text-positive-heavy);
+}
+
+.hb-toast.hb-toast_theme_warning {
+  --_toast-background: var(--hb-color-base-warning-light);
+  --_toast-icon-color: var(--hb-color-text-warning-heavy);
+}
+
+.hb-toast.hb-toast_theme_danger {
+  --_toast-background: var(--hb-color-base-danger-light);
+  --_toast-icon-color: var(--hb-color-text-danger-heavy);
+}

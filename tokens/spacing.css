@@ -1,0 +1,26 @@
+/* hvab-blocks/tokens/spacing.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation spacing
+ * @summary Numeric base-4 rhythm for component gaps and future section spacing.
+ * @tokens --hb-gap-*, --hb-spacing-*
+ * @docs ./README.md
+ *
+ * Only gap tokens exist today. Add --hb-spacing-* with a real layout or section block.
+ */
+
+:root {
+  --hb-gap-base: 4px;
+  --hb-gap-0: 0;
+  --hb-gap-half: calc(var(--hb-gap-base) * 0.5);
+  --hb-gap-1: var(--hb-gap-base);
+  --hb-gap-2: calc(var(--hb-gap-base) * 2);
+  --hb-gap-3: calc(var(--hb-gap-base) * 3);
+  --hb-gap-4: calc(var(--hb-gap-base) * 4);
+  --hb-gap-5: calc(var(--hb-gap-base) * 5);
+  --hb-gap-6: calc(var(--hb-gap-base) * 6);
+  --hb-gap-7: calc(var(--hb-gap-base) * 7);
+  --hb-gap-8: calc(var(--hb-gap-base) * 8);
+  --hb-gap-9: calc(var(--hb-gap-base) * 9);
+  --hb-gap-10: calc(var(--hb-gap-base) * 10);
+}

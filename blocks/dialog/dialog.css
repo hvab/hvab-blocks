@@ -1,0 +1,100 @@
+/* hvab-blocks/blocks/dialog/dialog.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block dialog
+ * @summary Content layout for a modal: header, body, footer, and an optional close slot.
+ * @host div
+ * @elements hb-dialog__header, hb-dialog__title, hb-dialog__body, hb-dialog__footer, hb-dialog__divider, hb-dialog__close
+ * @modifiers hb-dialog_size_s|m|l
+ * @tokens --hb-dialog-*
+ * @docs ./README.md
+ *
+ * This is a class composition, not a block-in-block import (§6): it is placed inside
+ * hb-modal__panel, which supplies the surface (background/radius/shadow/scroll), while dialog
+ * supplies the inner structure and width. __divider spans the full panel width via negative
+ * margins that cancel the side padding.
+ */
+
+.hb-dialog {
+  --_dialog-width: 480px;
+  --_dialog-side-padding: var(--hb-gap-8);
+  --_dialog-header-padding-top: var(--hb-gap-5);
+  --_dialog-header-padding-bottom: var(--hb-gap-2);
+  --_dialog-body-padding-block: var(--hb-gap-2);
+  --_dialog-footer-padding: var(--hb-gap-6);
+  --_dialog-footer-gap: var(--hb-gap-2);
+  --_dialog-title-size: var(--hb-typography-subheader-2-size);
+  --_dialog-title-line: var(--hb-typography-subheader-2-line);
+  --_dialog-title-weight: var(--hb-typography-subheader-2-weight);
+  --_dialog-title-color: var(--hb-color-text-primary);
+  --_dialog-line-color: var(--hb-color-line-generic);
+  --_dialog-line-width: var(--hb-size-border-width);
+  --_dialog-close-offset-block: var(--hb-gap-2);
+  --_dialog-close-offset-inline: var(--hb-gap-2);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--hb-dialog-width, var(--_dialog-width));
+  max-width: 100%;
+}
+
+/* Sizes */
+.hb-dialog.hb-dialog_size_s {
+  --_dialog-width: 480px;
+}
+
+.hb-dialog.hb-dialog_size_m {
+  --_dialog-width: 720px;
+}
+
+.hb-dialog.hb-dialog_size_l {
+  --_dialog-width: 900px;
+}
+
+.hb-dialog__header {
+  display: flex;
+  align-items: center;
+  padding-block: var(--hb-dialog-header-padding-top, var(--_dialog-header-padding-top))
+    var(--hb-dialog-header-padding-bottom, var(--_dialog-header-padding-bottom));
+  padding-inline: var(--hb-dialog-side-padding, var(--_dialog-side-padding));
+}
+
+.hb-dialog__title {
+  font-size: var(--hb-dialog-title-size, var(--_dialog-title-size));
+  font-weight: var(--hb-dialog-title-weight, var(--_dialog-title-weight));
+  line-height: var(--hb-dialog-title-line, var(--_dialog-title-line));
+  color: var(--hb-dialog-title-color, var(--_dialog-title-color));
+}
+
+.hb-dialog__body {
+  flex: 1 1 auto;
+  padding-block: var(--hb-dialog-body-padding-block, var(--_dialog-body-padding-block));
+  padding-inline: var(--hb-dialog-side-padding, var(--_dialog-side-padding));
+  overflow: auto;
+}
+
+.hb-dialog__footer {
+  display: flex;
+  gap: var(--hb-dialog-footer-gap, var(--_dialog-footer-gap));
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--hb-dialog-footer-padding, var(--_dialog-footer-padding))
+    var(--hb-dialog-side-padding, var(--_dialog-side-padding));
+}
+
+/* Full-bleed divider between sections. */
+.hb-dialog__divider {
+  height: var(--hb-dialog-line-width, var(--_dialog-line-width));
+  margin-block: 0;
+  margin-inline: calc(-1 * var(--hb-dialog-side-padding, var(--_dialog-side-padding)));
+  background: var(--hb-dialog-line-color, var(--_dialog-line-color));
+  border: none;
+}
+
+/* Close button slot in the top-end corner. */
+.hb-dialog__close {
+  position: absolute;
+  inset-block-start: var(--hb-dialog-close-offset-block, var(--_dialog-close-offset-block));
+  inset-inline-end: var(--hb-dialog-close-offset-inline, var(--_dialog-close-offset-inline));
+}

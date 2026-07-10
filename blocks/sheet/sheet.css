@@ -1,0 +1,95 @@
+/* hvab-blocks/blocks/sheet/sheet.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block sheet
+ * @summary Bottom sheet (typically mobile): a veil plus a panel that slides up from the bottom.
+ * @host div
+ * @elements hb-sheet__panel, hb-sheet__handle, hb-sheet__content
+ * @states [data-state="open"|"closed"]
+ * @tokens --hb-sheet-*
+ * @docs ./README.md
+ *
+ * Opening/closing, swipe gestures, drag-to-resize, scroll lock, and portal/stacking are
+ * consumer behavior. Closed state fades the veil and translates the panel down by 100%.
+ */
+
+.hb-sheet {
+  --_sheet-veil: var(--hb-color-sfx-veil);
+  --_sheet-visibility: visible;
+  --_sheet-opacity: 1;
+
+  position: fixed;
+  inset: 0;
+  display: flex;
+  visibility: var(--hb-sheet-visibility, var(--_sheet-visibility));
+  align-items: flex-end;
+  justify-content: center;
+  background-color: var(--hb-sheet-veil, var(--_sheet-veil));
+  opacity: var(--hb-sheet-opacity, var(--_sheet-opacity));
+  transition:
+    opacity var(--hb-duration-standard) var(--hb-ease-out),
+    visibility var(--hb-duration-standard) var(--hb-ease-out);
+}
+
+.hb-sheet__panel {
+  --_sheet-panel-background: var(--hb-color-base-modal);
+  --_sheet-panel-text-color: var(--hb-color-text-primary);
+  --_sheet-panel-radius: var(--hb-radius-xl);
+  --_sheet-panel-max-block: calc(100% - var(--hb-gap-6));
+  --_sheet-panel-shadow: 0 -4px 20px 0 var(--hb-color-sfx-shadow);
+  --_sheet-panel-shift: 0;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-block-size: var(--hb-sheet-panel-max-block, var(--_sheet-panel-max-block));
+  overflow: hidden;
+  color: var(--hb-sheet-panel-text-color, var(--_sheet-panel-text-color));
+  background-color: var(--hb-sheet-panel-background, var(--_sheet-panel-background));
+  border-start-start-radius: var(--hb-sheet-panel-radius, var(--_sheet-panel-radius));
+  border-start-end-radius: var(--hb-sheet-panel-radius, var(--_sheet-panel-radius));
+  box-shadow: var(--hb-sheet-panel-shadow, var(--_sheet-panel-shadow));
+  transform: translateY(var(--hb-sheet-panel-shift, var(--_sheet-panel-shift)));
+  transition: transform var(--hb-duration-standard) var(--hb-ease-out);
+}
+
+/* Drag handle slot at the top of the panel. */
+.hb-sheet__handle {
+  --_sheet-handle-width: 40px;
+  --_sheet-handle-height: 4px;
+  --_sheet-handle-margin: var(--hb-gap-2);
+  --_sheet-handle-background: var(--hb-color-line-generic);
+  --_sheet-handle-radius: var(--hb-radius-round);
+
+  flex: 0 0 auto;
+  width: var(--hb-sheet-handle-width, var(--_sheet-handle-width));
+  height: var(--hb-sheet-handle-height, var(--_sheet-handle-height));
+  margin: var(--hb-sheet-handle-margin, var(--_sheet-handle-margin)) auto;
+  background-color: var(--hb-sheet-handle-background, var(--_sheet-handle-background));
+  border-radius: var(--hb-sheet-handle-radius, var(--_sheet-handle-radius));
+}
+
+.hb-sheet__content {
+  --_sheet-content-padding-inline: var(--hb-gap-3);
+
+  box-sizing: border-box;
+  padding-block: 0 env(safe-area-inset-bottom, 0);
+  padding-inline: max(
+      var(--hb-sheet-content-padding-inline, var(--_sheet-content-padding-inline)),
+      env(safe-area-inset-left, 0px)
+    )
+    max(var(--hb-sheet-content-padding-inline, var(--_sheet-content-padding-inline)), env(safe-area-inset-right, 0px));
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+/* State: closed; fade the veil and slide the panel down. */
+.hb-sheet[data-state='closed'] {
+  --_sheet-visibility: hidden;
+  --_sheet-opacity: 0;
+}
+
+.hb-sheet[data-state='closed'] .hb-sheet__panel {
+  --_sheet-panel-shift: 100%;
+}

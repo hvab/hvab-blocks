@@ -1,0 +1,68 @@
+/* hvab-blocks/blocks/spin/spin.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block spin
+ * @summary Non-interactive loading spinner.
+ * @elements hb-spin__inner
+ * @modifiers hb-spin_size_xs|s|m|l|xl
+ * @tokens --hb-spin-*
+ * @docs ./README.md
+ */
+
+.hb-spin {
+  --_spin-size: 28px;
+  --_spin-stroke-width: 2px;
+  --_spin-color: var(--hb-color-base-brand);
+  --_spin-period: 1s;
+  --_spin-ease: var(--hb-ease-linear);
+  --_spin-inner-radius: var(--hb-radius-round);
+
+  display: inline-block;
+  width: var(--hb-spin-size, var(--_spin-size));
+  height: var(--hb-spin-size, var(--_spin-size));
+  backface-visibility: hidden;
+  animation: hb-spin var(--hb-spin-period, var(--_spin-period)) var(--hb-spin-ease, var(--_spin-ease)) infinite;
+}
+
+.hb-spin__inner {
+  box-sizing: border-box;
+  display: block;
+  width: 50%;
+  height: 100%;
+  margin-inline-start: 50%;
+  border: var(--hb-spin-stroke-width, var(--_spin-stroke-width)) solid var(--hb-spin-color, var(--_spin-color));
+  border-inline-start: none;
+  border-start-end-radius: var(--hb-spin-inner-radius, var(--_spin-inner-radius));
+  border-end-end-radius: var(--hb-spin-inner-radius, var(--_spin-inner-radius));
+}
+
+/* Sizes */
+.hb-spin.hb-spin_size_xs {
+  --_spin-size: 16px;
+}
+
+.hb-spin.hb-spin_size_s {
+  --_spin-size: 24px;
+}
+
+.hb-spin.hb-spin_size_m {
+  --_spin-size: 28px;
+}
+
+.hb-spin.hb-spin_size_l {
+  --_spin-size: 32px;
+}
+
+.hb-spin.hb-spin_size_xl {
+  --_spin-size: 36px;
+}
+
+@keyframes hb-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

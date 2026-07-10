@@ -1,0 +1,10 @@
+/* hvab-blocks/tokens/ref.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation ref
+ * @summary Raw reference values with no semantic meaning.
+ * @tokens --hb-ref-*
+ * @docs ./README.md
+ *
+ * Reference tokens feed system tokens only. Blocks must not read this layer directly.
+ */

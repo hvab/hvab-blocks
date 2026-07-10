@@ -1,0 +1,97 @@
+/* hvab-blocks/blocks/alert/alert.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block alert
+ * @summary Inline notification banner (not a toast), themed by semantic role.
+ * @host div[role="alert"]
+ * @elements hb-alert__icon, hb-alert__content, hb-alert__title, hb-alert__message, hb-alert__actions, hb-alert__close
+ * @modifiers hb-alert_theme_info|success|warning|danger
+ * @tokens --hb-alert-*
+ * @docs ./README.md
+ *
+ * __icon is a slot for hb-icon/hb-spin; __close is a slot for a close button, both behavior
+ * owned by the consumer.
+ */
+
+.hb-alert {
+  --_alert-padding-block: var(--hb-gap-4);
+  --_alert-padding-inline: var(--hb-gap-5);
+  --_alert-radius: var(--hb-radius-l);
+  --_alert-background: var(--hb-color-base-generic);
+  --_alert-icon-gap: var(--hb-gap-3);
+  --_alert-title-indent: var(--hb-gap-1);
+  --_alert-actions-indent: var(--hb-gap-3);
+  --_alert-actions-gap: var(--hb-gap-2);
+  --_alert-title-color: var(--hb-color-text-primary);
+  --_alert-title-size: var(--hb-typography-subheader-2-size);
+  --_alert-title-line: var(--hb-typography-subheader-2-line);
+  --_alert-title-weight: var(--hb-typography-subheader-2-weight);
+  --_alert-message-color: var(--hb-color-text-primary);
+  --_alert-message-size: var(--hb-typography-body-1-size);
+  --_alert-message-line: var(--hb-typography-body-1-line);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--hb-alert-padding-block, var(--_alert-padding-block))
+    var(--hb-alert-padding-inline, var(--_alert-padding-inline));
+  background-color: var(--hb-alert-background, var(--_alert-background));
+  border-radius: var(--hb-alert-radius, var(--_alert-radius));
+}
+
+.hb-alert__icon {
+  flex-shrink: 0;
+  margin-inline-end: var(--hb-alert-icon-gap, var(--_alert-icon-gap));
+}
+
+.hb-alert__content {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.hb-alert__title {
+  font-size: var(--hb-alert-title-size, var(--_alert-title-size));
+  font-weight: var(--hb-alert-title-weight, var(--_alert-title-weight));
+  line-height: var(--hb-alert-title-line, var(--_alert-title-line));
+  color: var(--hb-alert-title-color, var(--_alert-title-color));
+}
+
+.hb-alert__message {
+  font-size: var(--hb-alert-message-size, var(--_alert-message-size));
+  line-height: var(--hb-alert-message-line, var(--_alert-message-line));
+  color: var(--hb-alert-message-color, var(--_alert-message-color));
+}
+
+.hb-alert__title + .hb-alert__message {
+  margin-block-start: var(--hb-alert-title-indent, var(--_alert-title-indent));
+}
+
+.hb-alert__actions {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--hb-alert-actions-gap, var(--_alert-actions-gap));
+  align-items: center;
+  margin-block-start: var(--hb-alert-actions-indent, var(--_alert-actions-indent));
+}
+
+.hb-alert__close {
+  flex-shrink: 0;
+  margin-inline-start: var(--hb-alert-icon-gap, var(--_alert-icon-gap));
+}
+
+/* Themes */
+.hb-alert.hb-alert_theme_info {
+  --_alert-background: var(--hb-color-base-info-light);
+}
+
+.hb-alert.hb-alert_theme_success {
+  --_alert-background: var(--hb-color-base-positive-light);
+}
+
+.hb-alert.hb-alert_theme_warning {
+  --_alert-background: var(--hb-color-base-warning-light);
+}
+
+.hb-alert.hb-alert_theme_danger {
+  --_alert-background: var(--hb-color-base-danger-light);
+}

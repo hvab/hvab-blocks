@@ -1,0 +1,120 @@
+/* hvab-blocks/blocks/select/select.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block select
+ * @summary Native select chrome.
+ * @host select
+ * @modifiers hb-select_size_s|m|l|xl
+ * @states :disabled, [disabled], [aria-disabled="true"], [aria-invalid="true"]
+ * @tokens --hb-select-*
+ * @docs ./README.md
+ */
+
+.hb-select {
+  --_select-height: var(--hb-size-control-height-m);
+  --_select-padding: var(--hb-size-control-padding-m);
+  --_select-arrow-reserve: var(--hb-size-control-height-m);
+  --_select-radius: var(--hb-radius-m);
+  --_select-font-size: var(--hb-typography-body-short-size);
+  --_select-text-color: var(--hb-color-text-primary);
+  --_select-arrow-color: var(--hb-color-text-secondary);
+  --_select-background: transparent;
+  --_select-border-width: var(--hb-size-border-width);
+  --_select-border-color: var(--hb-color-line-generic);
+  --_select-focus-ring-width: var(--hb-focus-ring-width);
+  --_select-focus-ring-color: var(--hb-color-line-focus);
+  --_select-focus-ring-offset: -1px; /* Component geometry: ring sits on top of the border. */
+  --_select-arrow-size: 5px; /* Local CSS arrow geometry. */
+
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--hb-select-height, var(--_select-height));
+  padding-inline: var(--hb-select-padding, var(--_select-padding))
+    var(--hb-select-arrow-reserve, var(--_select-arrow-reserve));
+  font-family: inherit;
+  font-size: var(--hb-select-font-size, var(--_select-font-size));
+  color: var(--hb-select-text-color, var(--_select-text-color));
+  appearance: none;
+  cursor: pointer;
+  background-color: var(--hb-select-background, var(--_select-background));
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--hb-select-arrow-color, var(--_select-arrow-color)) 50%),
+    linear-gradient(135deg, var(--hb-select-arrow-color, var(--_select-arrow-color)) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-position:
+    calc(
+        100% - var(--hb-select-padding, var(--_select-padding)) - var(--hb-select-arrow-size, var(--_select-arrow-size))
+      )
+      50%,
+    calc(100% - var(--hb-select-padding, var(--_select-padding))) 50%;
+  background-size:
+    var(--hb-select-arrow-size, var(--_select-arrow-size)) var(--hb-select-arrow-size, var(--_select-arrow-size)),
+    var(--hb-select-arrow-size, var(--_select-arrow-size)) var(--hb-select-arrow-size, var(--_select-arrow-size));
+  border: var(--hb-select-border-width, var(--_select-border-width)) solid
+    var(--hb-select-border-color, var(--_select-border-color));
+  border-radius: var(--hb-select-radius, var(--_select-radius));
+  transition:
+    color var(--hb-duration-fast) var(--hb-ease-linear),
+    background-color var(--hb-duration-fast) var(--hb-ease-linear),
+    border-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-select:hover {
+  --_select-border-color: var(--hb-color-line-generic-hover);
+}
+
+.hb-select:focus-visible {
+  --_select-border-color: var(--hb-color-line-generic-active);
+
+  outline: var(--hb-select-focus-ring-width, var(--_select-focus-ring-width)) solid
+    var(--hb-select-focus-ring-color, var(--_select-focus-ring-color));
+  outline-offset: var(--hb-select-focus-ring-offset, var(--_select-focus-ring-offset));
+}
+
+/* Sizes */
+.hb-select.hb-select_size_s {
+  --_select-height: var(--hb-size-control-height-s);
+  --_select-padding: var(--hb-size-control-padding-s);
+  --_select-arrow-reserve: var(--hb-size-control-height-s);
+  --_select-radius: var(--hb-radius-s);
+}
+
+.hb-select.hb-select_size_m {
+  --_select-height: var(--hb-size-control-height-m);
+  --_select-padding: var(--hb-size-control-padding-m);
+  --_select-arrow-reserve: var(--hb-size-control-height-m);
+  --_select-radius: var(--hb-radius-m);
+}
+
+.hb-select.hb-select_size_l {
+  --_select-height: var(--hb-size-control-height-l);
+  --_select-padding: var(--hb-size-control-padding-l);
+  --_select-arrow-reserve: var(--hb-size-control-height-l);
+  --_select-radius: var(--hb-radius-l);
+}
+
+.hb-select.hb-select_size_xl {
+  --_select-height: var(--hb-size-control-height-xl);
+  --_select-padding: var(--hb-size-control-padding-xl);
+  --_select-arrow-reserve: var(--hb-size-control-height-xl);
+  --_select-radius: var(--hb-radius-xl);
+  --_select-font-size: var(--hb-typography-body-2-size);
+}
+
+/* State: invalid. */
+.hb-select[aria-invalid='true'] {
+  --_select-border-color: var(--hb-color-line-danger);
+  --_select-focus-ring-color: var(--hb-color-line-danger);
+}
+
+/* State: disabled */
+.hb-select:disabled,
+.hb-select[disabled],
+.hb-select[aria-disabled='true'] {
+  --_select-text-color: var(--hb-color-text-hint);
+  --_select-arrow-color: var(--hb-color-text-hint);
+  --_select-background: var(--hb-color-base-generic-accent-disabled);
+  --_select-border-color: transparent;
+
+  cursor: not-allowed;
+}

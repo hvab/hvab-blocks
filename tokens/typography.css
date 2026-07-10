@@ -1,0 +1,92 @@
+/* hvab-blocks/tokens/typography.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation typography
+ * @summary Shared type scale for all blocks.
+ * @tokens --hb-typography-*
+ * @docs ./README.md
+ *
+ * Typography is scheme-independent and has no breakpoints. Font weights are explicit per role.
+ */
+
+:root {
+  /* mono family for code roles; sans inherits from the consumer page */
+  --hb-typography-mono-family:
+    'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Ubuntu Mono', 'DejaVu Sans Mono', 'Courier New', 'Courier',
+    monospace;
+
+  /* display */
+  --hb-typography-display-1-size: 28px;
+  --hb-typography-display-1-line: 36px;
+  --hb-typography-display-1-weight: 600;
+  --hb-typography-display-2-size: 32px;
+  --hb-typography-display-2-line: 40px;
+  --hb-typography-display-2-weight: 600;
+  --hb-typography-display-3-size: 40px;
+  --hb-typography-display-3-line: 48px;
+  --hb-typography-display-3-weight: 600;
+  --hb-typography-display-4-size: 48px;
+  --hb-typography-display-4-line: 52px;
+  --hb-typography-display-4-weight: 600;
+
+  /* header */
+  --hb-typography-header-1-size: 20px;
+  --hb-typography-header-1-line: 24px;
+  --hb-typography-header-1-weight: 600;
+  --hb-typography-header-2-size: 24px;
+  --hb-typography-header-2-line: 28px;
+  --hb-typography-header-2-weight: 600;
+
+  /* subheader */
+  --hb-typography-subheader-1-size: 13px;
+  --hb-typography-subheader-1-line: 18px;
+  --hb-typography-subheader-1-weight: 600;
+  --hb-typography-subheader-2-size: 15px;
+  --hb-typography-subheader-2-line: 20px;
+  --hb-typography-subheader-2-weight: 600;
+  --hb-typography-subheader-3-size: 17px;
+  --hb-typography-subheader-3-line: 24px;
+  --hb-typography-subheader-3-weight: 600;
+
+  /* body */
+  --hb-typography-body-1-size: 13px;
+  --hb-typography-body-1-line: 18px;
+  --hb-typography-body-1-weight: 400;
+  --hb-typography-body-2-size: 15px;
+  --hb-typography-body-2-line: 20px;
+  --hb-typography-body-2-weight: 400;
+  --hb-typography-body-3-size: 17px;
+  --hb-typography-body-3-line: 24px;
+  --hb-typography-body-3-weight: 400;
+  --hb-typography-body-short-size: 13px;
+  --hb-typography-body-short-line: 16px;
+  --hb-typography-body-short-weight: 400;
+
+  /* caption */
+  --hb-typography-caption-1-size: 9px;
+  --hb-typography-caption-1-line: 12px;
+  --hb-typography-caption-1-weight: 400;
+  --hb-typography-caption-2-size: 11px;
+  --hb-typography-caption-2-line: 16px;
+  --hb-typography-caption-2-weight: 400;
+
+  /* code */
+  --hb-typography-code-1-size: 12px;
+  --hb-typography-code-1-line: 18px;
+  --hb-typography-code-1-weight: 400;
+  --hb-typography-code-2-size: 14px;
+  --hb-typography-code-2-line: 20px;
+  --hb-typography-code-2-weight: 400;
+  --hb-typography-code-3-size: 16px;
+  --hb-typography-code-3-line: 24px;
+  --hb-typography-code-3-weight: 400;
+  --hb-typography-code-inline-1-size: 12px;
+  --hb-typography-code-inline-1-line: 14px;
+  --hb-typography-code-inline-1-weight: 400;
+  --hb-typography-code-inline-2-size: 14px;
+  --hb-typography-code-inline-2-line: 16px;
+  --hb-typography-code-inline-2-weight: 400;
+  --hb-typography-code-inline-3-size: 16px;
+  --hb-typography-code-inline-3-line: 20px;
+  --hb-typography-code-inline-3-weight: 400;
+}

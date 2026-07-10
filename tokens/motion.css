@@ -1,0 +1,29 @@
+/* hvab-blocks/tokens/motion.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation motion
+ * @summary Shared durations and easing curves.
+ * @tokens --hb-duration-*, --hb-ease-*
+ * @docs ./README.md
+ */
+
+:root {
+  --hb-duration-instant: 75ms;
+  --hb-duration-fast: 150ms;
+  --hb-duration-standard: 300ms;
+  --hb-duration-slow: 500ms;
+  --hb-ease-linear: linear;
+  --hb-ease-out: ease-out;
+  --hb-ease-in: ease-in;
+  --hb-ease-in-out: ease-in-out;
+}
+
+/* Central reduced-motion policy: transitions become instant when blocks use --hb-duration-*. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --hb-duration-instant: 0ms;
+    --hb-duration-fast: 0ms;
+    --hb-duration-standard: 0ms;
+    --hb-duration-slow: 0ms;
+  }
+}

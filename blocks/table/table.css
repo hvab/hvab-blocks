@@ -1,0 +1,116 @@
+/* hvab-blocks/blocks/table/table.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block table
+ * @summary Static data table on native markup: table + thead/tbody + tr + th/td.
+ * @host table, thead, tbody, tr, th, td
+ * @elements hb-table__head, hb-table__body, hb-table__row, hb-table__cell
+ * @modifiers hb-table_width_max, hb-table_striped, hb-table__cell_align_center|end, hb-table__row_interactive
+ * @states [aria-sort] (th), [aria-selected="true"] (tr), [aria-disabled="true"] (tr)
+ * @tokens --hb-table-*
+ * @docs ./README.md
+ *
+ * Sorting, selection, sticky columns/header, and virtualization are consumer behavior;
+ * CSS only styles the attributes above. Row hover only applies with __row_interactive.
+ */
+
+.hb-table {
+  --_table-font-size: var(--hb-typography-body-1-size);
+  --_table-line: var(--hb-typography-body-1-line);
+  --_table-text-color: var(--hb-color-text-primary);
+  --_table-cell-padding-block: 10px;
+  --_table-cell-padding-inline: var(--hb-gap-2);
+  --_table-border-width: var(--hb-size-border-width);
+  --_table-border-color: var(--hb-color-line-generic);
+  --_table-head-weight: var(--hb-typography-subheader-1-weight);
+  --_table-sort-gap: var(--hb-gap-1);
+  --_table-row-background: transparent;
+  --_table-row-opacity: 1;
+  --_table-row-hover-background: var(--hb-color-base-simple-hover);
+  --_table-row-selected-background: var(--hb-color-base-selection);
+  --_table-zebra-background: var(--hb-color-base-generic);
+
+  font-size: var(--hb-table-font-size, var(--_table-font-size));
+  line-height: var(--hb-table-line, var(--_table-line));
+  color: var(--hb-table-text-color, var(--_table-text-color));
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.hb-table.hb-table_width_max {
+  width: 100%;
+}
+
+.hb-table__row {
+  background-color: var(--hb-table-row-background, var(--_table-row-background));
+  opacity: var(--hb-table-row-opacity, var(--_table-row-opacity));
+  transition: background-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-table__cell {
+  box-sizing: border-box;
+  padding: var(--hb-table-cell-padding-block, var(--_table-cell-padding-block))
+    var(--hb-table-cell-padding-inline, var(--_table-cell-padding-inline));
+  text-align: start;
+  overflow-wrap: break-word;
+  border-block-end: var(--hb-table-border-width, var(--_table-border-width)) solid
+    var(--hb-table-border-color, var(--_table-border-color));
+}
+
+.hb-table__cell.hb-table__cell_align_center {
+  text-align: center;
+}
+
+.hb-table__cell.hb-table__cell_align_end {
+  text-align: end;
+}
+
+/* Header weight and consumer-provided sort direction. */
+.hb-table__head .hb-table__cell {
+  font-weight: var(--hb-table-head-weight, var(--_table-head-weight));
+}
+
+.hb-table__cell[aria-sort] {
+  cursor: pointer;
+  user-select: none;
+}
+
+.hb-table__cell[aria-sort='ascending']::after {
+  margin-inline-start: var(--hb-table-sort-gap, var(--_table-sort-gap));
+  content: '↑';
+  opacity: 0.5;
+}
+
+.hb-table__cell[aria-sort='descending']::after {
+  margin-inline-start: var(--hb-table-sort-gap, var(--_table-sort-gap));
+  content: '↓';
+  opacity: 0.5;
+}
+
+/* Remove the last body row border. */
+.hb-table__body .hb-table__row:last-child .hb-table__cell {
+  border-block-end-color: transparent;
+}
+
+/* Zebra rows. */
+.hb-table.hb-table_striped .hb-table__body .hb-table__row:nth-child(even) {
+  --_table-row-background: var(--hb-table-zebra-background, var(--_table-zebra-background));
+}
+
+/* Interactive row; clickability and handlers belong to the consumer. */
+.hb-table__row.hb-table__row_interactive {
+  cursor: pointer;
+}
+
+.hb-table__row.hb-table__row_interactive:hover {
+  --_table-row-background: var(--hb-table-row-hover-background, var(--_table-row-hover-background));
+}
+
+/* States on rows; attributes are set by the consumer. */
+.hb-table__row[aria-selected='true'] {
+  --_table-row-background: var(--hb-table-row-selected-background, var(--_table-row-selected-background));
+}
+
+.hb-table__row[aria-disabled='true'] {
+  --_table-row-opacity: 0.3;
+}

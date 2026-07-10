@@ -1,0 +1,42 @@
+{
+  "name": "hvab-blocks",
+  "version": "0.1.0",
+  "description": "Portable CSS design tokens and BEM building blocks",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "index.css",
+    "tokens",
+    "blocks",
+    "USAGE.md",
+    "VENDOR.md"
+  ],
+  "exports": {
+    "./index.css": "./index.css",
+    "./tokens/*": "./tokens/*",
+    "./blocks/*": "./blocks/*",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "start": "web-dev-server --watch",
+    "dev": "web-dev-server --watch",
+    "demo:build": "node scripts/build-demo.mjs",
+    "demo:check": "node scripts/build-demo.mjs --check",
+    "pages:build": "npm run demo:build && node scripts/build-pages.mjs",
+    "docs:check": "node scripts/check-docs.mjs",
+    "lint:styles": "stylelint \"{tokens,blocks}/**/*.css\" index.css",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.4.6",
+    "prettier": "^3.8.1",
+    "stylelint": "^17.4.0",
+    "stylelint-config-recess-order": "^7.6.1",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-order": "^7.0.1"
+  }
+}

@@ -1,0 +1,15 @@
+/* hvab-blocks/tokens/focus.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation focus
+ * @summary Focus-ring geometry shared by interactive blocks.
+ * @tokens --hb-focus-ring-*
+ * @docs ./README.md
+ *
+ * Focus color is semantic color, so blocks pair these values with --hb-color-line-focus.
+ */
+
+:root {
+  --hb-focus-ring-width: 2px;
+  --hb-focus-ring-offset: 0;
+}

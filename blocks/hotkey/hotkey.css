@@ -1,0 +1,36 @@
+/* hvab-blocks/blocks/hotkey/hotkey.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block hotkey
+ * @summary Non-interactive chip for displaying keyboard shortcuts.
+ * @host kbd
+ * @elements hb-hotkey__plus
+ * @tokens --hb-hotkey-*
+ * @docs ./README.md
+ */
+
+.hb-hotkey {
+  --_hotkey-padding-block: 1px;
+  --_hotkey-padding-inline: 5px;
+  --_hotkey-radius: var(--hb-radius-xs);
+  --_hotkey-font-size: var(--hb-typography-body-1-size);
+  --_hotkey-line: var(--hb-typography-body-1-line);
+  --_hotkey-text-color: var(--hb-color-text-primary);
+  --_hotkey-plus-color: var(--hb-color-text-hint);
+  --_hotkey-background: var(--hb-color-base-generic);
+
+  display: inline-block;
+  padding: var(--hb-hotkey-padding-block, var(--_hotkey-padding-block))
+    var(--hb-hotkey-padding-inline, var(--_hotkey-padding-inline));
+  font-family: inherit;
+  font-size: var(--hb-hotkey-font-size, var(--_hotkey-font-size));
+  line-height: var(--hb-hotkey-line, var(--_hotkey-line));
+  color: var(--hb-hotkey-text-color, var(--_hotkey-text-color));
+  white-space: nowrap;
+  background: var(--hb-hotkey-background, var(--_hotkey-background));
+  border-radius: var(--hb-hotkey-radius, var(--_hotkey-radius));
+}
+
+.hb-hotkey__plus {
+  color: var(--hb-hotkey-plus-color, var(--_hotkey-plus-color));
+}

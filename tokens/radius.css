@@ -1,0 +1,17 @@
+/* hvab-blocks/tokens/radius.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation radius
+ * @summary Shared corner radius scale.
+ * @tokens --hb-radius-*
+ * @docs ./README.md
+ */
+
+:root {
+  --hb-radius-xs: 3px;
+  --hb-radius-s: 5px;
+  --hb-radius-m: 6px;
+  --hb-radius-l: 8px;
+  --hb-radius-xl: 10px;
+  --hb-radius-round: 999px;
+}

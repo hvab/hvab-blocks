@@ -1,0 +1,51 @@
+/* hvab-blocks/index.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @entry index
+ * @summary Public CSS entrypoint for the complete hvab-blocks bundle.
+ * @imports tokens first, then blocks; import order is part of the contract.
+ * @docs ./USAGE.md
+ */
+
+/* tokens */
+@import url('tokens/ref.css');
+@import url('tokens/color.css');
+@import url('tokens/typography.css');
+@import url('tokens/radius.css');
+@import url('tokens/spacing.css');
+@import url('tokens/motion.css');
+@import url('tokens/size.css');
+@import url('tokens/focus.css');
+
+/* blocks */
+@import url('blocks/text/text.css');
+@import url('blocks/button/button.css');
+@import url('blocks/field/field.css');
+@import url('blocks/text-input/text-input.css');
+@import url('blocks/textarea/textarea.css');
+@import url('blocks/select/select.css');
+@import url('blocks/range-input/range-input.css');
+@import url('blocks/color-input/color-input.css');
+@import url('blocks/checkbox/checkbox.css');
+@import url('blocks/radio/radio.css');
+@import url('blocks/switch/switch.css');
+@import url('blocks/skeleton/skeleton.css');
+@import url('blocks/progress/progress.css');
+@import url('blocks/label/label.css');
+@import url('blocks/alert/alert.css');
+@import url('blocks/card/card.css');
+@import url('blocks/table/table.css');
+@import url('blocks/breadcrumbs/breadcrumbs.css');
+@import url('blocks/pagination/pagination.css');
+@import url('blocks/tabs/tabs.css');
+@import url('blocks/tooltip/tooltip.css');
+@import url('blocks/popover/popover.css');
+@import url('blocks/modal/modal.css');
+@import url('blocks/dialog/dialog.css');
+@import url('blocks/sheet/sheet.css');
+@import url('blocks/toast/toast.css');
+@import url('blocks/link/link.css');
+@import url('blocks/spin/spin.css');
+@import url('blocks/divider/divider.css');
+@import url('blocks/icon/icon.css');
+@import url('blocks/hotkey/hotkey.css');

@@ -1,0 +1,98 @@
+/* hvab-blocks/blocks/text-input/text-input.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block text-input
+ * @summary Native single-line text input chrome.
+ * @host input
+ * @modifiers hb-text-input_size_s|m|l|xl
+ * @states :disabled, [disabled], [aria-disabled="true"], [aria-invalid="true"]
+ * @tokens --hb-text-input-*
+ * @docs ./README.md
+ */
+
+.hb-text-input {
+  --_text-input-height: var(--hb-size-control-height-m);
+  --_text-input-padding: var(--hb-size-control-padding-m);
+  --_text-input-radius: var(--hb-radius-m);
+  --_text-input-font-size: var(--hb-typography-body-short-size);
+  --_text-input-text-color: var(--hb-color-text-primary);
+  --_text-input-placeholder-color: var(--hb-color-text-hint);
+  --_text-input-background: transparent;
+  --_text-input-border-width: var(--hb-size-border-width);
+  --_text-input-border-color: var(--hb-color-line-generic);
+  --_text-input-focus-ring-width: var(--hb-focus-ring-width);
+  --_text-input-focus-ring-color: var(--hb-color-line-focus);
+  --_text-input-focus-ring-offset: -1px; /* Component geometry: ring sits on top of the border. */
+
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--hb-text-input-height, var(--_text-input-height));
+  padding-inline: var(--hb-text-input-padding, var(--_text-input-padding));
+  font-family: inherit;
+  font-size: var(--hb-text-input-font-size, var(--_text-input-font-size));
+  color: var(--hb-text-input-text-color, var(--_text-input-text-color));
+  background: var(--hb-text-input-background, var(--_text-input-background));
+  border: var(--hb-text-input-border-width, var(--_text-input-border-width)) solid
+    var(--hb-text-input-border-color, var(--_text-input-border-color));
+  border-radius: var(--hb-text-input-radius, var(--_text-input-radius));
+  transition: border-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-text-input::placeholder {
+  color: var(--hb-text-input-placeholder-color, var(--_text-input-placeholder-color));
+}
+
+.hb-text-input:hover {
+  --_text-input-border-color: var(--hb-color-line-generic-hover);
+}
+
+.hb-text-input:focus-visible {
+  --_text-input-border-color: var(--hb-color-line-generic-active);
+
+  outline: var(--hb-text-input-focus-ring-width, var(--_text-input-focus-ring-width)) solid
+    var(--hb-text-input-focus-ring-color, var(--_text-input-focus-ring-color));
+  outline-offset: var(--hb-text-input-focus-ring-offset, var(--_text-input-focus-ring-offset));
+}
+
+/* Sizes */
+.hb-text-input.hb-text-input_size_s {
+  --_text-input-height: var(--hb-size-control-height-s);
+  --_text-input-padding: var(--hb-size-control-padding-s);
+  --_text-input-radius: var(--hb-radius-s);
+}
+
+.hb-text-input.hb-text-input_size_m {
+  --_text-input-height: var(--hb-size-control-height-m);
+  --_text-input-padding: var(--hb-size-control-padding-m);
+  --_text-input-radius: var(--hb-radius-m);
+}
+
+.hb-text-input.hb-text-input_size_l {
+  --_text-input-height: var(--hb-size-control-height-l);
+  --_text-input-padding: var(--hb-size-control-padding-l);
+  --_text-input-radius: var(--hb-radius-l);
+}
+
+.hb-text-input.hb-text-input_size_xl {
+  --_text-input-height: var(--hb-size-control-height-xl);
+  --_text-input-padding: var(--hb-size-control-padding-xl);
+  --_text-input-radius: var(--hb-radius-xl);
+  --_text-input-font-size: var(--hb-typography-body-2-size);
+}
+
+/* State: invalid. */
+.hb-text-input[aria-invalid='true'] {
+  --_text-input-border-color: var(--hb-color-line-danger);
+  --_text-input-focus-ring-color: var(--hb-color-line-danger);
+}
+
+/* State: disabled */
+.hb-text-input:disabled,
+.hb-text-input[disabled],
+.hb-text-input[aria-disabled='true'] {
+  --_text-input-text-color: var(--hb-color-text-hint);
+  --_text-input-background: var(--hb-color-base-generic-accent-disabled);
+  --_text-input-border-color: transparent;
+
+  cursor: not-allowed;
+}

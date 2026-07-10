@@ -1,0 +1,155 @@
+/* hvab-blocks/blocks/switch/switch.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block switch
+ * @summary Native checkbox wrapper styled as a toggle switch.
+ * @elements hb-switch__control, hb-switch__box, hb-switch__label
+ * @modifiers hb-switch_size_s|m|l
+ * @states :checked, [aria-checked="true"], [data-state="checked"], :disabled, [data-disabled]
+ * @tokens --hb-switch-*
+ * @docs ./README.md
+ */
+
+.hb-switch {
+  --_switch-track-width: 36px;
+  --_switch-track-height: 20px;
+  --_switch-track-radius: var(--hb-radius-round);
+  --_switch-track-background: var(--hb-color-base-generic-medium);
+  --_switch-slider-size: 16px;
+  --_switch-slider-offset: 2px;
+  --_switch-slider-background: var(--hb-color-base-background);
+  --_switch-slider-x: 0px;
+  --_switch-box-opacity: 1;
+  --_switch-gap: var(--hb-gap-2);
+  --_switch-text-color: var(--hb-color-text-primary);
+  --_switch-text-size: var(--hb-typography-body-short-size);
+  --_switch-text-line: var(--hb-typography-body-short-line);
+  --_switch-focus-ring-width: var(--hb-focus-ring-width);
+  --_switch-focus-ring-color: var(--hb-color-line-focus);
+  --_switch-focus-ring-offset: var(--hb-focus-ring-offset);
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--hb-switch-gap, var(--_switch-gap));
+  align-items: start;
+  font-size: var(--hb-switch-text-size, var(--_switch-text-size));
+  line-height: var(--hb-switch-text-line, var(--_switch-text-line));
+  color: var(--hb-switch-text-color, var(--_switch-text-color));
+  cursor: pointer;
+  user-select: none;
+}
+
+.hb-switch__control {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: var(--hb-switch-track-width, var(--_switch-track-width));
+  height: var(--hb-switch-track-height, var(--_switch-track-height));
+  padding: 0;
+  margin: 0;
+  cursor: inherit;
+  opacity: 0;
+}
+
+.hb-switch__box {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: var(--hb-switch-track-width, var(--_switch-track-width));
+  height: var(--hb-switch-track-height, var(--_switch-track-height));
+  background: var(--hb-switch-track-background, var(--_switch-track-background));
+  border-radius: var(--hb-switch-track-radius, var(--_switch-track-radius));
+  opacity: var(--hb-switch-box-opacity, var(--_switch-box-opacity));
+  transition: background-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-switch__box::before {
+  position: absolute;
+  inset-block-start: var(--hb-switch-slider-offset, var(--_switch-slider-offset));
+  inset-inline-start: var(--hb-switch-slider-offset, var(--_switch-slider-offset));
+  width: var(--hb-switch-slider-size, var(--_switch-slider-size));
+  height: var(--hb-switch-slider-size, var(--_switch-slider-size));
+  content: '';
+  background: var(--hb-switch-slider-background, var(--_switch-slider-background));
+  border-radius: var(--hb-radius-round);
+  transform: translateX(var(--hb-switch-slider-x, var(--_switch-slider-x)));
+  transition: transform var(--hb-duration-fast) var(--hb-ease-out);
+}
+
+.hb-switch__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.hb-switch:not(:has(.hb-switch__label)) {
+  grid-template-columns: auto;
+}
+
+.hb-switch:hover {
+  --_switch-track-background: var(--hb-color-base-generic-medium-hover);
+}
+
+.hb-switch__control:focus-visible + .hb-switch__box {
+  outline: var(--hb-switch-focus-ring-width, var(--_switch-focus-ring-width)) solid
+    var(--hb-switch-focus-ring-color, var(--_switch-focus-ring-color));
+  outline-offset: var(--hb-switch-focus-ring-offset, var(--_switch-focus-ring-offset));
+}
+
+/* Sizes */
+.hb-switch.hb-switch_size_s {
+  --_switch-track-width: 28px;
+  --_switch-track-height: 16px;
+  --_switch-slider-size: 12px;
+  --_switch-slider-offset: 2px;
+}
+
+.hb-switch.hb-switch_size_m {
+  --_switch-track-width: 36px;
+  --_switch-track-height: 20px;
+  --_switch-slider-size: 16px;
+  --_switch-slider-offset: 2px;
+}
+
+.hb-switch.hb-switch_size_l {
+  --_switch-track-width: 42px;
+  --_switch-track-height: 24px;
+  --_switch-slider-size: 18px;
+  --_switch-slider-offset: 3px;
+  --_switch-text-size: var(--hb-typography-body-2-size);
+  --_switch-text-line: var(--hb-typography-body-2-line);
+}
+
+/* State: checked. */
+.hb-switch:has(.hb-switch__control:checked),
+.hb-switch:has(.hb-switch__control[aria-checked='true']),
+.hb-switch:has(.hb-switch__control[data-state='checked']) {
+  --_switch-track-background: var(--hb-color-base-brand);
+  --_switch-slider-x: calc(
+    var(--hb-switch-track-width, var(--_switch-track-width)) -
+      var(--hb-switch-slider-size, var(--_switch-slider-size)) - 2 *
+      var(--hb-switch-slider-offset, var(--_switch-slider-offset))
+  );
+}
+
+/* State: disabled */
+.hb-switch:has(.hb-switch__control:disabled),
+.hb-switch:has(.hb-switch__control[disabled]),
+.hb-switch:has(.hb-switch__control[aria-disabled='true']),
+.hb-switch:has(.hb-switch__control[data-disabled]) {
+  --_switch-text-color: var(--hb-color-text-hint);
+  --_switch-track-background: var(--hb-color-base-generic-accent-disabled);
+
+  cursor: not-allowed;
+}
+
+/* State: checked + disabled. */
+.hb-switch:has(.hb-switch__control:checked):has(.hb-switch__control:disabled),
+.hb-switch:has(.hb-switch__control:checked):has(.hb-switch__control[disabled]),
+.hb-switch:has(.hb-switch__control[aria-checked='true']):has(.hb-switch__control[aria-disabled='true']),
+.hb-switch:has(.hb-switch__control[data-state='checked']):has(.hb-switch__control[data-disabled]) {
+  --_switch-track-background: var(--hb-color-base-brand);
+  --_switch-box-opacity: 0.5;
+}

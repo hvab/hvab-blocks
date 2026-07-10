@@ -1,0 +1,192 @@
+/* hvab-blocks/blocks/checkbox/checkbox.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block checkbox
+ * @summary Native checkbox wrapper with CSS-rendered box and icons.
+ * @elements hb-checkbox__control, hb-checkbox__box, hb-checkbox__label
+ * @modifiers hb-checkbox_size_m|l|xl
+ * @states :checked, [aria-checked="true|mixed"], [data-state="checked|indeterminate"], :disabled, [data-disabled]
+ * @tokens --hb-checkbox-*
+ * @docs ./README.md
+ */
+
+.hb-checkbox {
+  --_checkbox-box-size: 14px;
+  --_checkbox-radius: 4px;
+  --_checkbox-gap: var(--hb-gap-2);
+  --_checkbox-text-color: var(--hb-color-text-primary);
+  --_checkbox-text-size: var(--hb-typography-body-short-size);
+  --_checkbox-text-line: var(--hb-typography-body-short-line);
+  --_checkbox-box-background: transparent;
+  --_checkbox-box-border-width: var(--hb-size-border-width);
+  --_checkbox-box-border-color: var(--hb-color-line-generic-accent);
+  --_checkbox-icon-color: transparent;
+  --_checkbox-focus-ring-width: var(--hb-focus-ring-width);
+  --_checkbox-focus-ring-color: var(--hb-color-line-focus);
+  --_checkbox-focus-ring-offset: var(--hb-focus-ring-offset);
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--hb-checkbox-gap, var(--_checkbox-gap));
+  align-items: start;
+  font-size: var(--hb-checkbox-text-size, var(--_checkbox-text-size));
+  line-height: var(--hb-checkbox-text-line, var(--_checkbox-text-line));
+  color: var(--hb-checkbox-text-color, var(--_checkbox-text-color));
+  cursor: pointer;
+  user-select: none;
+}
+
+.hb-checkbox__control {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: var(--hb-checkbox-box-size, var(--_checkbox-box-size));
+  height: var(--hb-checkbox-box-size, var(--_checkbox-box-size));
+  padding: 0;
+  margin: 0;
+  cursor: inherit;
+  opacity: 0;
+}
+
+.hb-checkbox__box {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--hb-checkbox-box-size, var(--_checkbox-box-size));
+  height: var(--hb-checkbox-box-size, var(--_checkbox-box-size));
+  color: var(--hb-checkbox-icon-color, var(--_checkbox-icon-color));
+  background: var(--hb-checkbox-box-background, var(--_checkbox-box-background));
+  border: var(--hb-checkbox-box-border-width, var(--_checkbox-box-border-width)) solid
+    var(--hb-checkbox-box-border-color, var(--_checkbox-box-border-color));
+  border-radius: var(--hb-checkbox-radius, var(--_checkbox-radius));
+  transition:
+    color var(--hb-duration-fast) var(--hb-ease-linear),
+    background-color var(--hb-duration-fast) var(--hb-ease-linear),
+    border-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-checkbox__box::before {
+  box-sizing: border-box;
+  width: calc(var(--hb-checkbox-box-size, var(--_checkbox-box-size)) * 0.45);
+  height: calc(var(--hb-checkbox-box-size, var(--_checkbox-box-size)) * 0.28);
+  content: '';
+  border-block-end: 2px solid currentcolor;
+  border-inline-start: 2px solid currentcolor;
+  transform: translateY(-10%) rotate(-45deg);
+}
+
+.hb-checkbox__box::after {
+  position: absolute;
+  display: none;
+  width: calc(var(--hb-checkbox-box-size, var(--_checkbox-box-size)) * 0.52);
+  height: 2px;
+  content: '';
+  background: currentcolor;
+  border-radius: var(--hb-radius-round);
+}
+
+.hb-checkbox__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.hb-checkbox:not(:has(.hb-checkbox__label)) {
+  grid-template-columns: auto;
+}
+
+.hb-checkbox:hover {
+  --_checkbox-box-border-color: var(--hb-color-line-generic-accent-hover);
+}
+
+.hb-checkbox__control:focus-visible + .hb-checkbox__box {
+  outline: var(--hb-checkbox-focus-ring-width, var(--_checkbox-focus-ring-width)) solid
+    var(--hb-checkbox-focus-ring-color, var(--_checkbox-focus-ring-color));
+  outline-offset: var(--hb-checkbox-focus-ring-offset, var(--_checkbox-focus-ring-offset));
+}
+
+/* Sizes */
+.hb-checkbox.hb-checkbox_size_m {
+  --_checkbox-box-size: 14px;
+}
+
+.hb-checkbox.hb-checkbox_size_l {
+  --_checkbox-box-size: 17px;
+}
+
+.hb-checkbox.hb-checkbox_size_xl {
+  --_checkbox-box-size: 24px;
+  --_checkbox-text-size: var(--hb-typography-body-2-size);
+  --_checkbox-text-line: var(--hb-typography-body-2-line);
+}
+
+/* State: checked */
+.hb-checkbox:has(.hb-checkbox__control:checked),
+.hb-checkbox:has(.hb-checkbox__control[aria-checked='true']),
+.hb-checkbox:has(.hb-checkbox__control[data-state='checked']) {
+  --_checkbox-box-background: var(--hb-color-base-brand);
+  --_checkbox-box-border-color: transparent;
+  --_checkbox-icon-color: var(--hb-color-text-brand-contrast);
+}
+
+.hb-checkbox:has(.hb-checkbox__control:checked):hover,
+.hb-checkbox:has(.hb-checkbox__control[aria-checked='true']):hover,
+.hb-checkbox:has(.hb-checkbox__control[data-state='checked']):hover {
+  --_checkbox-box-background: var(--hb-color-base-brand-hover);
+}
+
+/* State: mixed / indeterminate. */
+.hb-checkbox:has(.hb-checkbox__control[aria-checked='mixed']),
+.hb-checkbox:has(.hb-checkbox__control[data-state='indeterminate']) {
+  --_checkbox-box-background: var(--hb-color-base-brand);
+  --_checkbox-box-border-color: transparent;
+  --_checkbox-icon-color: var(--hb-color-text-brand-contrast);
+}
+
+.hb-checkbox:has(.hb-checkbox__control[aria-checked='mixed']) .hb-checkbox__box::before,
+.hb-checkbox:has(.hb-checkbox__control[data-state='indeterminate']) .hb-checkbox__box::before {
+  display: none;
+}
+
+.hb-checkbox:has(.hb-checkbox__control[aria-checked='mixed']) .hb-checkbox__box::after,
+.hb-checkbox:has(.hb-checkbox__control[data-state='indeterminate']) .hb-checkbox__box::after {
+  display: block;
+}
+
+.hb-checkbox:has(.hb-checkbox__control[aria-checked='mixed']):hover,
+.hb-checkbox:has(.hb-checkbox__control[data-state='indeterminate']):hover {
+  --_checkbox-box-background: var(--hb-color-base-brand-hover);
+}
+
+/* State: disabled */
+.hb-checkbox:has(.hb-checkbox__control:disabled),
+.hb-checkbox:has(.hb-checkbox__control[disabled]),
+.hb-checkbox:has(.hb-checkbox__control[aria-disabled='true']),
+.hb-checkbox:has(.hb-checkbox__control[data-disabled]) {
+  --_checkbox-text-color: var(--hb-color-text-hint);
+  --_checkbox-box-background: var(--hb-color-base-generic-accent-disabled);
+  --_checkbox-box-border-color: transparent;
+
+  cursor: not-allowed;
+}
+
+.hb-checkbox:has(.hb-checkbox__control:disabled):hover,
+.hb-checkbox:has(.hb-checkbox__control[disabled]):hover,
+.hb-checkbox:has(.hb-checkbox__control[aria-disabled='true']):hover,
+.hb-checkbox:has(.hb-checkbox__control[data-disabled]):hover {
+  --_checkbox-box-background: var(--hb-color-base-generic-accent-disabled);
+  --_checkbox-box-border-color: transparent;
+}
+
+.hb-checkbox:has(.hb-checkbox__control:disabled):has(.hb-checkbox__control:checked),
+.hb-checkbox:has(.hb-checkbox__control[disabled]):has(.hb-checkbox__control:checked),
+.hb-checkbox:has(.hb-checkbox__control[aria-disabled='true']):has(.hb-checkbox__control[aria-checked='true']),
+.hb-checkbox:has(.hb-checkbox__control[data-disabled]):has(.hb-checkbox__control[data-state='checked']),
+.hb-checkbox:has(.hb-checkbox__control[aria-disabled='true']):has(.hb-checkbox__control[aria-checked='mixed']),
+.hb-checkbox:has(.hb-checkbox__control[data-disabled]):has(.hb-checkbox__control[data-state='indeterminate']) {
+  --_checkbox-icon-color: var(--hb-color-text-hint);
+}

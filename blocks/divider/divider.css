@@ -1,0 +1,86 @@
+/* hvab-blocks/blocks/divider/divider.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block divider
+ * @summary Non-interactive horizontal or vertical separator.
+ * @host hr, [role="separator"]
+ * @modifiers hb-divider_orientation_vertical, hb-divider_align_start|end
+ * @tokens --hb-divider-*
+ * @docs ./README.md
+ */
+
+.hb-divider {
+  --_divider-size: var(--hb-size-border-width);
+  --_divider-color: var(--hb-color-line-generic);
+  --_divider-content-gap: var(--hb-gap-2);
+
+  height: var(--hb-divider-size, var(--_divider-size));
+  margin: 0;
+  background: var(--hb-divider-color, var(--_divider-color));
+  border: none;
+}
+
+/* Labeled divider: pseudo-elements draw both line segments. */
+.hb-divider:not(:empty) {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+.hb-divider:not(:empty)::before,
+.hb-divider:not(:empty)::after {
+  content: '';
+}
+
+.hb-divider::before,
+.hb-divider::after {
+  flex-grow: 1;
+  height: var(--hb-divider-size, var(--_divider-size));
+  background: var(--hb-divider-color, var(--_divider-color));
+}
+
+.hb-divider::before {
+  margin-inline-end: var(--hb-divider-content-gap, var(--_divider-content-gap));
+}
+
+.hb-divider::after {
+  margin-inline-start: var(--hb-divider-content-gap, var(--_divider-content-gap));
+}
+
+/* Orientation: vertical. */
+.hb-divider.hb-divider_orientation_vertical {
+  align-self: stretch;
+  width: var(--hb-divider-size, var(--_divider-size));
+  height: auto;
+}
+
+.hb-divider.hb-divider_orientation_vertical:not(:empty) {
+  flex-direction: column;
+  width: auto;
+}
+
+.hb-divider.hb-divider_orientation_vertical::before,
+.hb-divider.hb-divider_orientation_vertical::after {
+  width: var(--hb-divider-size, var(--_divider-size));
+  height: auto;
+  margin-inline: 0;
+}
+
+.hb-divider.hb-divider_orientation_vertical::before {
+  margin-block-end: var(--hb-divider-content-gap, var(--_divider-content-gap));
+}
+
+.hb-divider.hb-divider_orientation_vertical::after {
+  margin-block-start: var(--hb-divider-content-gap, var(--_divider-content-gap));
+}
+
+/* Label alignment: hide the line segment on the aligned side. */
+.hb-divider.hb-divider_align_start::before {
+  display: none;
+}
+
+.hb-divider.hb-divider_align_end::after {
+  display: none;
+}

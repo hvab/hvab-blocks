@@ -1,0 +1,84 @@
+/* hvab-blocks/blocks/breadcrumbs/breadcrumbs.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block breadcrumbs
+ * @summary Navigation trail with separators between items.
+ * @host ol (inside a consumer-provided nav[aria-label])
+ * @elements hb-breadcrumbs__item, hb-breadcrumbs__link
+ * @states [aria-current="page"] (__link), [aria-disabled="true"]/[data-disabled] (__link)
+ * @tokens --hb-breadcrumbs-*
+ * @docs ./README.md
+ *
+ * Separators are drawn with ::before on every item but the first. Collapsing long trails
+ * into an overflow menu is consumer JS; without it the trail wraps (flex-wrap).
+ */
+
+.hb-breadcrumbs {
+  --_breadcrumbs-font-size: var(--hb-typography-body-1-size);
+  --_breadcrumbs-item-height: 24px;
+  --_breadcrumbs-text-color: var(--hb-color-text-primary);
+  --_breadcrumbs-link-color: currentcolor;
+  --_breadcrumbs-current-weight: var(--hb-typography-subheader-1-weight);
+  --_breadcrumbs-divider: '/';
+  --_breadcrumbs-divider-color: var(--hb-color-text-secondary);
+  --_breadcrumbs-divider-gap: var(--hb-gap-2);
+  --_breadcrumbs-link-radius: var(--hb-radius-xs);
+  --_breadcrumbs-focus-ring-width: var(--hb-focus-ring-width);
+  --_breadcrumbs-focus-ring-color: var(--hb-color-line-focus);
+  --_breadcrumbs-focus-ring-offset: var(--hb-focus-ring-offset);
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  font-size: var(--hb-breadcrumbs-font-size, var(--_breadcrumbs-font-size));
+  color: var(--hb-breadcrumbs-text-color, var(--_breadcrumbs-text-color));
+  list-style-type: none;
+}
+
+.hb-breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  height: var(--hb-breadcrumbs-item-height, var(--_breadcrumbs-item-height));
+  white-space: nowrap;
+}
+
+.hb-breadcrumbs__item:not(:first-child)::before {
+  padding-inline: var(--hb-breadcrumbs-divider-gap, var(--_breadcrumbs-divider-gap));
+  color: var(--hb-breadcrumbs-divider-color, var(--_breadcrumbs-divider-color));
+  content: var(--hb-breadcrumbs-divider, var(--_breadcrumbs-divider));
+}
+
+.hb-breadcrumbs__link {
+  color: var(--hb-breadcrumbs-link-color, var(--_breadcrumbs-link-color));
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--hb-breadcrumbs-link-radius, var(--_breadcrumbs-link-radius));
+  transition: color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-breadcrumbs__link:hover {
+  --_breadcrumbs-link-color: var(--hb-color-text-link-hover);
+}
+
+.hb-breadcrumbs__link:focus-visible {
+  outline: var(--hb-breadcrumbs-focus-ring-width, var(--_breadcrumbs-focus-ring-width)) solid
+    var(--hb-breadcrumbs-focus-ring-color, var(--_breadcrumbs-focus-ring-color));
+  outline-offset: var(--hb-breadcrumbs-focus-ring-offset, var(--_breadcrumbs-focus-ring-offset));
+}
+
+/* State: current page; declared after hover so equal specificity keeps the current color. */
+.hb-breadcrumbs__link[aria-current='page'] {
+  --_breadcrumbs-link-color: currentcolor;
+
+  font-weight: var(--hb-breadcrumbs-current-weight, var(--_breadcrumbs-current-weight));
+  cursor: default;
+}
+
+/* State: disabled */
+.hb-breadcrumbs__link[aria-disabled='true'],
+.hb-breadcrumbs__link[data-disabled] {
+  --_breadcrumbs-link-color: var(--hb-color-text-hint);
+
+  cursor: default;
+}

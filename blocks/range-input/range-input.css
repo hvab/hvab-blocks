@@ -1,0 +1,184 @@
+/* hvab-blocks/blocks/range-input/range-input.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block range-input
+ * @summary Native range input chrome with optional marks.
+ * @elements hb-range-input__control, hb-range-input__marks
+ * @modifiers hb-range-input_size_s|m|l|xl
+ * @states [aria-invalid="true"], [aria-disabled="true"], :disabled
+ * @tokens --hb-range-input-*
+ * @docs ./README.md
+ */
+
+.hb-range-input {
+  --_range-input-track-size: 4px;
+  --_range-input-thumb-size: 18px;
+  --_range-input-thumb-border-width: 4px;
+  --_range-input-radius: var(--hb-radius-xs);
+  --_range-input-thumb-radius: var(--hb-radius-round);
+  --_range-input-track-color: var(--hb-color-base-generic);
+  --_range-input-track-color-hover: var(--hb-color-base-generic-hover);
+  --_range-input-thumb-color: var(--hb-color-base-background);
+  --_range-input-thumb-border-color: var(--hb-color-base-brand);
+  --_range-input-focus-ring-width: var(--hb-focus-ring-width);
+  --_range-input-focus-ring-color: var(--hb-color-line-focus);
+  --_range-input-marks-gap: var(--hb-gap-2);
+  --_range-input-mark-color: var(--hb-color-text-secondary);
+  --_range-input-mark-size: var(--hb-typography-caption-2-size);
+  --_range-input-mark-line: var(--hb-typography-caption-2-line);
+
+  box-sizing: border-box;
+  display: grid;
+  gap: var(--hb-range-input-marks-gap, var(--_range-input-marks-gap));
+  width: 100%;
+}
+
+.hb-range-input__control {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--hb-range-input-thumb-size, var(--_range-input-thumb-size));
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.hb-range-input__control::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  height: var(--hb-range-input-track-size, var(--_range-input-track-size));
+  background: var(--hb-range-input-track-color, var(--_range-input-track-color));
+  border-radius: var(--hb-range-input-radius, var(--_range-input-radius));
+}
+
+.hb-range-input__control::-moz-range-track {
+  box-sizing: border-box;
+  height: var(--hb-range-input-track-size, var(--_range-input-track-size));
+  background: var(--hb-range-input-track-color, var(--_range-input-track-color));
+  border-radius: var(--hb-range-input-radius, var(--_range-input-radius));
+}
+
+.hb-range-input__control::-moz-range-progress {
+  height: var(--hb-range-input-track-size, var(--_range-input-track-size));
+  background: var(--hb-range-input-track-color, var(--_range-input-track-color));
+  border-radius: var(--hb-range-input-radius, var(--_range-input-radius));
+}
+
+.hb-range-input__control::-webkit-slider-thumb {
+  box-sizing: border-box;
+  width: var(--hb-range-input-thumb-size, var(--_range-input-thumb-size));
+  height: var(--hb-range-input-thumb-size, var(--_range-input-thumb-size));
+  margin-block-start: calc(
+    (
+        var(--hb-range-input-track-size, var(--_range-input-track-size)) -
+          var(--hb-range-input-thumb-size, var(--_range-input-thumb-size))
+      ) /
+      2
+  );
+  appearance: none;
+  background: var(--hb-range-input-thumb-color, var(--_range-input-thumb-color));
+  border: var(--hb-range-input-thumb-border-width, var(--_range-input-thumb-border-width)) solid
+    var(--hb-range-input-thumb-border-color, var(--_range-input-thumb-border-color));
+  border-radius: var(--hb-range-input-thumb-radius, var(--_range-input-thumb-radius));
+}
+
+.hb-range-input__control::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--hb-range-input-thumb-size, var(--_range-input-thumb-size));
+  height: var(--hb-range-input-thumb-size, var(--_range-input-thumb-size));
+  appearance: none;
+  background: var(--hb-range-input-thumb-color, var(--_range-input-thumb-color));
+  border: var(--hb-range-input-thumb-border-width, var(--_range-input-thumb-border-width)) solid
+    var(--hb-range-input-thumb-border-color, var(--_range-input-thumb-border-color));
+  border-radius: var(--hb-range-input-thumb-radius, var(--_range-input-thumb-radius));
+}
+
+.hb-range-input__marks {
+  display: flex;
+  justify-content: space-between;
+  min-width: 0;
+  margin-block-start: calc(var(--hb-range-input-marks-gap, var(--_range-input-marks-gap)) * -1);
+  font-size: var(--hb-range-input-mark-size, var(--_range-input-mark-size));
+  line-height: var(--hb-range-input-mark-line, var(--_range-input-mark-line));
+  color: var(--hb-range-input-mark-color, var(--_range-input-mark-color));
+}
+
+.hb-range-input__marks option {
+  min-width: 0;
+  padding: 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.hb-range-input__marks option:first-child {
+  text-align: start;
+}
+
+.hb-range-input__marks option:last-child {
+  text-align: end;
+}
+
+.hb-range-input__control:hover {
+  --_range-input-track-color: var(--hb-range-input-track-color-hover, var(--_range-input-track-color-hover));
+}
+
+.hb-range-input__control:focus-visible {
+  outline: none;
+}
+
+.hb-range-input__control:focus-visible::-webkit-slider-thumb {
+  outline: var(--hb-range-input-focus-ring-width, var(--_range-input-focus-ring-width)) solid
+    var(--hb-range-input-focus-ring-color, var(--_range-input-focus-ring-color));
+}
+
+.hb-range-input__control:focus-visible::-moz-range-thumb {
+  outline: var(--hb-range-input-focus-ring-width, var(--_range-input-focus-ring-width)) solid
+    var(--hb-range-input-focus-ring-color, var(--_range-input-focus-ring-color));
+}
+
+/* Sizes */
+.hb-range-input.hb-range-input_size_s {
+  --_range-input-track-size: 3px;
+  --_range-input-thumb-size: 15px;
+  --_range-input-thumb-border-width: 3px;
+}
+
+.hb-range-input.hb-range-input_size_m {
+  --_range-input-track-size: 4px;
+  --_range-input-thumb-size: 18px;
+  --_range-input-thumb-border-width: 4px;
+}
+
+.hb-range-input.hb-range-input_size_l {
+  --_range-input-track-size: 5px;
+  --_range-input-thumb-size: 21px;
+  --_range-input-thumb-border-width: 5px;
+}
+
+.hb-range-input.hb-range-input_size_xl {
+  --_range-input-track-size: 6px;
+  --_range-input-thumb-size: 24px;
+  --_range-input-thumb-border-width: 6px;
+}
+
+/* State: invalid. */
+.hb-range-input[aria-invalid='true'],
+.hb-range-input__control[aria-invalid='true'] {
+  --_range-input-track-color: var(--hb-color-line-danger);
+  --_range-input-track-color-hover: var(--hb-color-line-danger);
+  --_range-input-thumb-border-color: var(--hb-color-line-danger);
+  --_range-input-focus-ring-color: var(--hb-color-line-danger);
+}
+
+/* State: disabled */
+.hb-range-input[aria-disabled='true'],
+.hb-range-input__control:disabled,
+.hb-range-input__control[disabled],
+.hb-range-input__control[aria-disabled='true'] {
+  --_range-input-track-color: var(--hb-color-base-generic-accent-disabled);
+  --_range-input-track-color-hover: var(--hb-color-base-generic-accent-disabled);
+  --_range-input-thumb-border-color: var(--hb-color-base-generic-accent-disabled);
+  --_range-input-mark-color: var(--hb-color-text-hint);
+
+  cursor: not-allowed;
+}

@@ -1,0 +1,51 @@
+/* hvab-blocks/blocks/popover/popover.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block popover
+ * @summary Overlay skin for a floating content panel: menus, popovers, dropdown surfaces.
+ * @host div
+ * @states [data-state="open"|"closed"]
+ * @tokens --hb-popover-*
+ * @docs ./README.md
+ *
+ * Unlike tooltip, this is a LARGE surface with arbitrary content, hence a base-float
+ * background with a line-generic border plus a shadow (the border reads on any page background).
+ * Positioning (coordinates, flip, collisions, anchor) and focus-trap are Floating UI/consumer.
+ * No arrow in v1 — that is tooltip's case; add one separately if a screen needs it.
+ */
+
+.hb-popover {
+  --_popover-min-width: 160px;
+  --_popover-max-width: 360px;
+  --_popover-padding: var(--hb-gap-2);
+  --_popover-radius: var(--hb-radius-m);
+  --_popover-background: var(--hb-color-base-float);
+  --_popover-border-width: var(--hb-size-border-width);
+  --_popover-border-color: var(--hb-color-line-generic);
+  --_popover-shadow: 0 8px 20px 0 var(--hb-color-sfx-shadow);
+  --_popover-text-color: var(--hb-color-text-primary);
+  --_popover-visibility: visible;
+  --_popover-opacity: 1;
+
+  box-sizing: border-box;
+  visibility: var(--hb-popover-visibility, var(--_popover-visibility));
+  min-width: var(--hb-popover-min-width, var(--_popover-min-width));
+  max-width: var(--hb-popover-max-width, var(--_popover-max-width));
+  padding: var(--hb-popover-padding, var(--_popover-padding));
+  color: var(--hb-popover-text-color, var(--_popover-text-color));
+  background-color: var(--hb-popover-background, var(--_popover-background));
+  border: var(--hb-popover-border-width, var(--_popover-border-width)) solid
+    var(--hb-popover-border-color, var(--_popover-border-color));
+  border-radius: var(--hb-popover-radius, var(--_popover-radius));
+  box-shadow: var(--hb-popover-shadow, var(--_popover-shadow));
+  opacity: var(--hb-popover-opacity, var(--_popover-opacity));
+  transition:
+    opacity var(--hb-duration-fast) var(--hb-ease-out),
+    visibility var(--hb-duration-fast) var(--hb-ease-out);
+}
+
+/* State: closed fade; consumers may also unmount instead. */
+.hb-popover[data-state='closed'] {
+  --_popover-visibility: hidden;
+  --_popover-opacity: 0;
+}

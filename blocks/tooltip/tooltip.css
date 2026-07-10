@@ -1,0 +1,81 @@
+/* hvab-blocks/blocks/tooltip/tooltip.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block tooltip
+ * @summary Overlay skin for contextual hints.
+ * @host [role="tooltip"]
+ * @elements hb-tooltip__arrow
+ * @states [data-state="open"], [data-state="closed"], [data-side="top|right|bottom|left"]
+ * @tokens --hb-tooltip-*
+ * @docs ./README.md
+ */
+
+.hb-tooltip {
+  --_tooltip-max-width: 360px;
+  --_tooltip-padding-block: var(--hb-gap-1);
+  --_tooltip-padding-inline: var(--hb-gap-2);
+  --_tooltip-radius: var(--hb-radius-s);
+  --_tooltip-font-size: var(--hb-typography-body-short-size);
+  --_tooltip-line: var(--hb-typography-body-short-line);
+  --_tooltip-font-weight: var(--hb-typography-body-short-weight);
+  --_tooltip-text-color: var(--hb-color-text-brand-contrast);
+  --_tooltip-background: var(--hb-color-base-brand);
+  --_tooltip-shadow: 0 3px 10px 0 var(--hb-color-sfx-shadow);
+  --_tooltip-arrow-size: 8px;
+  --_tooltip-visibility: visible;
+  --_tooltip-opacity: 1;
+
+  position: relative;
+  box-sizing: border-box;
+  visibility: var(--hb-tooltip-visibility, var(--_tooltip-visibility));
+  max-width: var(--hb-tooltip-max-width, var(--_tooltip-max-width));
+  padding: var(--hb-tooltip-padding-block, var(--_tooltip-padding-block))
+    var(--hb-tooltip-padding-inline, var(--_tooltip-padding-inline));
+  font-size: var(--hb-tooltip-font-size, var(--_tooltip-font-size));
+  font-weight: var(--hb-tooltip-font-weight, var(--_tooltip-font-weight));
+  line-height: var(--hb-tooltip-line, var(--_tooltip-line));
+  color: var(--hb-tooltip-text-color, var(--_tooltip-text-color));
+  overflow-wrap: break-word;
+  background-color: var(--hb-tooltip-background, var(--_tooltip-background));
+  border-radius: var(--hb-tooltip-radius, var(--_tooltip-radius));
+  box-shadow: var(--hb-tooltip-shadow, var(--_tooltip-shadow));
+  opacity: var(--hb-tooltip-opacity, var(--_tooltip-opacity));
+  transition:
+    opacity var(--hb-duration-fast) var(--hb-ease-out),
+    visibility var(--hb-duration-fast) var(--hb-ease-out);
+}
+
+/* Arrow: a 45-degree diamond overlapped by 1px to hide side corners. */
+.hb-tooltip__arrow {
+  position: absolute;
+  width: var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size));
+  height: var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size));
+  background-color: var(--hb-tooltip-background, var(--_tooltip-background));
+  transform: rotate(45deg);
+}
+
+.hb-tooltip[data-side='top'] .hb-tooltip__arrow {
+  inset-block-end: calc(var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / -2 + 1px);
+  inset-inline-start: calc(50% - var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / 2);
+}
+
+.hb-tooltip[data-side='bottom'] .hb-tooltip__arrow {
+  inset-block-start: calc(var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / -2 + 1px);
+  inset-inline-start: calc(50% - var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / 2);
+}
+
+.hb-tooltip[data-side='left'] .hb-tooltip__arrow {
+  inset-block-start: calc(50% - var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / 2);
+  inset-inline-end: calc(var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / -2 + 1px);
+}
+
+.hb-tooltip[data-side='right'] .hb-tooltip__arrow {
+  inset-block-start: calc(50% - var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / 2);
+  inset-inline-start: calc(var(--hb-tooltip-arrow-size, var(--_tooltip-arrow-size)) / -2 + 1px);
+}
+
+/* State: closed. Consumers may also unmount instead. */
+.hb-tooltip[data-state='closed'] {
+  --_tooltip-visibility: hidden;
+  --_tooltip-opacity: 0;
+}

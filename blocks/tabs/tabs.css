@@ -1,0 +1,109 @@
+/* hvab-blocks/blocks/tabs/tabs.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @block tabs
+ * @summary Tab list skin: the tablist itself plus its tab items.
+ * @host div[role="tablist"]
+ * @elements hb-tabs__tab
+ * @modifiers hb-tabs_size_l|xl, hb-tabs_overflow_scroll
+ * @states [aria-selected="true"]/[data-state="active"] (__tab), :disabled/[aria-disabled]/[data-disabled] (__tab)
+ * @tokens --hb-tabs-*
+ * @docs ./README.md
+ *
+ * Panel switching, keyboard navigation, and aria-controls are consumer/headless-lib behavior;
+ * panels hide via native `hidden`. The underline is a border, animated through --hb-duration-*.
+ */
+
+.hb-tabs {
+  --_tabs-item-height: 36px;
+  --_tabs-item-gap: 24px;
+  --_tabs-indicator-width: 2px;
+  --_tabs-indicator-color: var(--hb-color-line-brand);
+  --_tabs-line-width: var(--hb-size-border-width);
+  --_tabs-line-color: var(--hb-color-line-generic);
+  --_tabs-font-size: var(--hb-typography-body-1-size);
+  --_tabs-text-color: var(--hb-color-text-secondary);
+  --_tabs-text-color-active: var(--hb-color-text-primary);
+  --_tabs-focus-ring-width: var(--hb-focus-ring-width);
+  --_tabs-focus-ring-color: var(--hb-color-line-focus);
+  --_tabs-focus-ring-offset: calc(-1 * var(--hb-focus-ring-width));
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--hb-tabs-item-gap, var(--_tabs-item-gap));
+  align-items: flex-end;
+  box-shadow: inset 0 calc(-1 * var(--hb-tabs-line-width, var(--_tabs-line-width))) 0 0
+    var(--hb-tabs-line-color, var(--_tabs-line-color));
+}
+
+.hb-tabs__tab {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: var(--hb-tabs-item-height, var(--_tabs-item-height));
+  padding: 0;
+  padding-block-start: var(--hb-tabs-indicator-width, var(--_tabs-indicator-width));
+  font-family: inherit;
+  font-size: var(--hb-tabs-font-size, var(--_tabs-font-size));
+  color: var(--hb-tabs-text-color, var(--_tabs-text-color));
+  white-space: nowrap;
+  text-decoration: none;
+  appearance: none;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  border-block-end: var(--hb-tabs-indicator-width, var(--_tabs-indicator-width)) solid transparent;
+  transition:
+    color var(--hb-duration-fast) var(--hb-ease-linear),
+    border-color var(--hb-duration-fast) var(--hb-ease-linear);
+}
+
+.hb-tabs__tab:hover {
+  color: var(--hb-tabs-text-color-active, var(--_tabs-text-color-active));
+}
+
+.hb-tabs__tab:focus-visible {
+  outline: var(--hb-tabs-focus-ring-width, var(--_tabs-focus-ring-width)) solid
+    var(--hb-tabs-focus-ring-color, var(--_tabs-focus-ring-color));
+  outline-offset: var(--hb-tabs-focus-ring-offset, var(--_tabs-focus-ring-offset));
+}
+
+/* Overflow: horizontal scroll instead of wrapping. */
+.hb-tabs.hb-tabs_overflow_scroll {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* Sizes */
+.hb-tabs.hb-tabs_size_l {
+  --_tabs-item-height: 40px;
+  --_tabs-item-gap: 28px;
+  --_tabs-font-size: var(--hb-typography-body-2-size);
+}
+
+.hb-tabs.hb-tabs_size_xl {
+  --_tabs-item-height: 44px;
+  --_tabs-item-gap: 32px;
+  --_tabs-indicator-width: 3px;
+  --_tabs-font-size: var(--hb-typography-subheader-3-size);
+}
+
+/* State: active; hover and active resolve to the same text color. */
+.hb-tabs__tab[aria-selected='true'],
+.hb-tabs__tab[data-state='active'] {
+  --_tabs-text-color: var(--hb-tabs-text-color-active, var(--_tabs-text-color-active));
+
+  cursor: default;
+  border-block-end-color: var(--hb-tabs-indicator-color, var(--_tabs-indicator-color));
+}
+
+/* State: disabled */
+.hb-tabs__tab:disabled,
+.hb-tabs__tab[aria-disabled='true'],
+.hb-tabs__tab[data-disabled] {
+  --_tabs-text-color: var(--hb-color-text-hint);
+  --_tabs-text-color-active: var(--hb-color-text-hint);
+
+  cursor: not-allowed;
+}

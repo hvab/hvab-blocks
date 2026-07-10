@@ -1,0 +1,145 @@
+/* hvab-blocks/tokens/color.css (canonical source; see VENDOR.md for vendoring and resync) */
+
+/**
+ * @foundation color
+ * @summary Scheme-aware semantic color roles for text, base, line, and sfx.
+ * @tokens --hb-color-*
+ * @scheme :root, [data-color-scheme='light'], [data-color-scheme='dark']
+ * @docs ./README.md
+ *
+ * Brand roles are monochrome and invert between schemes. Add color roles only when a block needs them,
+ * always as light/dark pairs.
+ */
+
+:root,
+[data-color-scheme='light'] {
+  /* text */
+  --hb-color-text-primary: rgb(0 0 0 / 85%);
+  --hb-color-text-secondary: rgb(0 0 0 / 50%);
+  --hb-color-text-hint: rgb(0 0 0 / 30%);
+  --hb-color-text-brand: rgb(22 24 29);
+  --hb-color-text-brand-contrast: rgb(255 255 255);
+  --hb-color-text-link: rgb(22 24 29);
+  --hb-color-text-link-hover: rgb(42 45 52);
+  --hb-color-text-link-visited: rgb(22 24 29);
+  --hb-color-text-link-visited-hover: rgb(42 45 52);
+  --hb-color-text-info: rgb(52 139 220);
+  --hb-color-text-positive: rgb(48 170 110);
+  --hb-color-text-warning: rgb(189 142 75);
+  --hb-color-text-danger: rgb(233 3 58);
+  --hb-color-text-complementary: rgb(0 0 0 / 70%);
+  --hb-color-text-misc-heavy: rgb(85 101 117);
+  --hb-color-text-positive-heavy: rgb(45 139 93);
+  --hb-color-text-info-heavy: rgb(48 114 179);
+  --hb-color-text-warning-heavy: rgb(189 92 10);
+  --hb-color-text-danger-heavy: rgb(189 9 53);
+
+  /* base */
+  --hb-color-base-background: rgb(255 255 255);
+  --hb-color-base-generic: rgb(0 0 0 / 5%);
+  --hb-color-base-generic-hover: rgb(0 0 0 / 15%);
+  --hb-color-base-generic-medium: rgb(0 0 0 / 15%);
+  --hb-color-base-generic-medium-hover: rgb(0 0 0 / 25%);
+  --hb-color-base-generic-accent-disabled: rgb(0 0 0 / 7%);
+  --hb-color-base-simple-hover: rgb(0 0 0 / 5%);
+  --hb-color-base-brand: rgb(22 24 29);
+  --hb-color-base-brand-hover: rgb(42 45 52);
+  --hb-color-base-float: rgb(255 255 255);
+  --hb-color-base-float-hover: rgb(242 242 242);
+  --hb-color-base-modal: rgb(255 255 255);
+  --hb-color-base-selection: rgb(22 24 29 / 8%);
+  --hb-color-base-misc-light: rgb(107 132 153 / 15%);
+  --hb-color-base-positive-light: rgb(50 186 118 / 15%);
+  --hb-color-base-info-light: rgb(54 151 241 / 15%);
+  --hb-color-base-warning-light: rgb(255 190 92 / 30%);
+  --hb-color-base-danger-light: rgb(255 0 61 / 15%);
+  --hb-color-base-neutral-light: rgb(0 0 0 / 5%);
+  --hb-color-base-neutral-medium: rgb(0 0 0 / 20%);
+  --hb-color-base-info-medium: rgb(54 151 241 / 30%);
+  --hb-color-base-positive-medium: rgb(50 186 118 / 30%);
+  --hb-color-base-warning-medium: rgb(255 190 92 / 70%);
+  --hb-color-base-danger-medium: rgb(255 0 61 / 30%);
+
+  /* line */
+  --hb-color-line-generic: rgb(0 0 0 / 10%);
+  --hb-color-line-generic-hover: rgb(0 0 0 / 15%);
+  --hb-color-line-generic-active: rgb(0 0 0 / 30%);
+  --hb-color-line-generic-accent: rgb(0 0 0 / 15%);
+  --hb-color-line-generic-accent-hover: rgb(0 0 0 / 30%);
+  --hb-color-line-brand: rgb(22 24 29);
+  --hb-color-line-focus: rgb(107 132 153 / 80%);
+  --hb-color-line-danger: rgb(255 0 61 / 80%);
+
+  /* sfx */
+  --hb-color-sfx-shadow: rgb(0 0 0 / 15%);
+  --hb-color-sfx-shadow-light: rgb(0 0 0 / 5%);
+  --hb-color-sfx-shadow-heavy: rgb(0 0 0 / 50%);
+  --hb-color-sfx-veil: rgb(0 0 0 / 25%);
+  --hb-color-sfx-fade: rgb(255 255 255 / 30%);
+}
+
+[data-color-scheme='dark'] {
+  /* text */
+  --hb-color-text-primary: rgb(255 255 255 / 85%);
+  --hb-color-text-secondary: rgb(255 255 255 / 50%);
+  --hb-color-text-hint: rgb(255 255 255 / 30%);
+  --hb-color-text-brand: rgb(242 243 245);
+  --hb-color-text-brand-contrast: rgb(22 24 29);
+  --hb-color-text-link: rgb(242 243 245);
+  --hb-color-text-link-hover: rgb(222 224 228);
+  --hb-color-text-link-visited: rgb(242 243 245);
+  --hb-color-text-link-visited-hover: rgb(222 224 228);
+  --hb-color-text-info: rgb(54 151 241);
+  --hb-color-text-positive: rgb(77 176 155);
+  --hb-color-text-warning: rgb(255 190 92);
+  --hb-color-text-danger: rgb(229 50 93);
+  --hb-color-text-complementary: rgb(255 255 255 / 70%);
+  --hb-color-text-misc-heavy: rgb(128 153 176);
+  --hb-color-text-positive-heavy: rgb(95 184 165);
+  --hb-color-text-info-heavy: rgb(74 161 242);
+  --hb-color-text-warning-heavy: rgb(255 197 108);
+  --hb-color-text-danger-heavy: rgb(232 71 109);
+
+  /* base */
+  --hb-color-base-background: rgb(0 0 0);
+  --hb-color-base-generic: rgb(255 255 255 / 10%);
+  --hb-color-base-generic-hover: rgb(255 255 255 / 15%);
+  --hb-color-base-generic-medium: rgb(255 255 255 / 25%);
+  --hb-color-base-generic-medium-hover: rgb(255 255 255 / 30%);
+  --hb-color-base-generic-accent-disabled: rgb(255 255 255 / 7%);
+  --hb-color-base-simple-hover: rgb(255 255 255 / 10%);
+  --hb-color-base-brand: rgb(242 243 245);
+  --hb-color-base-brand-hover: rgb(222 224 228);
+  --hb-color-base-float: rgb(56 52 56);
+  --hb-color-base-float-hover: rgb(67 63 67);
+  --hb-color-base-modal: rgb(34 29 34);
+  --hb-color-base-selection: rgb(242 243 245 / 12%);
+  --hb-color-base-misc-light: rgb(96 128 156 / 20%);
+  --hb-color-base-positive-light: rgb(77 176 155 / 20%);
+  --hb-color-base-info-light: rgb(54 151 241 / 20%);
+  --hb-color-base-warning-light: rgb(255 190 92 / 20%);
+  --hb-color-base-danger-light: rgb(229 50 93 / 20%);
+  --hb-color-base-neutral-light: rgb(255 255 255 / 10%);
+  --hb-color-base-neutral-medium: rgb(255 255 255 / 25%);
+  --hb-color-base-info-medium: rgb(54 151 241 / 50%);
+  --hb-color-base-positive-medium: rgb(77 176 155 / 50%);
+  --hb-color-base-warning-medium: rgb(255 190 92 / 50%);
+  --hb-color-base-danger-medium: rgb(229 50 93 / 50%);
+
+  /* line */
+  --hb-color-line-generic: rgb(255 255 255 / 15%);
+  --hb-color-line-generic-hover: rgb(255 255 255 / 25%);
+  --hb-color-line-generic-active: rgb(255 255 255 / 30%);
+  --hb-color-line-generic-accent: rgb(255 255 255 / 15%);
+  --hb-color-line-generic-accent-hover: rgb(255 255 255 / 30%);
+  --hb-color-line-brand: rgb(242 243 245);
+  --hb-color-line-focus: rgb(96 128 156 / 80%);
+  --hb-color-line-danger: rgb(229 50 93 / 80%);
+
+  /* sfx */
+  --hb-color-sfx-shadow: rgb(0 0 0 / 20%);
+  --hb-color-sfx-shadow-light: rgb(0 0 0 / 20%);
+  --hb-color-sfx-shadow-heavy: rgb(0 0 0 / 50%);
+  --hb-color-sfx-veil: rgb(0 0 0 / 60%);
+  --hb-color-sfx-fade: rgb(255 255 255 / 25%);
+}
