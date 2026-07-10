@@ -52,7 +52,7 @@ The library styles structure and documented states. Consumers supply framework b
 
 ## Demo
 
-The static catalogue is deployed to [GitHub Pages](https://hvab.github.io/hvab-blocks/). The root page redirects to the generated `demo/` catalogue.
+The static catalogue is deployed to [GitHub Pages](https://hvab.github.io/hvab-blocks/).
 
 ## Local development
 
