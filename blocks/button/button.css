@@ -133,7 +133,7 @@
   --_button-text-color-hover: var(--hb-color-text-hint);
   --_button-background: var(--hb-color-base-generic-accent-disabled);
   --_button-background-hover: var(--hb-color-base-generic-accent-disabled);
-  --_button-border-width: 0;
+  --_button-border-color: transparent;
 
   cursor: not-allowed;
 }
