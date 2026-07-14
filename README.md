@@ -36,7 +36,7 @@ Read [USAGE.md](USAGE.md) before integrating blocks. It covers the two integrati
 ## What is included
 
 - Design tokens for colour schemes, typography, radius, spacing, motion, control size, and focus rings.
-- 31 CSS blocks for content, feedback, forms, surfaces, navigation, and overlays.
+- 32 CSS blocks for content, feedback, forms, surfaces, navigation, and overlays, including segmented radio groups.
 - Per-block README files with markup, modifiers, states, public tokens, and limits.
 - A generated static HTML catalogue under `demo/`.
 

@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 The public API consists of `hb-*` block classes, public `--hb-*` system and component tokens, and documented state attributes. Private `--_<block>-*` tokens are implementation details.
 
+## [0.2.0] - 2026-07-14
+
+### Added
+
+- `hb-radio-group`: segmented native radio controls with selected, hover, disabled, focus-visible, size, and width states.
+
 ## [0.1.1] - 2026-07-14
 
 ### Fixed

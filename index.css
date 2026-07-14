@@ -28,6 +28,7 @@
 @import url('blocks/color-input/color-input.css');
 @import url('blocks/checkbox/checkbox.css');
 @import url('blocks/radio/radio.css');
+@import url('blocks/radio-group/radio-group.css');
 @import url('blocks/switch/switch.css');
 @import url('blocks/skeleton/skeleton.css');
 @import url('blocks/progress/progress.css');
