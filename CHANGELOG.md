@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 The public API consists of `hb-*` block classes, public `--hb-*` system and component tokens, and documented state attributes. Private `--_<block>-*` tokens are implementation details.
 
+## [0.1.1] - 2026-07-14
+
+### Fixed
+
+- Disabled outlined buttons retain a transparent border footprint, preventing layout shifts when their state changes.
+
 ## [0.1.0] - 2026-07-10
 
 First public release of the portable CSS source tree.
