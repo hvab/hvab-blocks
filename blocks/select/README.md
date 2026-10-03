@@ -112,6 +112,10 @@ Native select chrome. The class is applied directly to `select`; the dropdown, o
 </select>
 ```
 
+## Forced Colors
+
+In `forced-colors: active`, the native select appearance supplies the dropdown indicator and the custom gradient arrow is removed. Arrow color and size tokens apply to the custom arrow in ordinary mode; the browser owns the native indicator in forced colors. Geometry tokens remain available, and disabled colors use the system palette. The select retains automatic color adjustment, native keyboard behavior and semantics. `aria-disabled` alone does not prevent interaction; consumers still enforce it.
+
 ## Limits
 
 The block does not implement a custom popup, hidden select, multi-select UI, search, clear button, or custom option rendering.

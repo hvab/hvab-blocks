@@ -196,3 +196,86 @@
   ) {
   --_checkbox-icon-color: var(--hb-color-text-hint);
 }
+
+/* Keep the custom indicator in the user's system palette. */
+@media (forced-colors: active) {
+  .hb-checkbox {
+    --_checkbox-box-background: buttonface;
+    --_checkbox-box-border-color: buttontext;
+    --_checkbox-icon-color: transparent;
+    --_checkbox-focus-ring-color: highlight;
+  }
+
+  .hb-checkbox:hover {
+    --_checkbox-box-border-color: buttontext;
+  }
+
+  .hb-checkbox:has(
+    .hb-checkbox__control:checked,
+    .hb-checkbox__control[aria-checked='true'],
+    .hb-checkbox__control[data-state='checked'],
+    .hb-checkbox__control[aria-checked='mixed'],
+    .hb-checkbox__control[data-state='indeterminate']
+  ),
+  .hb-checkbox:has(
+      .hb-checkbox__control:checked,
+      .hb-checkbox__control[aria-checked='true'],
+      .hb-checkbox__control[data-state='checked'],
+      .hb-checkbox__control[aria-checked='mixed'],
+      .hb-checkbox__control[data-state='indeterminate']
+    ):hover {
+    --_checkbox-box-background: buttonface;
+    --_checkbox-box-border-color: buttontext;
+    --_checkbox-icon-color: buttontext;
+  }
+
+  .hb-checkbox:has(
+    .hb-checkbox__control:disabled,
+    .hb-checkbox__control[disabled],
+    .hb-checkbox__control[aria-disabled='true'],
+    .hb-checkbox__control[data-disabled]
+  ),
+  .hb-checkbox:has(
+      .hb-checkbox__control:disabled,
+      .hb-checkbox__control[disabled],
+      .hb-checkbox__control[aria-disabled='true'],
+      .hb-checkbox__control[data-disabled]
+    ):hover {
+    --_checkbox-text-color: graytext;
+    --_checkbox-box-background: buttonface;
+    --_checkbox-box-border-color: graytext;
+  }
+
+  .hb-checkbox:has(
+      .hb-checkbox__control:disabled,
+      .hb-checkbox__control[disabled],
+      .hb-checkbox__control[aria-disabled='true'],
+      .hb-checkbox__control[data-disabled]
+    ):has(
+      .hb-checkbox__control:checked,
+      .hb-checkbox__control[aria-checked='true'],
+      .hb-checkbox__control[data-state='checked'],
+      .hb-checkbox__control[aria-checked='mixed'],
+      .hb-checkbox__control[data-state='indeterminate']
+    ) {
+    --_checkbox-icon-color: graytext;
+  }
+
+  /* Only this system-colored paint surface opts out of automatic remapping. */
+  .hb-checkbox__box {
+    forced-color-adjust: none;
+  }
+
+  .hb-checkbox:not(
+      :has(
+        .hb-checkbox__control:checked,
+        .hb-checkbox__control[aria-checked='true'],
+        .hb-checkbox__control[data-state='checked'],
+        .hb-checkbox__control[aria-checked='mixed'],
+        .hb-checkbox__control[data-state='indeterminate']
+      )
+    )
+    .hb-checkbox__box::before {
+    display: none;
+  }
+}
