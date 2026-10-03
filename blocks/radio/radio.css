@@ -157,3 +157,78 @@
   ):has(.hb-radio__control:checked, .hb-radio__control[aria-checked='true'], .hb-radio__control[data-state='checked']) {
   --_radio-disc-color: var(--hb-color-text-hint);
 }
+
+/* Keep the custom indicator in the user's system palette. */
+@media (forced-colors: active) {
+  .hb-radio {
+    --_radio-box-background: buttonface;
+    --_radio-box-border-color: buttontext;
+    --_radio-disc-color: transparent;
+    --_radio-focus-ring-color: highlight;
+  }
+
+  .hb-radio:hover {
+    --_radio-box-border-color: buttontext;
+  }
+
+  .hb-radio:has(
+    .hb-radio__control:checked,
+    .hb-radio__control[aria-checked='true'],
+    .hb-radio__control[data-state='checked']
+  ),
+  .hb-radio:has(
+      .hb-radio__control:checked,
+      .hb-radio__control[aria-checked='true'],
+      .hb-radio__control[data-state='checked']
+    ):hover {
+    --_radio-box-background: buttonface;
+    --_radio-box-border-color: buttontext;
+    --_radio-disc-color: buttontext;
+  }
+
+  .hb-radio:has(
+    .hb-radio__control:disabled,
+    .hb-radio__control[disabled],
+    .hb-radio__control[aria-disabled='true'],
+    .hb-radio__control[data-disabled]
+  ),
+  .hb-radio:has(
+      .hb-radio__control:disabled,
+      .hb-radio__control[disabled],
+      .hb-radio__control[aria-disabled='true'],
+      .hb-radio__control[data-disabled]
+    ):hover {
+    --_radio-text-color: graytext;
+    --_radio-box-background: buttonface;
+    --_radio-box-border-color: graytext;
+  }
+
+  .hb-radio:has(
+      .hb-radio__control:disabled,
+      .hb-radio__control[disabled],
+      .hb-radio__control[aria-disabled='true'],
+      .hb-radio__control[data-disabled]
+    ):has(
+      .hb-radio__control:checked,
+      .hb-radio__control[aria-checked='true'],
+      .hb-radio__control[data-state='checked']
+    ) {
+    --_radio-disc-color: graytext;
+  }
+
+  /* Only this system-colored paint surface opts out of automatic remapping. */
+  .hb-radio__box {
+    forced-color-adjust: none;
+  }
+
+  .hb-radio:not(
+      :has(
+        .hb-radio__control:checked,
+        .hb-radio__control[aria-checked='true'],
+        .hb-radio__control[data-state='checked']
+      )
+    )
+    .hb-radio__box::before {
+    display: none;
+  }
+}

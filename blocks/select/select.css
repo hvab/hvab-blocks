@@ -118,3 +118,19 @@
 
   cursor: not-allowed;
 }
+
+/* Let the native select paint its indicator when gradients are suppressed. */
+@media (forced-colors: active) {
+  .hb-select {
+    appearance: auto;
+    background-image: none;
+  }
+
+  .hb-select:disabled,
+  .hb-select[disabled],
+  .hb-select[aria-disabled='true'] {
+    --_select-text-color: graytext;
+    --_select-background: buttonface;
+    --_select-border-color: graytext;
+  }
+}

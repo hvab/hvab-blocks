@@ -10,6 +10,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ### Fixed
 
+- Forced-color controls preserve distinct unchecked, checked, mixed and disabled indicators, and selects retain their native dropdown arrow.
 - Disabled radio groups retain their muted styling on hover when the disabled state is set on the group.
 - Checked and mixed disabled controls use the existing disabled skin consistently across supported native, ARIA, and data attribute combinations.
 

@@ -159,3 +159,55 @@
   --_switch-track-background: var(--hb-color-base-brand);
   --_switch-box-opacity: 0.5;
 }
+
+/* Use system foreground/surface pairs for the track and thumb. */
+@media (forced-colors: active) {
+  .hb-switch {
+    --_switch-track-background: buttontext;
+    --_switch-slider-background: buttonface;
+    --_switch-focus-ring-color: highlight;
+  }
+
+  .hb-switch:hover {
+    --_switch-track-background: buttontext;
+  }
+
+  .hb-switch:has(
+    .hb-switch__control:checked,
+    .hb-switch__control[aria-checked='true'],
+    .hb-switch__control[data-state='checked']
+  ) {
+    --_switch-track-background: highlight;
+    --_switch-slider-background: highlighttext;
+  }
+
+  .hb-switch:has(
+    .hb-switch__control:disabled,
+    .hb-switch__control[disabled],
+    .hb-switch__control[aria-disabled='true'],
+    .hb-switch__control[data-disabled]
+  ) {
+    --_switch-text-color: graytext;
+    --_switch-track-background: graytext;
+    --_switch-slider-background: buttonface;
+  }
+
+  .hb-switch:has(
+      .hb-switch__control:checked,
+      .hb-switch__control[aria-checked='true'],
+      .hb-switch__control[data-state='checked']
+    ):has(
+      .hb-switch__control:disabled,
+      .hb-switch__control[disabled],
+      .hb-switch__control[aria-disabled='true'],
+      .hb-switch__control[data-disabled]
+    ) {
+    --_switch-track-background: graytext;
+    --_switch-slider-background: buttonface;
+    --_switch-box-opacity: 1;
+  }
+
+  .hb-switch__box {
+    forced-color-adjust: none;
+  }
+}
