@@ -6,7 +6,7 @@ Native single-line text input chrome. The class is applied directly to `input`; 
 
 ```html demo
 <input class="hb-text-input" type="text" placeholder="Theme name" />
-<input class="hb-text-input" type="text" value="My theme" />
+<input class="hb-text-input" type="text" aria-label="Theme name" value="My theme" />
 ```
 
 ## Sizes
@@ -21,9 +21,9 @@ Native single-line text input chrome. The class is applied directly to `input`; 
 ## States
 
 ```html demo
-<input class="hb-text-input" type="text" value="Default" />
-<input class="hb-text-input" type="text" value="Invalid" aria-invalid="true" />
-<input class="hb-text-input" type="text" value="Disabled" disabled />
+<input class="hb-text-input" type="text" aria-label="Theme name (default)" value="Default" />
+<input class="hb-text-input" type="text" aria-label="Theme name (invalid)" value="Invalid" aria-invalid="true" />
+<input class="hb-text-input" type="text" aria-label="Theme name (disabled)" value="Disabled" disabled />
 <input class="hb-text-input" type="text" placeholder="Placeholder" />
 ```
 
@@ -73,7 +73,13 @@ Native single-line text input chrome. The class is applied directly to `input`; 
 | `--hb-text-input-focus-ring-offset` | Focus outline offset. |
 
 ```html demo
-<input class="hb-text-input" type="text" value="Pill radius" style="--hb-text-input-radius: 999px" />
+<input
+  class="hb-text-input"
+  type="text"
+  aria-label="Theme name (pill radius)"
+  value="Pill radius"
+  style="--hb-text-input-radius: 999px"
+/>
 ```
 
 ## Limits

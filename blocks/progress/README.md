@@ -8,6 +8,7 @@ Static progress bar: a track with a fill sized by a public value token. The bloc
 <div
   class="hb-progress"
   role="progressbar"
+  aria-label="Theme export"
   aria-valuenow="42"
   aria-valuemin="0"
   aria-valuemax="100"
@@ -49,7 +50,14 @@ Static progress bar: a track with a fill sized by a public value token. The bloc
 Loading marks an indeterminate progress with a moving stripe fill. Pair it with `aria-busy="true"` since the numeric value is not meaningful while loading.
 
 ```html demo
-<div class="hb-progress" role="progressbar" data-loading aria-busy="true" style="--hb-progress-value: 100%">
+<div
+  class="hb-progress"
+  role="progressbar"
+  aria-label="Theme export"
+  data-loading
+  aria-busy="true"
+  style="--hb-progress-value: 100%"
+>
   <div class="hb-progress__item"></div>
 </div>
 ```
