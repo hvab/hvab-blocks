@@ -83,8 +83,10 @@ The modal block does not provide JavaScript behavior. The consumer owns:
 
 - opening/closing (`showModal()`/`close()` or toggling `data-state`);
 - focus-trap and `Escape` dismissal;
-- scroll lock for the div host (native `<dialog>` gets this from the UA);
+- background scroll policy for both hosts (native `<dialog>` does not guarantee scroll lock);
 - portal and stacking for the div host (native `<dialog>` uses the top layer).
+
+Calling `showModal()` places the native dialog in the top layer and makes the rest of the document inert. This is separate from preventing background scrolling. Verify wheel/touch scrolling and scroll-position restoration after close in the supported browsers. Reuse a headless library's existing scroll management when it provides the required policy; do not add a second lock automatically.
 
 ## Limits
 
