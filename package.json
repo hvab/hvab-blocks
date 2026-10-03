@@ -9,7 +9,8 @@
     "tokens",
     "blocks",
     "USAGE.md",
-    "VENDOR.md"
+    "VENDOR.md",
+    "CHANGELOG.md"
   ],
   "exports": {
     "./index.css": "./index.css",
@@ -27,6 +28,7 @@
     "demo:check": "node scripts/build-demo.mjs --check",
     "pages:build": "npm run demo:build && node scripts/build-pages.mjs",
     "docs:check": "node scripts/check-docs.mjs",
+    "pack:check": "node scripts/check-package.mjs",
     "lint:styles": "stylelint \"{tokens,blocks}/**/*.css\" index.css",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
