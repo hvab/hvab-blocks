@@ -14,6 +14,13 @@
 - `hb-radio-group` is documented and usable as an independent CSS block with native radio semantics. Completed.
 - The generated demos and release checks pass. Completed for the implementation; prepare `v0.2.0` locally without push.
 
+## Mobile layout audit
+
+### To do
+
+1. Check the mobile layout of every block, prioritising positioned and overlay-like elements: `modal`, `sheet`, `toast`, `tooltip`, popovers, and menus. Verify that content fits the viewport, remains reachable, and does not get clipped or overflow horizontally.
+2. Check the modal specifically on narrow viewports: its actions must remain fully visible and usable without overflowing the dialog, as in the reported Selecta screenshot.
+
 # Issue #5 — field/color-input import order
 
 Base: `5955feff38aeae132d847809ca1aaea8e5ff04c2` (`origin/main`).
@@ -65,3 +72,9 @@ Next: final gates, isolated Selecta build/runtime smoke, then own commit and dra
 - Merge note: preserve concurrent `.project/PROGRESS.md` tracks; this branch appends its own track to the committed baseline. The PR13 prompt-format prerequisite may overlap harmlessly when both PRs merge.
 
 Next: commit/push only the scoped files and create the authorized draft PR; report delivery/CI/mergeability separately.
+
+## Delivery
+
+- Draft PR: https://github.com/hvab/hvab-blocks/pull/15. Implementation commit: `e51922e9d21de8a635b5dde1a0f05ecdfb8335b8`.
+- The only intervening main change is the committed Mobile layout audit track (`14ad1a67b86c9b35d8b7ff3574b016ff6c7492c1`); its text is preserved before this branch's track to avoid the append conflict. No main/PR merge or force push is performed.
+- All implementation and verification steps are complete. Final remote SHA, checks and mergeability are reported in the task response.
