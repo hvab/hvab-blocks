@@ -149,9 +149,11 @@
   --_radio-box-border-color: transparent;
 }
 
-.hb-radio:has(.hb-radio__control:disabled):has(.hb-radio__control:checked),
-.hb-radio:has(.hb-radio__control[disabled]):has(.hb-radio__control:checked),
-.hb-radio:has(.hb-radio__control[aria-disabled='true']):has(.hb-radio__control[aria-checked='true']),
-.hb-radio:has(.hb-radio__control[data-disabled]):has(.hb-radio__control[data-state='checked']) {
+.hb-radio:has(
+    .hb-radio__control:disabled,
+    .hb-radio__control[disabled],
+    .hb-radio__control[aria-disabled='true'],
+    .hb-radio__control[data-disabled]
+  ):has(.hb-radio__control:checked, .hb-radio__control[aria-checked='true'], .hb-radio__control[data-state='checked']) {
   --_radio-disc-color: var(--hb-color-text-hint);
 }
