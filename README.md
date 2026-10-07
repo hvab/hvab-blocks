@@ -48,7 +48,7 @@ The library styles structure and documented states. Consumers supply framework b
 - [tokens/README.md](tokens/README.md) — token layers and theme overrides.
 - [VENDOR.md](VENDOR.md) — copy-first provenance and resync workflow.
 - [CHANGELOG.md](CHANGELOG.md) — public changes between releases.
-- [RELEASE.md](RELEASE.md) — maintainer release flow.
+- [RELEASE.md](https://github.com/hvab/hvab-blocks/blob/v0.2.0/RELEASE.md) — maintainer release flow.
 
 ## Demo
 
@@ -67,6 +67,7 @@ The static catalogue is served at `/demo/`; the command does not open a browser 
 npm run demo:build
 npm run demo:check
 npm run docs:check
+npm run pack:check
 npm run lint:styles
 npm run format:check
 ```
