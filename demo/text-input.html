@@ -251,12 +251,12 @@
               class="demo-card__preview demo-card__preview_block_text-input demo-card__preview_variant_usage demo-card__preview_example_text-input_usage"
             >
               <input class="hb-text-input" type="text" placeholder="Theme name" />
-              <input class="hb-text-input" type="text" value="My theme" />
+              <input class="hb-text-input" type="text" aria-label="Theme name" value="My theme" />
             </div>
             <pre
               class="demo-card__code hb-card hb-card_view_filled"
             ><code class="hb-text hb-text_typography_code-2">&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; placeholder=&quot;Theme name&quot; /&gt;
-&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; value=&quot;My theme&quot; /&gt;</code></pre>
+&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; aria-label=&quot;Theme name&quot; value=&quot;My theme&quot; /&gt;</code></pre>
           </section>
           <section class="demo-card">
             <h2 class="demo-card__title hb-text hb-text_typography_header-1">Sizes</h2>
@@ -280,16 +280,22 @@
             <div
               class="demo-card__preview demo-card__preview_block_text-input demo-card__preview_variant_states demo-card__preview_example_text-input_states"
             >
-              <input class="hb-text-input" type="text" value="Default" />
-              <input class="hb-text-input" type="text" value="Invalid" aria-invalid="true" />
-              <input class="hb-text-input" type="text" value="Disabled" disabled />
+              <input class="hb-text-input" type="text" aria-label="Theme name (default)" value="Default" />
+              <input
+                class="hb-text-input"
+                type="text"
+                aria-label="Theme name (invalid)"
+                value="Invalid"
+                aria-invalid="true"
+              />
+              <input class="hb-text-input" type="text" aria-label="Theme name (disabled)" value="Disabled" disabled />
               <input class="hb-text-input" type="text" placeholder="Placeholder" />
             </div>
             <pre
               class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; value=&quot;Default&quot; /&gt;
-&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; value=&quot;Invalid&quot; aria-invalid=&quot;true&quot; /&gt;
-&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; value=&quot;Disabled&quot; disabled /&gt;
+            ><code class="hb-text hb-text_typography_code-2">&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; aria-label=&quot;Theme name (default)&quot; value=&quot;Default&quot; /&gt;
+&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; aria-label=&quot;Theme name (invalid)&quot; value=&quot;Invalid&quot; aria-invalid=&quot;true&quot; /&gt;
+&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; aria-label=&quot;Theme name (disabled)&quot; value=&quot;Disabled&quot; disabled /&gt;
 &lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; placeholder=&quot;Placeholder&quot; /&gt;</code></pre>
           </section>
           <section class="demo-card">
@@ -332,11 +338,23 @@
             <div
               class="demo-card__preview demo-card__preview_block_text-input demo-card__preview_variant_public-tokens demo-card__preview_example_text-input_public-tokens"
             >
-              <input class="hb-text-input" type="text" value="Pill radius" style="--hb-text-input-radius: 999px" />
+              <input
+                class="hb-text-input"
+                type="text"
+                aria-label="Theme name (pill radius)"
+                value="Pill radius"
+                style="--hb-text-input-radius: 999px"
+              />
             </div>
             <pre
               class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;input class=&quot;hb-text-input&quot; type=&quot;text&quot; value=&quot;Pill radius&quot; style=&quot;--hb-text-input-radius: 999px&quot; /&gt;</code></pre>
+            ><code class="hb-text hb-text_typography_code-2">&lt;input
+  class=&quot;hb-text-input&quot;
+  type=&quot;text&quot;
+  aria-label=&quot;Theme name (pill radius)&quot;
+  value=&quot;Pill radius&quot;
+  style=&quot;--hb-text-input-radius: 999px&quot;
+/&gt;</code></pre>
           </section>
         </div>
       </main>

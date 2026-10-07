@@ -10,21 +10,23 @@ Overlay skin for a floating content panel: menus, popovers, dropdown surfaces. U
 
 ## Anchored Menu Composition
 
-The consumer or positioning library owns anchor coordinates. The inline positioning below is only a static demo stand-in for Floating UI/Radix placement.
+The consumer or positioning library owns anchor coordinates. The inline positioning below is only a static demo stand-in for Floating UI/Radix placement. The outer wrapper reserves preview space without increasing the anchor's height.
 
 ```html demo
-<span style="position: relative; display: inline-block; padding-block-end: 160px">
-  <button type="button" class="hb-button hb-button_view_outlined">Actions</button>
-  <div
-    class="hb-popover"
-    role="menu"
-    style="position: absolute; inset-block-start: calc(100% + var(--hb-gap-2)); inset-inline-start: 0"
-  >
-    <button type="button" class="hb-button hb-button_view_flat hb-button_size_s" role="menuitem">Rename</button>
-    <button type="button" class="hb-button hb-button_view_flat hb-button_size_s" role="menuitem">Duplicate</button>
-    <button type="button" class="hb-button hb-button_view_flat hb-button_size_s" role="menuitem">Export JSON</button>
+<div style="padding-block-end: 160px">
+  <div style="position: relative; display: inline-block">
+    <button type="button" class="hb-button hb-button_view_outlined">Actions</button>
+    <div
+      class="hb-popover"
+      role="menu"
+      style="position: absolute; inset-block-start: calc(100% + var(--hb-gap-2)); inset-inline-start: 0"
+    >
+      <button type="button" class="hb-button hb-button_view_flat hb-button_size_s" role="menuitem">Rename</button>
+      <button type="button" class="hb-button hb-button_view_flat hb-button_size_s" role="menuitem">Duplicate</button>
+      <button type="button" class="hb-button hb-button_view_flat hb-button_size_s" role="menuitem">Export JSON</button>
+    </div>
   </div>
-</span>
+</div>
 ```
 
 ## State Examples
