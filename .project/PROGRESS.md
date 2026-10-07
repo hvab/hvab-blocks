@@ -14,6 +14,13 @@
 - `hb-radio-group` is documented and usable as an independent CSS block with native radio semantics. Completed.
 - The generated demos and release checks pass. Completed for the implementation; prepare `v0.2.0` locally without push.
 
+## Mobile layout audit
+
+### To do
+
+1. Check the mobile layout of every block, prioritising positioned and overlay-like elements: `modal`, `sheet`, `toast`, `tooltip`, popovers, and menus. Verify that content fits the viewport, remains reachable, and does not get clipped or overflow horizontally.
+2. Check the modal specifically on narrow viewports: its actions must remain fully visible and usable without overflowing the dialog, as in the reported Selecta screenshot.
+
 ## Docs examples — Issues #8–10 (2026-10-03)
 
 Base: origin/main `5955feff38aeae132d847809ca1aaea8e5ff04c2`. Work is isolated on `fix/docs-examples-8-10-20261003`; the primary checkout's progress file is untouched.
