@@ -1,3 +1,3 @@
 # To-do
 
-- [ ] Adopt Modern Web Guidance, project-specific agent skills, and optional browser verification — [implementation backlog](WEB-PLATFORM-AGENT-GUIDANCE.md).
+- [ ] Revisit [Modern Web Guidance research notes: skills, reusable rules, browser tools and trade-offs](WEB-PLATFORM-AGENT-GUIDANCE.md) when exploring ideas for everyday frontend development.
