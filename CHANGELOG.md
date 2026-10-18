@@ -8,6 +8,10 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ## [Unreleased]
 
+### Fixed
+
+- `hb-spin` stops rotating under `prefers-reduced-motion: reduce`, preserving its appearance and ordinary-mode customization. The loading example includes visible status text.
+
 ## [0.3.0] - 2026-10-19
 
 ### Added

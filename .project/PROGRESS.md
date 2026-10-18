@@ -1,3 +1,42 @@
+# Spin reduced motion — implementation (2026-10-19)
+
+The owner approved stopping hb-spin under prefers-reduced-motion:reduce while preserving ordinary rotation, updating README/SPEC, adding a clear loading example and verifying both modes. The owner subsequently requested a local commit. No version bump or remote publication is requested.
+
+Plan and definition of done:
+
+1. Add a local animation:none media rule, preserving the public token API and all normal-mode styles.
+2. Explain continuous-animation policy in SPEC and consumer loading semantics in README; regenerate the example and record the unreleased fix.
+3. Verify normal/reduced/normal transitions, light/dark schemes, all sizes and public overrides; confirm the example remains understandable with no motion. Pass style/format/docs/demo checks and catalogue serving.
+
+## Implementation result
+
+- Added only a local reduced-motion guard to spin.css: animation:none. Ordinary animation, size variants, color/stroke/radius and public tokens are unchanged. The rule follows the pinned Gravity Spin sources recorded below; no global motion token changes.
+- README now documents both modes and live switching, with a generated Loading status example containing visible text and an aria-hidden decorative arc. It distinguishes a static example from consumer-owned live announcements and busy regions. SPEC separates shared transition durations from explicit continuous-animation guards. Added an Unreleased changelog entry and marked V03 implemented locally.
+- Chrome 156: 280 focused checks passed across full/selective imports, light/dark, all five sizes and custom size/stroke/color/radius/period/easing. Each sequence switches no-preference → reduce → no-preference without navigation: rotation moves, stops, then resumes with its original period. Reduced-mode screenshots remain byte-identical over time; geometry and appearance values remain unchanged. The catalogue exposes the status role/text in its accessibility tree and all arcs stop under reduce. Visually inspected the generated example.
+- PASS: lint:styles, full format:check, docs:check, demo:check, actual pack:check and git diff --check. npm start serves the updated spin catalogue. Verification used temporary diagnostic scripts/profiles outside the repository; no new test files or dependencies were added.
+- Limits: Chrome emulation and AX inspection do not constitute a new physical Safari/Windows or screen-reader speech acceptance. The implementation is ready for the requested local commit on main; version 0.3.0 and the published release are unchanged. Existing verification is sufficient for this change. A separate Safari check is not a project requirement or a delivery gate; the earlier suggestion was unnecessary. Next delivery step is remote publication when requested.
+
+# Spin reduced motion — earlier investigation (2026-10-19)
+
+Scope: explain current hb-spin behavior, compare correction options and the configured Gravity donor, and recommend a bounded change. No CSS implementation, commit or publication is authorized for this investigation.
+
+Plan and definition of done:
+
+1. Inspect spin, shared motion tokens and the contract, separating explicit exceptions from actual behavior.
+2. Compare pinned Gravity sources, including the historical donor baseline, and illustrate normal/reduced modes without changing production CSS.
+3. Record findings, alternatives, recommendation and limits. Implementation requires the owner's choice.
+
+## Findings and recommendation
+
+- Actual Chrome 156 styles: both no-preference and reduce keep hb-spin at 1s/infinite, with its transform changing over 250ms. The shared fast duration changes from 150ms to 0ms, but spin uses its independent private/public period. README explicitly documents continuous rotation.
+- SPEC section 7 item 8 is formally an interactive-block checklist; spin is non-interactive. Treat this as a motion-policy/documentation gap and a donor divergence, not an unqualified violation of that checklist.
+- Gravity Spin.scss explicitly sets animation:none under prefers-reduced-motion:reduce at both c1702e6aa9fcac95537e9af0646d619e1ea0d453 (7.43.0 historical comparison) and 7d187fd0a108edda969266f85ab33a54b13fb36e (8.0.0-beta.2 configured checkout). The rule appears in donor commit 621adf4f (2025-07-18). Spin.tsx has no built-in loading announcement. This is source verification, not donor runtime acceptance.
+- Options: stop the existing arc; slow rotation; substitute opacity pulse; or retain the explicit current exception. Recommend stopping the arc via a local media rule, preserving normal-mode speed, sizes, colors and public tokens. Slowing still leaves rotation; pulsing requires a new motion design and continues animation. Merely coupling the period to global durations does not clearly express stopping and can be overridden through the public period.
+- Pair the decorative arc with consumer-owned visible loading text and appropriate busy/status semantics. A rotating arc already cannot guarantee that the process is alive. No automatic live region or text is added by CSS.
+- Proposed implementation scope after owner choice: spin.css media rule; spin README Motion and status example; precise SPEC wording distinguishing shared transition durations from explicit continuous-animation guards; regenerate the spin demo if its marked example changes, and add an Unreleased note. No change to global motion tokens or unrelated animated blocks.
+- Inline comparison: spin-motion.html in the thread visualization directory. Three-second opt-in playback compares unchanged, stopped, slowed and pulsing modes; actual system reduced motion disables preview playback. Inspected at 320/736px without horizontal overflow, confirmed 3 animations in reduced-mode comparison, 4 in normal comparison, and 0 under actual system reduce. This illustrates proposals and does not change production CSS.
+- Only this working journal changed in the repository. No implementation, commit, branch switch or publication. Next: owner chooses the reduced-motion policy.
+
 # Release 0.3.0 — preparation and verification (2026-10-19)
 
 The owner authorized preparation, checks, publication of main and the v0.3.0 tag, and a GitHub Release. npm registry publication and consumer deployment are outside this release.

@@ -24,6 +24,12 @@
   animation: hb-spin var(--hb-spin-period, var(--_spin-period)) var(--hb-spin-ease, var(--_spin-ease)) infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hb-spin {
+    animation: none;
+  }
+}
+
 .hb-spin__inner {
   box-sizing: border-box;
   display: block;
