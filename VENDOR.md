@@ -9,7 +9,7 @@ This guide covers provenance and resyncing. For class, token, and state rules, s
 1. Copy `tokens/` in full. Blocks reference `--hb-*` tokens, so a block cannot work without them.
 2. Copy the required `blocks/<name>/` directories. A directory includes its CSS and README.
 3. Copy `index.css` only when taking the complete catalogue. Otherwise create a local entry point that imports tokens first and selected blocks second.
-4. Preserve the canonical-source comment in the first line of each CSS file.
+4. Preserve the canonical-source comment in the first line of each CSS file. Copy [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) alongside the source, including when taking only selected blocks. The latter records Gravity provenance and the upstream MIT notice.
 5. Record the upstream version, commit, copied paths, and any local deviations in the consumer repository.
 
 For example, keep a record next to the copied source:

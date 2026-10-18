@@ -1,12 +1,33 @@
+# Release 0.3.0 — preparation and verification (2026-10-19)
+
+The owner authorized preparation, checks, publication of main and the v0.3.0 tag, and a GitHub Release. npm registry publication and consumer deployment are outside this release.
+
+1. Inventory the Gravity source evidence, distinguish known revisions from unrecoverable original-port provenance, and include upstream notices in source and optional package distribution.
+2. Complete the public changelog and custom-theme migration note for all merged audit fixes; preserve CSS and public exports.
+3. Run release gates, actual package inspection, Pages build and local catalogue serving; review the final diff.
+4. Commit release preparation on main, bump to 0.3.0 with its annotated tag, push main/tag and create the GitHub Release from the changelog. Verify remote version/tag/release and the separate Pages deployment.
+
+Done means the published tag identifies the checked source, notices ship with the package, the release notes cover the audit changes and known provenance limits, and the local main is clean and synchronized.
+
+## Preparation result
+
+- Completed the public changelog, including three contrast roles, two dialog footer overrides, all eleven audit fixes and custom-theme upgrade guidance. No CSS, generated demo or public export changes were introduced during release preparation.
+- Added THIRD_PARTY_NOTICES.md with all 32 block families and token sources. Donor 7.43.0 at c1702e6aa9fcac95537e9af0646d619e1ea0d453 is only the historical comparison baseline; exact original per-port SHAs are unknown. Contrast values are verified at 7d187fd0a108edda969266f85ab33a54b13fb36e. The copied MIT text matches both upstream LICENSE files byte-for-byte.
+- The optional npm archive includes both notices; pack:check enforces their presence and source equality. Actual archive and dry-run inspection: 81 files, 59 local documentation links, no audit/development records. Copy-first instructions preserve both licenses.
+- PASS: demo:build (no generated diff), demo:check, docs:check, pages:build, lint:styles, full format:check, pack:check and git diff --check. npm start serves root 302 to /demo/, catalogue/CSS 200 and missing routes 404.
+- Chrome 156 regression verification: 95 disabled-state and 237 forced-color results passed, no failures; the latter includes all four normal-paint comparisons against main before PR #16 (dce4042e4da6bf247707087f0fa3d64e50d68206), with no skips in the final run. Field/color-input matrix: 8,735 assertions, zero failures. Documentation examples: 32 named semantic nodes and popover geometry at 320/375/1280px in both themes passed, with no captured runtime/network failures.
+- Limits: physical Safari/Windows/screen-reader acceptance is the earlier owner report preserved in the audit history, not a new claim from these Chrome checks. Consumer sync, registry publication and broader browser/motion/RTL decisions remain separate.
+- Next publication step: commit this preparation and the 0.3.0 version metadata, push main and the annotated tag, create the GitHub Release from CHANGELOG, and verify the matching remote commit and Pages run. GitHub provides the final publication status without rewriting the tagged source afterwards.
+
 # Current project status — 2026-10-19
 
 - All eleven audit fixes (#1–#11) are closed and integrated into main through PRs #12–#19. The remaining formatting warning was fixed in PR #20. No manual acceptance remains for that agreed set.
 - The primary checkout is consolidated onto main. Accepted CSS fixes and main's package/documentation changes are preserved; the previously local catalogue redirect and audit records are included in this consolidation.
-- Current recommended next work is in [IDEAS.md](IDEAS.md): donor provenance before a new distribution, a final consumer sync, release-note completion, and explicit browser/motion/RTL decisions. No new CSS implementation is active.
-- The package is still version 0.2.0; no new release, registry publication or consumer deployment has been performed.
+- Current recommended next work is in [IDEAS.md](IDEAS.md): final consumer sync and explicit browser/motion/RTL decisions. The 0.3.0 release work above completes the donor inventory and release notes without new CSS implementation.
+- The authorized target release is 0.3.0. The GitHub tag and Release are the publication record; registry publication and consumer deployment are outside this task.
 - [Local audit and integration history](history/LOCAL-AUDIT-2026-10-19.md) preserves the previously uncommitted develop journal, including owner acceptance and merged PR references. It is historical evidence, not an active task list.
 
-## Local consolidation plan and completion criteria
+## Earlier local consolidation plan and completion criteria
 
 Preserve both main's committed history and the local develop journal, reconcile deferred ideas with completed work, retain the existing catalogue redirect and verify the project gates and HTTP routing. Finish with one scoped local commit on main and a clean working tree. Keep develop as a recoverable historical branch; do not reset or delete it. No remote publication is requested in this step.
 

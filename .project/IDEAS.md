@@ -1,12 +1,12 @@
 # Remaining work after the audit
 
-Updated 2026-10-19 against main after PR #20. All eleven confirmed audit fixes are closed; the items below are separate investigations or product decisions, not reopened defects. The original [V01–V06 report](../audit/2-sol-6-1-xhigh.md#v01) remains historical evidence; the current status is recorded here.
+Updated 2026-10-19 during 0.3.0 release preparation. All eleven confirmed audit fixes are closed; the items below are separate investigations or product decisions, not reopened defects. The original [V01–V06 report](../audit/2-sol-6-1-xhigh.md#v01) remains historical evidence; the current status is recorded here.
 
 ## Recommended sequence
 
-1. **Donor provenance before the next distribution (V01).** Record the actual Gravity source revisions and copied subsets, distinguish original ports from later value references, and determine what attribution must accompany the distributed files. `VENDOR.md` currently records hvab-to-consumer provenance, while `LICENSE` contains the project's own notice. The contrast-role documentation records a donor SHA for that specific change, not the provenance of the whole library. Produce a source/notice manifest; do not infer a legal violation from the incomplete record.
+1. **Donor provenance inventory completed for 0.3.0 (V01).** [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) records all 32 block families and token sources, the historical 7.43.0 comparison baseline, and the exact 8.0.0-beta.2 source of the contrast values. The upstream MIT notice ships in source/package distributions and copy-first instructions. Original per-port SHAs were not recorded in the initial imported tree and remain unknown; the comparison baseline is not presented as proof of each original port. Record exact revisions for future ports.
 2. **Final consumer sync (remaining V06).** Earlier Selecta acceptance already covers the relevant Field, ConfirmDialog and control-state scenarios; do not repeat that work as if it had never happened. Before the consumer adopts the completed main, inspect its current revision and import route, then verify the actual combined integration. A full current-consumer build and production deployment are separate from core acceptance. Aegea/React verification becomes relevant only when there is a real integration to exercise.
-3. **Release preparation.** Complete `CHANGELOG.md` with the merged dialog/divider, functional contrast, table selection, field width and documentation/package fixes; its Unreleased section currently lists only control-state fixes. Decide the version under `RELEASE.md`, accounting for the new public contrast tokens. Do not bump, tag, publish or deploy automatically. Keep the clean full format check established by PR #20.
+3. **0.3.0 release.** The owner authorized the minor release, including complete changelog, provenance inventory, release gates, main/tag push and GitHub Release. Registry publication and consumer deployment remain separate. Use the GitHub tag/release as the publication record.
 
 ## Decisions before further CSS work
 

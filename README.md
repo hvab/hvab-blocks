@@ -74,4 +74,4 @@ npm run format:check
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Adapted Gravity UI CSS values and structures retain their upstream attribution in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

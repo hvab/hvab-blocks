@@ -10,7 +10,8 @@
     "blocks",
     "USAGE.md",
     "VENDOR.md",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "exports": {
     "./index.css": "./index.css",

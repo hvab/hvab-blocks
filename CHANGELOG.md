@@ -8,11 +8,32 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-19
+
+### Added
+
+- Light/dark functional-text roles: `--hb-color-text-info-contrast`, `--hb-color-text-positive-contrast` and `--hb-color-text-warning-contrast`.
+- Dialog footer overrides `--hb-dialog-footer-button-padding-block` and `--hb-dialog-footer-button-line` for multiline actions.
+- A Gravity source inventory and upstream MIT notice in `THIRD_PARTY_NOTICES.md`, included in the optional npm archive and copy-first instructions.
+
 ### Fixed
 
+- Dialog actions stack at full width in containers narrower than 480px and use a row in wider dialogs, preserving DOM order and showing long labels in full. The dialog divider no longer overflows the panel.
+- Functional text contrast is improved in both themes: field labels/help use complementary text, status text and labels use the new contrast roles, and toast messages use primary text. Existing global secondary/hint values are unchanged.
+- Selected table rows retain their selection background over hover and zebra stripes, including after reordering and with public overrides; palette values are unchanged.
+- Color inputs retain their explicit width inside fields regardless of block import order, while other field controls continue to stretch.
+- Text-input, textarea and progress examples have accessible names; the popover demo reserves preview space outside the anchor to preserve positioning.
+- Modal documentation distinguishes native dialog behavior from consumer-owned page scroll locking.
+- The npm archive includes the changelog and working documentation links; package verification checks distributed content and links.
+- The local development server redirects its root to the catalogue.
 - Forced-color controls preserve distinct unchecked, checked, mixed and disabled indicators, and selects retain their native dropdown arrow.
 - Disabled radio groups retain their muted styling on hover when the disabled state is set on the group.
 - Checked and mixed disabled controls use the existing disabled skin consistently across supported native, ARIA, and data attribute combinations.
+
+### Upgrade notes
+
+- No existing public class, token or state attribute is removed or renamed. Custom themes that override ordinary status-text tokens should also set the new contrast roles to customize the updated field, label and text assignments. Component color overrides still take precedence; see [tokens/README.md](tokens/README.md) for the supported surface combinations.
+- Copy-first consumers must retain both `LICENSE` and `THIRD_PARTY_NOTICES.md`. The notice distinguishes the historical donor comparison baseline from the exact later contrast-value revision; original per-port donor SHAs were not recorded for the initial imported catalogue.
 
 ## [0.2.0] - 2026-07-14
 
