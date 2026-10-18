@@ -27,6 +27,8 @@ Native color input chrome. The class is applied directly to `input[type="color"]
 
 ## Field Composition
 
+Mix `hb-field__control` directly onto the color input or put the input inside a control-slot wrapper. The color input keeps its size or `--hb-color-input-control-width` override in either block import order; the wrapper fills the field's control column.
+
 ```html demo
 <div class="hb-field hb-field_layout_inline">
   <label class="hb-field__label" for="accent">Accent</label>
