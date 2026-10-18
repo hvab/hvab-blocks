@@ -22,10 +22,10 @@ MWG — набор подготовленных экспертами руков�
 
 Пример для изучения:
 
-~~~bash
+```bash
 npx modern-web-guidance@latest search "animate a dialog modal backdrop"
 npx modern-web-guidance@latest retrieve "animate-to-from-top-layer"
-~~~
+```
 
 Практический смысл — уменьшить частоту устаревших решений вроде лишних scroll/resize listeners, тяжёлого JavaScript для нативно поддерживаемых поведений, самописных диалогов без полноценного управления фокусом.
 
@@ -33,15 +33,15 @@ npx modern-web-guidance@latest retrieve "animate-to-from-top-layer"
 
 ## Где могут пригодиться руководства
 
-| Повседневная задача | Полезные темы |
-| --- | --- |
-| Модальные окна и popover | `<dialog>`, Popover API, top layer, `::backdrop`, CSS Anchor Positioning |
-| Появление/закрытие элементов | `@starting-style`, `transition-behavior`, `overlay` |
-| Sticky header, реакция на прокрутку | scroll-driven animations и scroll-state queries |
-| Адаптивные компоненты | container queries, subgrid |
-| Формы | нативные элементы и валидация, focus-visible, disabled/invalid |
-| Светлая и тёмная темы | `color-scheme`, `light-dark()`, токены, контраст |
-| Производительность | LCP, INP, загрузка изображений, `content-visibility` |
+| Повседневная задача                 | Полезные темы                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------ |
+| Модальные окна и popover            | `<dialog>`, Popover API, top layer, `::backdrop`, CSS Anchor Positioning |
+| Появление/закрытие элементов        | `@starting-style`, `transition-behavior`, `overlay`                      |
+| Sticky header, реакция на прокрутку | scroll-driven animations и scroll-state queries                          |
+| Адаптивные компоненты               | container queries, subgrid                                               |
+| Формы                               | нативные элементы и валидация, focus-visible, disabled/invalid           |
+| Светлая и тёмная темы               | `color-scheme`, `light-dark()`, токены, контраст                         |
+| Производительность                  | LCP, INP, загрузка изображений, `content-visibility`                     |
 
 Имена руководств, упомянутые в статье: `animate-to-from-top-layer`, `animate-element-entry-exit`, `state-aware-sticky-headers`, `dark-mode`, `component-specific-light-dark-theme`. Их актуальный набор стоит проверять в каталоге MWG.
 
@@ -78,7 +78,7 @@ MWG учитывает [Baseline](https://web-platform-dx.github.io/web-features
 
 Это **пример для возможного повторного использования**, не содержимое действующего `AGENTS.md`:
 
-~~~markdown
+```markdown
 ## Web platform guidance
 
 - Consult modern-web-guidance for relevant web platform decisions when available.
@@ -91,13 +91,13 @@ MWG учитывает [Baseline](https://web-platform-dx.github.io/web-features
 - Follow existing project conventions, design tokens, and component patterns.
 - Do not introduce a new CSS architecture without an explicit need.
 - Verify interactive UI behaviour in a real browser when practical.
-~~~
+```
 
 ## Черновик переносимого skill
 
 Пример `component-states/SKILL.md`. Его нужно адаптировать к конкретному агенту и проекту:
 
-~~~markdown
+```markdown
 ---
 name: component-states
 description: Use when implementing or reviewing interactive UI states, transitions, dialogs, forms, and animations.
@@ -116,7 +116,7 @@ description: Use when implementing or reviewing interactive UI states, transitio
 8. Check browser compatibility and critical fallbacks.
 9. Review mobile viewports, overflow, themes, and actual browser behaviour.
 10. Avoid new dependencies and unrelated refactoring.
-~~~
+```
 
 Лаконичные правила в `AGENTS.md` могут оказаться достаточными. Множество скиллов с дублирующими указаниями создаёт лишнюю сложность.
 
@@ -130,43 +130,43 @@ MCP даёт агенту возможность работать с реаль�
 
 **Codex CLI:**
 
-~~~bash
+```bash
 codex mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
-~~~
+```
 
 **Claude Code CLI:**
 
-~~~bash
+```bash
 claude mcp add chrome-devtools --scope user npx chrome-devtools-mcp@latest
-~~~
+```
 
 ## Команды Modern Web Guidance для справки
 
 **Мастер установки:**
 
-~~~bash
+```bash
 npx modern-web-guidance@latest install
-~~~
+```
 
 **Codex CLI:**
 
-~~~bash
+```bash
 codex plugin marketplace add GoogleChrome/modern-web-guidance
 codex plugin add modern-web-guidance@googlechrome
-~~~
+```
 
 **Claude Code (slash-команды):**
 
-~~~text
+```text
 /plugin marketplace add GoogleChrome/modern-web-guidance
 /plugin install modern-web-guidance@googlechrome
-~~~
+```
 
 **Antigravity:**
 
-~~~bash
+```bash
 agy plugin install https://github.com/GoogleChrome/modern-web-guidance
-~~~
+```
 
 Способы установки могут меняться: проверять [официальный README](https://github.com/GoogleChrome/modern-web-guidance).
 
@@ -176,9 +176,9 @@ MWG документирует сбор анонимных данных: уст�
 
 Отключение:
 
-~~~bash
+```bash
 export DISABLE_TELEMETRY=1
-~~~
+```
 
 Лицензия MWG — Apache-2.0. Возможны коммерческое применение и форки при соблюдении условий; при копировании материалов учитывать атрибуцию.
 
