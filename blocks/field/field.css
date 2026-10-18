@@ -14,10 +14,10 @@
   --_field-column-gap: var(--hb-gap-3);
   --_field-addons-gap: var(--hb-gap-2);
   --_field-label-width: 12rem;
-  --_field-label-color: var(--hb-color-text-secondary);
+  --_field-label-color: var(--hb-color-text-complementary);
   --_field-label-size: var(--hb-typography-body-short-size);
   --_field-label-line: var(--hb-typography-body-short-line);
-  --_field-message-color: var(--hb-color-text-hint);
+  --_field-message-color: var(--hb-color-text-complementary);
   --_field-message-size: var(--hb-typography-caption-2-size);
   --_field-message-line: var(--hb-typography-caption-2-line);
 
@@ -71,5 +71,5 @@
 }
 
 .hb-field__message.hb-field__message_view_warning {
-  --_field-message-color: var(--hb-color-text-warning);
+  --_field-message-color: var(--hb-color-text-warning-contrast);
 }

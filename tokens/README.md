@@ -42,6 +42,29 @@ Brand roles are intentionally monochrome and invert between schemes:
 
 When adding color roles, add both light and dark values in the same change.
 
+### Functional text contrast
+
+`--hb-color-text-info-contrast`, `--hb-color-text-positive-contrast` and `--hb-color-text-warning-contrast` are local semantic roles for small functional text. Their values come from the Gravity UI palette at `7d187fd0a108edda969266f85ab33a54b13fb36e` (8.0.0-beta.2); these role names are an intentional hvab addition, not a verbatim port of Gravity semantic roles.
+
+| Role suffix         | Light value / Gravity source        | Dark value / Gravity source             |
+| ------------------- | ----------------------------------- | --------------------------------------- |
+| `info-contrast`     | `rgb(44 90 138)` / blue-800-solid   | `rgb(134 193 247)` / blue-750-solid     |
+| `positive-contrast` | `rgb(42 108 76)` / green-800-solid  | `rgb(130 200 185)` / green-700-solid    |
+| `warning-contrast`  | `rgb(145 74 17)` / orange-800-solid | `rgb(255 197 108)` / text-warning-heavy |
+
+The existing `secondary`, `hint`, ordinary status and `*-heavy` roles retain their values. Simply substituting existing heavy roles is insufficient: on white, positive-heavy is 4.232:1 and warning-heavy is 4.469:1, below the 4.5:1 threshold for ordinary text. The new roles preserve colored text without changing the palette used by other components, placeholders or disabled states.
+
+With the default light/dark tokens and no additional opacity, the supported combinations for the updated functional text are:
+
+- Field labels/help (`text-complementary`) and warning (`text-warning-contrast`) on `base-background`, `base-float` or `base-modal`.
+- Text info/positive/warning modifiers on those same opaque surfaces.
+- Label info/success/warning content on its corresponding default `base-*-light` tint composited over any of those surfaces.
+- Toast messages (`text-primary`) on the default opaque float surface or the default status tints composited over any of those surfaces.
+
+These combinations meet 4.5:1 using sRGB luminance after alpha composition. This is a contract for these specific foreground/background pairs, not arbitrary backgrounds or library-wide WCAG conformance. Existing error/danger and normal-label roles are unchanged; their previously verified page-background pairs remain valid, but they are not covered by the new floating-surface contract. Muted label `__value` opacity is also outside it. Do not use unchanged secondary/hint examples as evidence of sufficient contrast for essential small text.
+
+Custom themes should override the new semantic roles as needed; component public color overrides still take precedence. Recalculate against the final background whenever a theme, surface, tint or opacity changes. Consumer CSS that previously changed the ordinary status tokens must also set the new contrast tokens to customize these updated assignments.
+
 ## Consumer Theme Example
 
 Consumers usually do not edit `tokens/color.css`. They load their theme overrides after `hvab-blocks/index.css`:

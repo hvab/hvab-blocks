@@ -43,6 +43,8 @@ Typography modifiers map directly to the shared typography tokens.
 
 Color modifiers use semantic text roles from the color token layer.
 
+The info/positive/warning modifiers use the local `text-info-contrast`, `text-positive-contrast` and `text-warning-contrast` roles for functional text on default page/float/modal surfaces. The underlying ordinary status tokens retain their values; direct consumers of those tokens do not change. Primary/secondary/hint/brand/danger assignments are unchanged. Secondary and hint remain explicit low-emphasis choices, not defaults for essential small text; use primary or `--hb-text-color: var(--hb-color-text-complementary)` where appropriate. See the [color contrast contract](../../tokens/README.md#functional-text-contrast) for backgrounds and theme overrides.
+
 ```html demo
 <span class="hb-text hb-text_color_primary">primary</span>
 <span class="hb-text hb-text_color_secondary">secondary</span>

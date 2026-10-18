@@ -71,17 +71,17 @@
 
 /* Themes */
 .hb-label.hb-label_theme_info {
-  --_label-text-color: var(--hb-color-text-info-heavy);
+  --_label-text-color: var(--hb-color-text-info-contrast);
   --_label-background: var(--hb-color-base-info-light);
 }
 
 .hb-label.hb-label_theme_success {
-  --_label-text-color: var(--hb-color-text-positive-heavy);
+  --_label-text-color: var(--hb-color-text-positive-contrast);
   --_label-background: var(--hb-color-base-positive-light);
 }
 
 .hb-label.hb-label_theme_warning {
-  --_label-text-color: var(--hb-color-text-warning-heavy);
+  --_label-text-color: var(--hb-color-text-warning-contrast);
   --_label-background: var(--hb-color-base-warning-light);
 }
 

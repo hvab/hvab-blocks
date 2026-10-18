@@ -175,15 +175,15 @@
 }
 
 .hb-text.hb-text_color_info {
-  --_text-color: var(--hb-color-text-info);
+  --_text-color: var(--hb-color-text-info-contrast);
 }
 
 .hb-text.hb-text_color_positive {
-  --_text-color: var(--hb-color-text-positive);
+  --_text-color: var(--hb-color-text-positive-contrast);
 }
 
 .hb-text.hb-text_color_warning {
-  --_text-color: var(--hb-color-text-warning);
+  --_text-color: var(--hb-color-text-warning-contrast);
 }
 
 .hb-text.hb-text_color_danger {

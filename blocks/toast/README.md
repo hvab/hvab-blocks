@@ -38,6 +38,8 @@ Notification card (`hb-toast`) plus the `hb-toaster` region the consumer stacks 
 
 ## Themes
 
+Messages use `text-primary` in every theme; status tints and icon colors are unchanged. The default float surface and status tints over page/float/modal underlays support small message text in both schemes; see the [color contrast contract](../../tokens/README.md#functional-text-contrast). Custom backgrounds need their own contrast check. `--hb-toast-message-color` still overrides the default independently of the title.
+
 ```html demo
 <div class="hb-toaster" style="position: static">
   <div class="hb-toast hb-toast_theme_info" role="status">
