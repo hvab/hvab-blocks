@@ -106,6 +106,12 @@ Checkbox wrapper around a native `input[type="checkbox"]`. The real input remain
 </label>
 ```
 
+## Forced Colors
+
+In `forced-colors: active`, the custom indicator uses system foreground and surface colors, with `GrayText` for disabled states and a system focus ring. Unchecked boxes have no tick; checked and mixed boxes keep distinct tick and minus marks.
+
+Only the indicator paint surface uses `forced-color-adjust: none`; the native input and label retain automatic color adjustment. Native semantics, label activation and geometry tokens remain available. Public color overrides still win on the custom surface: consumers supplying them in this mode should use paired system colors to preserve the user's contrast palette. ARIA/data attributes still require the consumer to synchronize native state and enforce disabled behavior.
+
 ## Limits
 
 The block does not manage group state, form validation, or native `indeterminate`. Consumers own those behaviors.

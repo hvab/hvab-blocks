@@ -113,6 +113,12 @@ Radio wrapper around a native `input[type="radio"]`. The real input remains in t
 </label>
 ```
 
+## Forced Colors
+
+In `forced-colors: active`, the custom indicator uses system foreground and surface colors, with `GrayText` for disabled states and a system focus ring. Unchecked circles have no dot; checked circles keep their dot.
+
+Only the indicator paint surface uses `forced-color-adjust: none`; the native input and label retain automatic color adjustment. Native semantics, label activation and geometry tokens remain available. Public color overrides still win on the custom surface: consumers supplying them in this mode should use paired system colors to preserve the user's contrast palette. ARIA/data attributes still require the consumer to synchronize native state and enforce disabled behavior.
+
 ## Limits
 
 The block does not create a `radiogroup`, enforce validation, or manage selected value. Native `name` grouping and any framework state stay in the consumer.

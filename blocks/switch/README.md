@@ -109,6 +109,12 @@ Toggle switch wrapper around a native `input[type="checkbox"]`. Use it for binar
 </label>
 ```
 
+## Forced Colors
+
+In `forced-colors: active`, the custom indicator uses system foreground and surface colors, with `GrayText` for disabled states and a system focus ring. The track and thumb use distinct system colors; the checked position stays unchanged. Disabled checked switches use full opacity with `GrayText` rather than fading the system palette.
+
+Only the indicator paint surface uses `forced-color-adjust: none`; the native input and label retain automatic color adjustment. Native semantics, label activation and geometry tokens remain available. Public color overrides still win on the custom surface: consumers supplying them in this mode should use paired system colors to preserve the user's contrast palette. ARIA/data attributes still require the consumer to synchronize native state and enforce disabled behavior.
+
 ## Limits
 
 The block does not provide loading state, async transitions, or setting persistence. The consumer owns state changes and announcements.
