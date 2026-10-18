@@ -61,7 +61,7 @@ npm install
 npm start
 ```
 
-The static catalogue is served at `/demo/`; the command does not open a browser automatically.
+The server root redirects to the static catalogue at `/demo/`; the command does not open a browser automatically.
 
 ```bash
 npm run demo:build

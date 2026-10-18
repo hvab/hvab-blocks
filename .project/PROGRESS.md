@@ -1,3 +1,26 @@
+# Current project status — 2026-10-19
+
+- All eleven audit fixes (#1–#11) are closed and integrated into main through PRs #12–#19. The remaining formatting warning was fixed in PR #20. No manual acceptance remains for that agreed set.
+- The primary checkout is consolidated onto main. Accepted CSS fixes and main's package/documentation changes are preserved; the previously local catalogue redirect and audit records are included in this consolidation.
+- Current recommended next work is in [IDEAS.md](IDEAS.md): donor provenance before a new distribution, a final consumer sync, release-note completion, and explicit browser/motion/RTL decisions. No new CSS implementation is active.
+- The package is still version 0.2.0; no new release, registry publication or consumer deployment has been performed.
+- [Local audit and integration history](history/LOCAL-AUDIT-2026-10-19.md) preserves the previously uncommitted develop journal, including owner acceptance and merged PR references. It is historical evidence, not an active task list.
+
+## Local consolidation plan and completion criteria
+
+Preserve both main's committed history and the local develop journal, reconcile deferred ideas with completed work, retain the existing catalogue redirect and verify the project gates and HTTP routing. Finish with one scoped local commit on main and a clean working tree. Keep develop as a recoverable historical branch; do not reset or delete it. No remote publication is requested in this step.
+
+## Consolidation result
+
+- Preserved main's complete committed progress record below and the byte-identical local develop journal in history/LOCAL-AUDIT-2026-10-19.md. Both prompt-format changes were already present in main and required no reapplication. The container-query idea is marked delivered for dialog; other ideas and main's Modern Web Guidance pointer are retained.
+- Preserved the local catalogue middleware and its README wording. HTTP checks confirm / redirects with 302 to /demo/, catalogue and CSS return 200, and an unknown path stays 404.
+- Full format:check, style lint, demo:check, docs:check, pack:check and diff whitespace checks pass. The package check resolves 52 local documentation links across 80 files. Core blocks, tokens, entrypoint, package metadata, audit reports, scripts and existing verification files exactly match origin/main.
+- The consolidation is recorded in one local commit on main. Remote publication, a new version and consumer deployment are deferred; develop remains available as history. The next recommended task is the V01 provenance inventory before a new distribution, followed by the current consumer integration and release-note/version preparation.
+
+## Earlier committed implementation records
+
+The entries below are retained as history. Earlier pending/next statements are superseded by the current status above.
+
 # Issue #5 — field/color-input import order
 
 Base: `5955feff38aeae132d847809ca1aaea8e5ff04c2` (`origin/main`).
