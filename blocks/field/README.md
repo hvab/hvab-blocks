@@ -6,6 +6,8 @@ Form field layout for label, control slot, optional addons, and message text. Th
 
 The default field layout stacks label, control, addons, and message vertically.
 
+The control slot stretches to fill its grid column when its width is automatic. A control block with an explicit width, such as `color-input`, keeps its own width and public width overrides in either block import order. The slot class can be mixed directly onto the control or applied to a wrapper; a combined `hb-field__control hb-field__addons` wrapper still fills the column.
+
 ```html demo
 <div class="hb-field">
   <label class="hb-field__label" for="theme-name">Theme name</label>

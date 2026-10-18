@@ -41,8 +41,13 @@
 }
 
 .hb-field__control {
-  width: 100%;
+  justify-self: stretch;
   min-width: 0;
+}
+
+/* A combined control/addons slot still fills its grid column. */
+.hb-field__control.hb-field__addons {
+  justify-self: stretch;
 }
 
 .hb-field__addons {
