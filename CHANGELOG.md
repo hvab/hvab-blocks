@@ -6,6 +6,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 The public API consists of `hb-*` block classes, public `--hb-*` system and component tokens, and documented state attributes. Private `--_<block>-*` tokens are implementation details.
 
+## [Unreleased]
+
+### Fixed
+
+- Disabled radio groups retain their muted styling on hover when the disabled state is set on the group.
+- Checked and mixed disabled controls use the existing disabled skin consistently across supported native, ARIA, and data attribute combinations.
+
 ## [0.2.0] - 2026-07-14
 
 ### Added

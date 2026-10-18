@@ -143,6 +143,8 @@
 }
 
 .hb-radio-group__option:hover:not(
+    .hb-radio-group[aria-disabled='true'] .hb-radio-group__option,
+    .hb-radio-group[data-disabled] .hb-radio-group__option,
     :has(.hb-radio-group__control:checked),
     :has(.hb-radio-group__control[aria-checked='true']),
     :has(.hb-radio-group__control:disabled),
@@ -195,11 +197,11 @@
 .hb-radio-group[aria-disabled='true'] .hb-radio-group__option:has(.hb-radio-group__control[aria-checked='true']),
 .hb-radio-group[data-disabled] .hb-radio-group__option:has(.hb-radio-group__control:checked),
 .hb-radio-group[data-disabled] .hb-radio-group__option:has(.hb-radio-group__control[aria-checked='true']),
-.hb-radio-group__option:has(.hb-radio-group__control:disabled):has(.hb-radio-group__control:checked),
-.hb-radio-group__option:has(.hb-radio-group__control[aria-disabled='true']):has(
-    .hb-radio-group__control[aria-checked='true']
-  ),
-.hb-radio-group__option:has(.hb-radio-group__control[data-disabled]):has(.hb-radio-group__control:checked) {
+.hb-radio-group__option:has(
+    .hb-radio-group__control:disabled,
+    .hb-radio-group__control[aria-disabled='true'],
+    .hb-radio-group__control[data-disabled]
+  ):has(.hb-radio-group__control:checked, .hb-radio-group__control[aria-checked='true']) {
   --_radio-group-option-background: var(
     --hb-radio-group-background-disabled-checked,
     var(--_radio-group-background-disabled-checked)

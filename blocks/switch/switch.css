@@ -146,10 +146,16 @@
 }
 
 /* State: checked + disabled. */
-.hb-switch:has(.hb-switch__control:checked):has(.hb-switch__control:disabled),
-.hb-switch:has(.hb-switch__control:checked):has(.hb-switch__control[disabled]),
-.hb-switch:has(.hb-switch__control[aria-checked='true']):has(.hb-switch__control[aria-disabled='true']),
-.hb-switch:has(.hb-switch__control[data-state='checked']):has(.hb-switch__control[data-disabled]) {
+.hb-switch:has(
+    .hb-switch__control:checked,
+    .hb-switch__control[aria-checked='true'],
+    .hb-switch__control[data-state='checked']
+  ):has(
+    .hb-switch__control:disabled,
+    .hb-switch__control[disabled],
+    .hb-switch__control[aria-disabled='true'],
+    .hb-switch__control[data-disabled]
+  ) {
   --_switch-track-background: var(--hb-color-base-brand);
   --_switch-box-opacity: 0.5;
 }
