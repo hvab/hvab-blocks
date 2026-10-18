@@ -1,5 +1,7 @@
 # Browser regression checks
 
+## Disabled states
+
 Run the disabled-state regressions with Node (the package's supported version) and an installed Chrome/Chromium:
 
 ```sh
@@ -20,12 +22,24 @@ node --test tests/forced-colors.test.mjs
 
 This suite checks light/dark forced-color emulation independently of the library's light/dark scheme: 224 native/ARIA/data state combinations plus keyboard, label activation, focus, system-color public overrides, native select behavior and AX role/name/state comparisons. It reads the browser's system colors rather than hardcoding RGB values. The switch intentionally retains native checkbox semantics.
 
-For byte-identical normal-mode screenshot comparisons and paired before/after artifacts, point to an unchanged local checkout of the PR12 base commit `96bfae78ec8611c2305c53a39239f4a3fbcbdaa5`:
+For byte-identical normal-mode screenshot comparisons and paired before/after artifacts, point to an unchanged local checkout of main before this PR (`3b211d4223e153e0aad210cf4fa5d3fcbbd96b96`):
 
 ```sh
-HB_BASELINE_ROOT=/path/to/pr12-checkout HB_TEST_ARTIFACTS=/tmp/hvab-forced-artifacts node --test tests/forced-colors.test.mjs
+HB_BASELINE_ROOT=/path/to/main-checkout HB_TEST_ARTIFACTS=/tmp/hvab-forced-artifacts node --test tests/forced-colors.test.mjs
 ```
 
-Without `HB_BASELINE_ROOT`, the four normal-paint comparisons are reported as skipped, not passed. `HB_TEST_ARTIFACTS` is optional and writes screenshots outside the repository. To replay the final assertions against the unmodified CSS as a negative control, set `HB_CONTROL_ROOT=/path/to/pr12-checkout`; failures are expected there.
+Without `HB_BASELINE_ROOT`, the four normal-paint comparisons are reported as skipped, not passed. `HB_TEST_ARTIFACTS` is optional and writes screenshots outside the repository. To replay the final assertions against the unmodified CSS as a negative control, set `HB_CONTROL_ROOT=/path/to/main-checkout`; failures are expected there.
 
-The browser helper is shared by both suites and uses isolated profiles. Forced-color emulation is not physical Windows high-contrast verification. Windows Edge/Chrome screenshots, keyboard/assistive-technology smoke, Firefox/Safari forced-color behavior and full consumer builds remain separate checks before closing Issue #2. A second Chromium build exercises the same engine family and does not replace them.
+The browser helper is shared by both suites and uses isolated profiles. Forced-color emulation is not physical Windows high-contrast verification. Windows Edge/Chrome screenshots, keyboard/assistive-technology smoke, Firefox/Safari forced-color behavior and full consumer builds remain separate checks before closing Issues #2 and #7. A second Chromium build exercises the same engine family and does not replace them.
+
+## Field/color-input regression
+
+Requires Node.js 22+ and Chrome/Chromium. Run from the repository root:
+
+```sh
+CHROME_BIN=/path/to/chrome node tests/field-color-input.mjs
+```
+
+On macOS the default executable is Google Chrome. The test starts a local HTTP server and an isolated headless browser profile, then removes the profile. No dependencies are installed. Set `REPORT_PATH` to save the measured snapshots as JSON.
+
+The matrix covers both selective block import orders and the full entrypoint, light/dark schemes, vertical/inline fields, standalone/wrapped inputs, default and public widths, every color-input size, invalid/disabled combinations, hover/focus, public overrides, messages, label/addon geometry, and neighboring full-width slots. Hover/focus pseudo states are forced through CDP; this does not replace cross-browser or real consumer keyboard/pointer checks.
