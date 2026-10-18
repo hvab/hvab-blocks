@@ -36,6 +36,7 @@
   align-items: center;
   justify-content: center;
   height: var(--hb-button-height, var(--_button-height));
+  min-height: var(--hb-button-height, var(--_button-height));
   padding-inline: var(--hb-button-padding, var(--_button-padding));
   font-family: inherit;
   font-size: var(--hb-button-font-size, var(--_button-font-size));
