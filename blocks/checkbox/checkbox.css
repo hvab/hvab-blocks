@@ -182,11 +182,17 @@
   --_checkbox-box-border-color: transparent;
 }
 
-.hb-checkbox:has(.hb-checkbox__control:disabled):has(.hb-checkbox__control:checked),
-.hb-checkbox:has(.hb-checkbox__control[disabled]):has(.hb-checkbox__control:checked),
-.hb-checkbox:has(.hb-checkbox__control[aria-disabled='true']):has(.hb-checkbox__control[aria-checked='true']),
-.hb-checkbox:has(.hb-checkbox__control[data-disabled]):has(.hb-checkbox__control[data-state='checked']),
-.hb-checkbox:has(.hb-checkbox__control[aria-disabled='true']):has(.hb-checkbox__control[aria-checked='mixed']),
-.hb-checkbox:has(.hb-checkbox__control[data-disabled]):has(.hb-checkbox__control[data-state='indeterminate']) {
+.hb-checkbox:has(
+    .hb-checkbox__control:disabled,
+    .hb-checkbox__control[disabled],
+    .hb-checkbox__control[aria-disabled='true'],
+    .hb-checkbox__control[data-disabled]
+  ):has(
+    .hb-checkbox__control:checked,
+    .hb-checkbox__control[aria-checked='true'],
+    .hb-checkbox__control[data-state='checked'],
+    .hb-checkbox__control[aria-checked='mixed'],
+    .hb-checkbox__control[data-state='indeterminate']
+  ) {
   --_checkbox-icon-color: var(--hb-color-text-hint);
 }
