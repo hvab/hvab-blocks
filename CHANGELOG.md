@@ -11,6 +11,12 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 ### Fixed
 
 - `hb-spin` stops rotating under `prefers-reduced-motion: reduce`, preserving its appearance and ordinary-mode customization. The loading example includes visible status text.
+- Text skeletons honor `--hb-skeleton-height` and center using the effective height. Skeleton pulse/shimmer stop under reduced motion even with a public animation override.
+- Tabs consistently use the hover/active text role when selected, including with an idle color override; disabled keeps hint text across hover and selected states.
+
+### Changed
+
+- Clarified the token contract: overrides apply within each role, with explicit state/accessibility policies, local geometry defaults and bounded structure/motion exceptions. Updated block examples and the usage catalogue.
 
 ## [0.3.0] - 2026-10-19
 

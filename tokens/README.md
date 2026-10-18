@@ -11,7 +11,7 @@ Use `index.css` for the full bundle. If you import blocks manually, import the n
 - `typography.css` — `--hb-typography-*` size, line-height, weight, and mono-family tokens.
 - `radius.css` — `--hb-radius-*` corner scale.
 - `spacing.css` — `--hb-gap-*` component rhythm and the reserved `--hb-spacing-*` section rhythm namespace.
-- `motion.css` — `--hb-duration-*` and `--hb-ease-*`, with centralized reduced-motion handling.
+- `motion.css` — `--hb-duration-*` and `--hb-ease-*`, with centralized reduced-motion handling for token-based transitions; continuous animations need a local stop guard.
 - `size.css` — `--hb-size-*` control geometry shared by interactive blocks.
 - `focus.css` — `--hb-focus-ring-*` focus-ring geometry.
 
@@ -23,7 +23,9 @@ Tokens follow the project contract:
 ref -> system -> component tokens -> block selectors
 ```
 
-Blocks read system tokens only through their private component defaults. They do not read `--hb-ref-*` directly.
+Blocks normally read system tokens through private component defaults, declared on the block or owning element. A private state alias may select the public/private pair for the active role. Shared transition duration/easing and fixed round marks on checkbox/radio/switch are the bounded direct-system exceptions in SPEC section 2. Blocks never read `--hb-ref-*` directly or assign public component tokens.
+
+Public overrides win over private defaults for the same role, not over every state: tabs has separate idle and hover/selected text roles, while disabled retains system hint text. Local reduced-motion guards stop continuous animation even when public animation tokens are set. Block READMEs document these policies.
 
 ## Color Schemes
 
@@ -131,5 +133,5 @@ Blocks still do not read `--hb-ref-*` directly.
 - Add a token only when a real block needs it.
 - Port limited scales as complete scales: typography, radius, size, spacing, motion, and focus.
 - Add color roles one by one, but always as light/dark pairs.
-- Keep values in `tokens/`; block selectors should use component tokens, not raw values.
+- Keep shared semantic values in `tokens/`; local component geometry and independent animation periods may be private defaults with public overrides. Structural CSS does not require a token for every declaration. Do not substitute an unrelated system token merely because its value matches.
 - Treat `--hb-*` token names as public API once they are used by a block or documented here.

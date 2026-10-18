@@ -1,3 +1,58 @@
+# V02 — skeleton/tabs implementation (2026-10-19)
+
+Owner-approved scope: fix text skeleton height, tabs state-color priority and skeleton reduced motion with public animation overrides; align SPEC and documentation. Do not add a label separator token. The owner subsequently requested a local V02 commit; remote publication remains separate.
+
+Plan and definition of done:
+
+1. Preserve public names and default appearance while fixing the three reproduced cases.
+2. Align role precedence, structural/motion exceptions and local defaults in SPEC, token/block docs and generated examples; correct the previously identified catalogue/consumer-path drift.
+3. Verify both themes, inherited and inline public overrides, tabs state combinations and live reduced-motion switching. Pass style/format/documentation checks and serve the catalogue.
+4. Record results and limits; leave label unchanged and commit the completed V02 scope locally on the owner's request.
+
+## Implementation result
+
+- Text skeleton now sets the private 1em height default; the existing public height read applies to all variants, and line-centering margins use the effective height. Sized text retains its previous default appearance. The gradient pseudo-element and pulse root explicitly stop under reduced motion, even with a custom public animation.
+- Tabs resolves the public/private idle and active roles on each tab through a private alias. Selected and hovered tabs consistently use the active role; native/ARIA/data disabled states retain system hint text, including selected + hovered combinations. Underline and focus tokens remain independent.
+- SPEC sections 1–2, 4, 7–8 and token/block docs now distinguish role-specific precedence, accessibility guards, local geometry/period defaults and bounded structure/direct-system exceptions. Updated public examples, generated skeleton/tabs demos, Unreleased changelog, USAGE radio-group entry and the verified Selecta paths in AGENTS. No public tokens were added or renamed; label CSS/API and system token values are unchanged.
+- Chrome 156.0.8078.36: 1374 assertions passed in both themes. Coverage: all five skeleton sizes and four shapes; default, ancestor and inline height/radius/background overrides; text centering; independent idle/active/both overrides; tabs native/ARIA/data disabled and selected combinations with real pointer hover; public geometry, underline, baseline and keyboard focus styles. Pulse and gradient move, stop, then resume across live no-preference → reduce → no-preference changes, with both default and inherited/inline custom animation periods and shimmer color.
+- Updated catalogue examples visually inspected in both themes; all four animated skeleton examples compute animation:none under reduce. PASS: lint:styles, full format:check, docs:check, demo:check and git diff --check. npm start served /demo/, /demo/skeleton.html and /demo/tabs.html with HTTP 200. Temporary verification scripts, profiles and screenshots stay outside the repository; no test files or dependencies added.
+- Limits: verification is bounded to Chrome and these cases, not every component/token or a new cross-browser acceptance. Text centering expects a length-valued public height, as documented. Label separator spacing remains deferred by owner request. The completed V02 scope is prepared for the requested local commit on main over the existing local spin commit; 0.3.0 and remote state are unchanged. Next small step: prepare a patch release together with the spin fix when requested.
+
+# V02 — token contract investigation (2026-10-19)
+
+Scope: identify current, actionable differences between SPEC and token/block CSS; distinguish public override failures, theme inconsistencies, intentional structure/accessibility exceptions, and documentation drift. No CSS implementation or commit is requested.
+
+Plan and definition of done:
+
+1. Inventory block declarations against SPEC sections 1–2 and 7, using current source rather than historical counts.
+2. Inspect representative exceptions and reproduce potential consumer-visible failures where needed.
+3. Report prioritized concrete corrections and explicit documentation decisions, with source locations and limits; preserve unrelated code and the existing local spin commit.
+
+## V02 findings and proposed scope
+
+Current baseline: main at 7ca49b3, containing the unpublished hb-spin fix. AST inventory covers all 32 block CSS files and resolves system tokens against actual declarations in tokens/ (so --hb-color-input-\* is correctly recognized as a component API, not a system color token). There are 28 direct system-token declarations in ordinary properties: 24 transitions and 4 round-radius uses. The 105 literal private defaults include repeats, component geometry and animation periods; they are not 105 bugs. Structural/state declarations require semantic classification, not a blanket violation count.
+
+### Reproduced behavior differences
+
+1. **Skeleton text height (P2):** blocks/skeleton/skeleton.css:74 hardcodes height:1em over the base public/private height. With inherited --hb-skeleton-height:40px and 16px text, a sized rectangular skeleton is 40px while variant_text stays 16px. README documents the token as block height without a text exception. Recommended fix: make 1em the text variant's private default, retain the public height read, and calculate centering against the effective height. Preserve the default text appearance and check combined size/text modifiers.
+2. **Tabs state color priority (P2):** tabs.css:48 reads public idle color before a private value, while :hover at line 63 reads the active token directly; selected at line 95 only changes the private fallback. With idle rgb(180,30,40) and active rgb(20,110,60), an already selected tab is red until hovered, when it becomes green. README lines 80–81 explicitly assign idle versus hover/active roles. Recommended fix: resolve idle and hover/selected consistently through internal state aliases, preserving the documented public names; describe state-specific role priority instead of promising one base token wins every state. Disabled/focus combinations must retain their intended policy in that scoped fix.
+3. **Skeleton reduced motion with public animation (P2):** skeleton.css:102–106 only clears the private animation. Setting documented --hb-skeleton-animation to hb-skeleton-pulse 2s linear infinite or hb-skeleton-shimmer 2s linear infinite leaves the root/pseudo-element animation active under reduce; the default pulse correctly becomes none. README promises both animations are disabled, and the clarified SPEC now requires an explicit stop. Recommended fix: animation:none on the actual pulse root and gradient ::after inside the media rule, preserving normal-mode public customization. Accessibility guards are an explicit exception to public visual override precedence.
+4. **Label separator spacing (P3 / theme limitation):** label.css:50 uses margin-inline:4px, without a component override. Changing --hb-gap-1 from 4px to 12px changes a field's gap to 12px but leaves this separator at 4px. Recommended optional follow-up: a separator-gap public/private pair defaulting to --hb-gap-1, with unchanged default pixels. This adds public API and should be scoped separately from compatible bug fixes; do not substitute unrelated radius/control-size tokens just because their numbers match.
+
+The first four observations were reproduced in Chrome 156 with real index.css in both light and dark. The tabs sample used a real pointer hover after the transition settled. A 52px ancestor button-height override still applies over its size_s modifier as a control case. Evidence is in temporary hvab-v02-evidence.json; no permanent test harness was added. This is bounded verification, not an exhaustive public-token matrix or cross-browser acceptance.
+
+### Contract corrections recommended instead of a mass CSS rewrite
+
+- SPEC section 2 says there are no exceptions, but sections 2.4/2.6 already define exceptions; section 7.4 still says no raw px/hex/ms at all. Align these sections around semantic values versus local component geometry and separate animation periods. Examples: dialog width 480px and field label width 12rem are local layout defaults; check/radio mark dimensions and donor-specific control geometry are not automatically the same semantic scale as button heights. Do not round/replace donor values merely to match an existing token.
+- Permit shared duration/easing reads in transition declarations (24 current declarations), rather than introducing dozens of unused public duration/easing tokens. Keep explicit reduced-motion guards for continuous animation.
+- Decide and document the fixed round-shape exception for checkbox mixed mark, radio ring/disc and switch thumb (4 direct --hb-radius-round reads). They are literal layer deviations, not evidence that a documented radius override is broken. Add component radius APIs only for an actual customization requirement.
+- Allow structural layout/shape/overflow modifiers: field inline grid, text ellipsis, divider orientation, skeleton aspect ratio, table width. Allow state-driven indicator visibility, selected radio-group separator geometry and focus painting on the actual control surface. Preserve public visual token reads; avoid variables that only mirror display/grid/placement syntax.
+- Allow private defaults on the element that owns them (for example sheet panel/handle) and resolved private state aliases (radio-group) when public role tokens are still respected. The documented toaster namespace is a separate block in toast.css, not accidental cross-block token usage.
+- Clarify precedence: a public token overrides the private default for that role, not every other state-specific public role. Structural and reduced-motion policies must be listed separately. Align SPEC, tokens/README and relevant block docs; do not silently change every component's established state behavior.
+- Small adjacent documentation drift: USAGE's catalogue omits radio-group; AGENTS references ThemeControls.vue and src/components/ui/, while the current read-only Selecta tree uses src/components/ThemeControls/ThemeControls.vue and src/ui/. No Selecta files were changed.
+
+Recommendation: first a bounded skeleton/tabs correctness change (items 1–3), with explicit role/guard wording; then the wider contract/documentation alignment. Treat label separator API as a separately chosen addition. No CSS, contract, public README, version, commit or remote state was changed during this investigation; only this journal is updated.
+
 # Spin reduced motion — implementation (2026-10-19)
 
 The owner approved stopping hb-spin under prefers-reduced-motion:reduce while preserving ordinary rotation, updating README/SPEC, adding a clear loading example and verifying both modes. The owner subsequently requested a local commit. No version bump or remote publication is requested.

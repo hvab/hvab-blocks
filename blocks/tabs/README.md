@@ -68,6 +68,8 @@ Tab list skin: `hb-tabs` is the tablist itself, `__tab` are its items (`<button 
 
 ## Public Tokens
 
+Text roles resolve on each tab: idle reads `--hb-tabs-text-color`; hover and selected read `--hb-tabs-text-color-active`, even when both tokens are set. These overrides work on ancestors or individual tabs. Disabled takes priority over both roles and keeps `--hb-color-text-hint`, including while hovered or selected. A selected disabled tab keeps its underline; focus styling remains independent.
+
 | Token                         | Controls                                |
 | ----------------------------- | --------------------------------------- |
 | `--hb-tabs-item-height`       | Tab height.                             |
@@ -88,10 +90,15 @@ Tab list skin: `hb-tabs` is the tablist itself, `__tab` are its items (`<button 
   class="hb-tabs"
   role="tablist"
   aria-label="Custom color"
-  style="--hb-tabs-indicator-color: var(--hb-color-text-positive)"
+  style="
+    --hb-tabs-indicator-color: var(--hb-color-text-positive-contrast);
+    --hb-tabs-text-color: var(--hb-color-text-complementary);
+    --hb-tabs-text-color-active: var(--hb-color-text-positive-contrast);
+  "
 >
   <button type="button" class="hb-tabs__tab" role="tab" aria-selected="true">Active</button>
   <button type="button" class="hb-tabs__tab" role="tab" aria-selected="false">Idle</button>
+  <button type="button" class="hb-tabs__tab" role="tab" aria-selected="false" disabled>Disabled</button>
 </div>
 ```
 

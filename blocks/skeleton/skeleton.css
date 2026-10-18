@@ -69,10 +69,11 @@
 }
 
 .hb-skeleton.hb-skeleton_variant_text {
+  --_skeleton-height: 1em;
+
   display: block;
   width: 100%;
-  height: 1em;
-  margin-block: calc((1lh - 1em) / 2);
+  margin-block: calc((1lh - var(--hb-skeleton-height, var(--_skeleton-height))) / 2);
 }
 
 /* Animation: gradient shimmer from left to right. */
@@ -100,9 +101,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hb-skeleton.hb-skeleton_animation_gradient,
+  .hb-skeleton.hb-skeleton_animation_gradient::after,
   .hb-skeleton.hb-skeleton_animation_pulse {
-    --_skeleton-animation: none;
+    animation: none;
   }
 }
 

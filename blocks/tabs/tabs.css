@@ -37,6 +37,8 @@
 }
 
 .hb-tabs__tab {
+  --_tabs-resolved-text-color: var(--hb-tabs-text-color, var(--_tabs-text-color));
+
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -45,7 +47,7 @@
   padding-block-start: var(--hb-tabs-indicator-width, var(--_tabs-indicator-width));
   font-family: inherit;
   font-size: var(--hb-tabs-font-size, var(--_tabs-font-size));
-  color: var(--hb-tabs-text-color, var(--_tabs-text-color));
+  color: var(--_tabs-resolved-text-color);
   white-space: nowrap;
   text-decoration: none;
   appearance: none;
@@ -60,7 +62,7 @@
 }
 
 .hb-tabs__tab:hover {
-  color: var(--hb-tabs-text-color-active, var(--_tabs-text-color-active));
+  --_tabs-resolved-text-color: var(--hb-tabs-text-color-active, var(--_tabs-text-color-active));
 }
 
 .hb-tabs__tab:focus-visible {
@@ -92,7 +94,7 @@
 /* State: active; hover and active resolve to the same text color. */
 .hb-tabs__tab[aria-selected='true'],
 .hb-tabs__tab[data-state='active'] {
-  --_tabs-text-color: var(--hb-tabs-text-color-active, var(--_tabs-text-color-active));
+  --_tabs-resolved-text-color: var(--hb-tabs-text-color-active, var(--_tabs-text-color-active));
 
   cursor: default;
   border-block-end-color: var(--hb-tabs-indicator-color, var(--_tabs-indicator-color));
@@ -102,8 +104,7 @@
 .hb-tabs__tab:disabled,
 .hb-tabs__tab[aria-disabled='true'],
 .hb-tabs__tab[data-disabled] {
-  --_tabs-text-color: var(--hb-color-text-hint);
-  --_tabs-text-color-active: var(--hb-color-text-hint);
+  --_tabs-resolved-text-color: var(--hb-color-text-hint);
 
   cursor: not-allowed;
 }

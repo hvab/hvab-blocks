@@ -358,10 +358,15 @@
                 class="hb-tabs"
                 role="tablist"
                 aria-label="Custom color"
-                style="--hb-tabs-indicator-color: var(--hb-color-text-positive)"
+                style="
+                  --hb-tabs-indicator-color: var(--hb-color-text-positive-contrast);
+                  --hb-tabs-text-color: var(--hb-color-text-complementary);
+                  --hb-tabs-text-color-active: var(--hb-color-text-positive-contrast);
+                "
               >
                 <button type="button" class="hb-tabs__tab" role="tab" aria-selected="true">Active</button>
                 <button type="button" class="hb-tabs__tab" role="tab" aria-selected="false">Idle</button>
+                <button type="button" class="hb-tabs__tab" role="tab" aria-selected="false" disabled>Disabled</button>
               </div>
             </div>
             <pre
@@ -370,10 +375,15 @@
   class=&quot;hb-tabs&quot;
   role=&quot;tablist&quot;
   aria-label=&quot;Custom color&quot;
-  style=&quot;--hb-tabs-indicator-color: var(--hb-color-text-positive)&quot;
+  style=&quot;
+    --hb-tabs-indicator-color: var(--hb-color-text-positive-contrast);
+    --hb-tabs-text-color: var(--hb-color-text-complementary);
+    --hb-tabs-text-color-active: var(--hb-color-text-positive-contrast);
+  &quot;
 &gt;
   &lt;button type=&quot;button&quot; class=&quot;hb-tabs__tab&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;&gt;Active&lt;/button&gt;
   &lt;button type=&quot;button&quot; class=&quot;hb-tabs__tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;Idle&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;hb-tabs__tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; disabled&gt;Disabled&lt;/button&gt;
 &lt;/div&gt;</code></pre>
           </section>
         </div>

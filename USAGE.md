@@ -119,6 +119,7 @@ Read the block README before using a block. It contains copy-paste examples and 
 - [Field](blocks/field/README.md)
 - [Link](blocks/link/README.md)
 - [Radio](blocks/radio/README.md)
+- [Radio Group](blocks/radio-group/README.md)
 - [Range Input](blocks/range-input/README.md)
 - [Select](blocks/select/README.md)
 - [Switch](blocks/switch/README.md)
