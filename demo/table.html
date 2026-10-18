@@ -360,13 +360,19 @@
             <div
               class="demo-card__preview demo-card__preview_block_table demo-card__preview_variant_interactive-selected-and-disabled-rows demo-card__preview_example_table_interactive-selected-and-disabled-rows"
             >
-              <table class="hb-table hb-table_width_max">
+              <table class="hb-table hb-table_width_max hb-table_striped">
                 <tbody class="hb-table__body">
-                  <tr class="hb-table__row hb-table__row_interactive">
-                    <td class="hb-table__cell">Hoverable row</td>
+                  <tr class="hb-table__row hb-table__row_interactive" aria-selected="true">
+                    <td class="hb-table__cell">Selected odd row: selection stays on hover</td>
                   </tr>
-                  <tr class="hb-table__row" aria-selected="true">
-                    <td class="hb-table__cell">Selected row</td>
+                  <tr class="hb-table__row hb-table__row_interactive" aria-selected="true">
+                    <td class="hb-table__cell">Selected even row: selection stays over the stripe</td>
+                  </tr>
+                  <tr class="hb-table__row hb-table__row_interactive">
+                    <td class="hb-table__cell">Unselected odd row: hover background</td>
+                  </tr>
+                  <tr class="hb-table__row hb-table__row_interactive">
+                    <td class="hb-table__cell">Unselected even row: hover background over the stripe</td>
                   </tr>
                   <tr class="hb-table__row" aria-disabled="true">
                     <td class="hb-table__cell">Disabled row</td>
@@ -376,13 +382,19 @@
             </div>
             <pre
               class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;table class=&quot;hb-table hb-table_width_max&quot;&gt;
+            ><code class="hb-text hb-text_typography_code-2">&lt;table class=&quot;hb-table hb-table_width_max hb-table_striped&quot;&gt;
   &lt;tbody class=&quot;hb-table__body&quot;&gt;
-    &lt;tr class=&quot;hb-table__row hb-table__row_interactive&quot;&gt;
-      &lt;td class=&quot;hb-table__cell&quot;&gt;Hoverable row&lt;/td&gt;
+    &lt;tr class=&quot;hb-table__row hb-table__row_interactive&quot; aria-selected=&quot;true&quot;&gt;
+      &lt;td class=&quot;hb-table__cell&quot;&gt;Selected odd row: selection stays on hover&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr class=&quot;hb-table__row&quot; aria-selected=&quot;true&quot;&gt;
-      &lt;td class=&quot;hb-table__cell&quot;&gt;Selected row&lt;/td&gt;
+    &lt;tr class=&quot;hb-table__row hb-table__row_interactive&quot; aria-selected=&quot;true&quot;&gt;
+      &lt;td class=&quot;hb-table__cell&quot;&gt;Selected even row: selection stays over the stripe&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;hb-table__row hb-table__row_interactive&quot;&gt;
+      &lt;td class=&quot;hb-table__cell&quot;&gt;Unselected odd row: hover background&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;hb-table__row hb-table__row_interactive&quot;&gt;
+      &lt;td class=&quot;hb-table__cell&quot;&gt;Unselected even row: hover background over the stripe&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class=&quot;hb-table__row&quot; aria-disabled=&quot;true&quot;&gt;
       &lt;td class=&quot;hb-table__cell&quot;&gt;Disabled row&lt;/td&gt;
