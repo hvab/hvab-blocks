@@ -8,7 +8,17 @@ const output = path.join(root, 'dist');
 rmSync(output, { force: true, recursive: true });
 mkdirSync(output);
 
-for (const entry of ['blocks', 'tokens', 'index.css']) {
+for (const entry of [
+  'blocks',
+  'tokens',
+  'index.css',
+  'LICENSE',
+  'THIRD_PARTY_NOTICES.md',
+  'CHANGELOG.md',
+  'VENDOR.md',
+  'USAGE.md',
+  'README.md',
+]) {
   cpSync(path.join(root, entry), path.join(output, entry), { recursive: true });
 }
 

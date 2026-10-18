@@ -9,6 +9,13 @@ The owner authorized preparation, checks, publication of main and the v0.3.0 tag
 
 Done means the published tag identifies the checked source, notices ship with the package, the release notes cover the audit changes and known provenance limits, and the local main is clean and synchronized.
 
+## Publication and Pages follow-up
+
+- Published v0.3.0 at 4dfa1c71dc169172c7e6f1de720b6b47044261fc; remote main/tag equality and latest non-draft GitHub Release were verified. Package and lockfile are 0.3.0; final archive checks pass.
+- Initial Pages workflow 39153026973 succeeded, but HTTP verification found LICENSE and THIRD_PARTY_NOTICES.md absent from the deployed CSS catalogue (404). Follow-up plan: copy the consumer documentation and notices into the Pages artifact, verify source equality and local documentation targets, then publish a separate deployment-only commit. Preserve the existing release tag and package contents.
+- The Pages follow-up passes pages:build, full format:check, style lint and whitespace checks. All six consumer documents/notices match source and their local targets resolve in dist. Package metadata, distributed source and the release tag remain unchanged; only build-pages and this journal differ from v0.3.0.
+- The workflow reports upstream action-runtime/runner migration notices; these did not fail the deployment. Updating action versions is separate maintenance.
+
 ## Preparation result
 
 - Completed the public changelog, including three contrast roles, two dialog footer overrides, all eleven audit fixes and custom-theme upgrade guidance. No CSS, generated demo or public export changes were introduced during release preparation.
