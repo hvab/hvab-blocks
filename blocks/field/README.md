@@ -46,6 +46,8 @@ The control slot stretches to fill its grid column when its width is automatic. 
 
 Message views are visual only. Put the actual invalid state on the control with `aria-invalid="true"`.
 
+Labels and neutral help use `text-complementary`; warning messages use `text-warning-contrast`. These defaults support the light/dark page, float and modal surfaces described in the [color contrast contract](../../tokens/README.md#functional-text-contrast). Error messages keep `text-danger`; the floating-surface guarantee does not extend to that unchanged role. Public label/message color overrides still win over defaults and message views.
+
 ```html demo
 <div class="hb-field">
   <label class="hb-field__label" for="folder">Theme folder</label>
@@ -56,6 +58,19 @@ Message views are visual only. Put the actual invalid state on the control with 
   <label class="hb-field__label" for="token">Token name</label>
   <input class="hb-field__control hb-text-input" id="token" type="text" value="accent" />
   <p class="hb-field__message hb-field__message_view_warning">This token shadows a local override.</p>
+</div>
+```
+
+## Floating surface
+
+```html demo
+<div style="padding: var(--hb-gap-4); background: var(--hb-color-base-float)">
+  <div class="hb-field">
+    <label class="hb-field__label" for="floating-theme-name">Theme name</label>
+    <input class="hb-field__control hb-text-input" id="floating-theme-name" type="text" value="My theme" />
+    <p class="hb-field__message">Use a name you can recognize later.</p>
+    <p class="hb-field__message hb-field__message_view_warning">This name is already in use.</p>
+  </div>
 </div>
 ```
 

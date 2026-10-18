@@ -27,6 +27,8 @@ Key-value pairs use `__value` after a `__separator`; the value is visually muted
 
 ## Themes
 
+Info/success/warning content uses the local `text-*-contrast` roles while keeping the original tinted backgrounds. These pairs support the default page, float and modal underlays in both schemes; see the [color contrast contract](../../tokens/README.md#functional-text-contrast). Other themes and the muted `__value` opacity are unchanged and are outside this expanded surface guarantee. `--hb-label-text-color` continues to override the theme.
+
 ```html demo
 <span class="hb-label"><span class="hb-label__content">Normal</span></span>
 <span class="hb-label hb-label_theme_info"><span class="hb-label__content">Info</span></span>
@@ -35,6 +37,16 @@ Key-value pairs use `__value` after a `__separator`; the value is visually muted
 <span class="hb-label hb-label_theme_danger"><span class="hb-label__content">Danger</span></span>
 <span class="hb-label hb-label_theme_unknown"><span class="hb-label__content">Unknown</span></span>
 <span class="hb-label hb-label_theme_clear"><span class="hb-label__content">Clear</span></span>
+```
+
+## Floating surface
+
+```html demo
+<div style="padding: var(--hb-gap-4); background: var(--hb-color-base-float)">
+  <span class="hb-label hb-label_theme_info"><span class="hb-label__content">Info</span></span>
+  <span class="hb-label hb-label_theme_success"><span class="hb-label__content">Success</span></span>
+  <span class="hb-label hb-label_theme_warning"><span class="hb-label__content">Warning</span></span>
+</div>
 ```
 
 ## Modifiers

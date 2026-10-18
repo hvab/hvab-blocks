@@ -47,7 +47,7 @@
   --_toast-title-size: var(--hb-typography-subheader-2-size);
   --_toast-title-line: var(--hb-typography-subheader-2-line);
   --_toast-title-weight: var(--hb-typography-subheader-2-weight);
-  --_toast-message-color: var(--hb-color-text-secondary);
+  --_toast-message-color: var(--hb-color-text-primary);
   --_toast-message-size: var(--hb-typography-body-1-size);
   --_toast-message-line: var(--hb-typography-body-1-line);
   --_toast-message-indent: var(--hb-gap-1);
