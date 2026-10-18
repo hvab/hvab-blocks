@@ -61,14 +61,22 @@ Static data table on native markup. `hb-table` goes on `<table>`; `__head`/`__bo
 
 ## Interactive, selected, and disabled rows
 
+Row background priority is selected > interactive hover > zebra > base. Selected rows keep the same selection background on hover, on both odd and even rows, and after reordering. Hover applies only to unselected interactive rows. The default hover and zebra colors coincide; a custom hover background can make their difference visible. Disabled opacity is independent of background selection; preventing interaction remains the consumer's responsibility.
+
 ```html demo
-<table class="hb-table hb-table_width_max">
+<table class="hb-table hb-table_width_max hb-table_striped">
   <tbody class="hb-table__body">
-    <tr class="hb-table__row hb-table__row_interactive">
-      <td class="hb-table__cell">Hoverable row</td>
+    <tr class="hb-table__row hb-table__row_interactive" aria-selected="true">
+      <td class="hb-table__cell">Selected odd row: selection stays on hover</td>
     </tr>
-    <tr class="hb-table__row" aria-selected="true">
-      <td class="hb-table__cell">Selected row</td>
+    <tr class="hb-table__row hb-table__row_interactive" aria-selected="true">
+      <td class="hb-table__cell">Selected even row: selection stays over the stripe</td>
+    </tr>
+    <tr class="hb-table__row hb-table__row_interactive">
+      <td class="hb-table__cell">Unselected odd row: hover background</td>
+    </tr>
+    <tr class="hb-table__row hb-table__row_interactive">
+      <td class="hb-table__cell">Unselected even row: hover background over the stripe</td>
     </tr>
     <tr class="hb-table__row" aria-disabled="true">
       <td class="hb-table__cell">Disabled row</td>
@@ -112,6 +120,8 @@ Static data table on native markup. `hb-table` goes on `<table>`; `__head`/`__bo
 | `--hb-table-zebra-background`        | Zebra stripe background.               |
 | `--hb-table-row-hover-background`    | Hover background for interactive rows. |
 | `--hb-table-row-selected-background` | Selected row background.               |
+
+State-specific public backgrounds follow the priority above. `--hb-table-row-background` is a final override: when set, it takes precedence over selection, hover and zebra. `--hb-table-row-opacity` likewise overrides the default disabled opacity. Public tokens can be inherited from a container or set on an individual row.
 
 ```html demo
 <table class="hb-table hb-table_width_max" style="--hb-table-cell-padding-inline: 4px">

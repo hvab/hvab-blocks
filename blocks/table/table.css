@@ -93,7 +93,7 @@
 }
 
 /* Zebra rows. */
-.hb-table.hb-table_striped .hb-table__body .hb-table__row:nth-child(even) {
+.hb-table.hb-table_striped :where(.hb-table__body .hb-table__row:nth-child(even)) {
   --_table-row-background: var(--hb-table-zebra-background, var(--_table-zebra-background));
 }
 
@@ -102,7 +102,7 @@
   cursor: pointer;
 }
 
-.hb-table__row.hb-table__row_interactive:hover {
+.hb-table__row.hb-table__row_interactive:where(:not([aria-selected='true'])):hover {
   --_table-row-background: var(--hb-table-row-hover-background, var(--_table-row-hover-background));
 }
 
