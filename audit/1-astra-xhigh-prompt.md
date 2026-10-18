@@ -36,6 +36,7 @@ hvab-blocks — copy-first, framework-agnostic библиотека plain CSS и
 ## Требования к выводам
 
 Каждому finding дай устойчивый ID `F01`, `F02` и далее. Укажи:
+
 - severity: Critical / High / Medium / Low и уверенность отдельно;
 - точный файл, строки и symbol/selector на зафиксированном SHA;
 - нарушенный контракт и источник ожидаемого поведения;
