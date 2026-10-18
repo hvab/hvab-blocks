@@ -97,4 +97,6 @@ Override public tokens on the button itself or on an ancestor. Do not set privat
 
 ## Limits
 
+The height token also sets the minimum height. Compositions such as the dialog footer can use `height: auto` to fit multiline labels while preserving the selected button size as a minimum.
+
 The block does not ship dedicated `__icon` or `__text` elements yet. Compose inline icons directly and rely on `gap`. Selected, max-width, and active-press variants are intentionally not part of v1.

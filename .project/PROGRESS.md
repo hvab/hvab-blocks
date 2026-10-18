@@ -138,3 +138,31 @@ Base: origin/main `5955feff38aeae132d847809ca1aaea8e5ff04c2`. Work is isolated o
 - NOT RUN: VoiceOver/NVDA speech, Safari/Firefox, physical touch, real consumer wheel/touch/scroll-lock restoration. No consumer policy was introduced or tested; those issue acceptance checks remain follow-up validation.
 - Shared-file note: only this branch appends this completed track to PROGRESS; parallel tracks may conflict in that file. No CHANGELOG changes or foreign reports/WIP are included; the explicitly authorized formatting-only prerequisite is a separate commit.
 - Implementation and local validation complete. Next step: review the draft PR and unavailable platform/consumer acceptance before merging.
+
+## Issue #1 implementation — 2026-10-18
+
+### Plan and definition of done
+
+1. Implement the approved policy: full-width stacked actions below the default 480px dialog width, an end-aligned row at 480px and above, unchanged DOM/Tab order and fully wrapping labels. Use the dialog's actual width, including narrow containers on desktop.
+2. Remove the independent divider overflow, preserve public padding/size overrides, document the composition and regenerate its catalogue examples.
+3. Verify isolated divider/actions cases, 320/375/1280px layouts, sizes, long labels and keyboard/scroll reachability; exercise the real Selecta wrappers in a temporary fixture. Run the required style/format/catalogue gates and record unavailable manual environments.
+
+Done means the implementation and examples are reviewable in the current checkout, with verification evidence and limits recorded. No commit, branch switch, PR change or issue closure is authorized by this step.
+
+### State
+
+- Implemented named size-container layout on the dialog: stacked/stretched footer below 480px, end-aligned row from 480px. The fixed structural threshold matches the existing default dialog width; unsupported size queries retain the safe stacked layout. No reordering or wrapper changes.
+- Direct footer buttons wrap full labels, including unbroken strings, with automatic height. The button block now also reads its existing height token as min-height, preserving size modifiers and public height overrides when the footer uses height:auto. Footer text line height and block padding have their own public/private tokens; no other block's private tokens are accessed.
+- Removed divider negative margins; it now spans the unpadded root and cannot shrink vertically. Updated both block READMEs, corrected the footer-padding description and regenerated the narrow-dialog catalogue example.
+- Chrome 156: 720 geometry combinations passed across native/div hosts, 320/375/1280px viewports, default/s/m/l dialog sizes, 1–3 short/long Latin/Cyrillic/unbroken labels and default/16/48px side padding. Divider-only and actions-only cases were checked separately. On the original CSS, divider-only reproduces clientWidth=272/scrollWidth=304; long-actions-only reproduces the first action at x=-339.53px. Both are resolved in the working copy.
+- Additional 64 layout cases cover narrow desktop containers, 479/480px boundary, xs–xl buttons, public height/font/padding/gap overrides, CSS zoom 200%/400%, and native/div long-body Tab/Shift+Tab traversal with visible focus and scrolling to every action. RTL order and loading button.css after dialog.css also passed. CSS zoom is reflow evidence, not physical browser-toolbar zoom acceptance.
+- Real unchanged Selecta ConfirmDialog/Button wrappers from 8662ce5 passed six light/dark scenarios at 320/375/1280px with synthetic long labels, using a temporary copy and the working CSS. Initial focus, Tab order/trapping, cancel/confirm events and return focus passed. Inspected narrow-light and wide-dark screenshots. The first fixture attempt used a doubled Vite base URL; corrected only the temporary HTML before successful acceptance. The initial permission review could not complete due to a usage limit; after the user's continuation, the retry succeeded.
+- Evidence: /private/tmp/hvab-1-evidence/matrix.json, extra.json and selecta-\*.png; temporary verification scripts /private/tmp/hvab-1-check.mjs and /private/tmp/hvab-1-extra.mjs. No verification infrastructure was added to the repository or consumer checkout.
+- Style lint, full format:check, demo:check, docs:check and diff whitespace checks passed. npm start serves the updated catalogue with HTTP 200 at /demo/dialog.html. Unlike the previously checked remote main, this current checkout has no format:check warning.
+- Limits: Safari/Firefox and physical browser zoom/AT were not exercised. Issue #1 remains open; PR #16 and the other pending accessibility issues are unchanged. Implementation is uncommitted on the existing develop branch with unrelated local edits preserved. Next: review the local change and complete cross-engine/physical zoom acceptance before final issue closure.
+
+## Issue #1 commit and PR — 2026-10-18
+
+Plan: commit only the five implementation/documentation/demo files and this issue's progress record; prepare the PR from current main in an isolated checkout. Preserve unrelated working changes and keep #1 open pending Safari/Firefox and browser zoom 200–400% acceptance. Done means the commit is published, the PR is attached to this chat and the remaining acceptance is explicit without automatic issue-closing keywords.
+
+- Publication preparation: local implementation commit e1eecec contains only the five issue files and the issue-specific progress section. The isolated PR branch starts at main d0fb7ed; all five implementation files match the accepted version byte-for-byte. Style lint, demo/docs checks, changed-file formatting, whitespace checks and npm start HTTP serving pass on this base. Full formatting reports only the unchanged main file .project/WEB-PLATFORM-AGENT-GUIDANCE.md. Safari/Firefox and real browser zoom 200–400% remain pending; no automatic issue closure is configured.

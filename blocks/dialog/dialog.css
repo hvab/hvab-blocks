@@ -11,8 +11,7 @@
  *
  * This is a class composition, not a block-in-block import (§6): it is placed inside
  * hb-modal__panel, which supplies the surface (background/radius/shadow/scroll), while dialog
- * supplies the inner structure and width. __divider spans the full panel width via negative
- * margins that cancel the side padding.
+ * supplies the inner structure and width. __divider spans the unpadded dialog root.
  */
 
 .hb-dialog {
@@ -23,6 +22,8 @@
   --_dialog-body-padding-block: var(--hb-gap-2);
   --_dialog-footer-padding: var(--hb-gap-6);
   --_dialog-footer-gap: var(--hb-gap-2);
+  --_dialog-footer-button-padding-block: var(--hb-gap-1);
+  --_dialog-footer-button-line: 1.4;
   --_dialog-title-size: var(--hb-typography-subheader-2-size);
   --_dialog-title-line: var(--hb-typography-subheader-2-line);
   --_dialog-title-weight: var(--hb-typography-subheader-2-weight);
@@ -37,6 +38,7 @@
   flex-direction: column;
   width: var(--hb-dialog-width, var(--_dialog-width));
   max-width: 100%;
+  container: hb-dialog / inline-size;
 }
 
 /* Sizes */
@@ -76,18 +78,40 @@
 
 .hb-dialog__footer {
   display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
   gap: var(--hb-dialog-footer-gap, var(--_dialog-footer-gap));
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-end;
   padding: var(--hb-dialog-footer-padding, var(--_dialog-footer-padding))
     var(--hb-dialog-side-padding, var(--_dialog-side-padding));
 }
 
+/* Direct button children retain their own size token as a minimum height. */
+.hb-dialog__footer > .hb-button {
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  padding-block: var(--hb-dialog-footer-button-padding-block, var(--_dialog-footer-button-padding-block));
+  line-height: var(--hb-dialog-footer-button-line, var(--_dialog-footer-button-line));
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* The default dialog width is the structural breakpoint, independent of the viewport. */
+@container hb-dialog (min-width: 480px) {
+  .hb-dialog__footer {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 /* Full-bleed divider between sections. */
 .hb-dialog__divider {
+  flex-shrink: 0;
   height: var(--hb-dialog-line-width, var(--_dialog-line-width));
   margin-block: 0;
-  margin-inline: calc(-1 * var(--hb-dialog-side-padding, var(--_dialog-side-padding)));
+  margin-inline: 0;
   background: var(--hb-dialog-line-color, var(--_dialog-line-color));
   border: none;
 }
