@@ -6,34 +6,34 @@ Native multiline textarea chrome. The class is applied directly to `textarea`; a
 
 ```html demo
 <textarea class="hb-textarea" rows="3" placeholder="Theme notes"></textarea>
-<textarea class="hb-textarea" rows="3">Existing multiline value</textarea>
+<textarea class="hb-textarea" rows="3" aria-label="Theme notes">Existing multiline value</textarea>
 ```
 
 ## Sizes
 
 ```html demo
 <textarea class="hb-textarea hb-textarea_size_s" rows="2" placeholder="size s"></textarea>
-<textarea class="hb-textarea hb-textarea_size_m" rows="2">size m</textarea>
-<textarea class="hb-textarea hb-textarea_size_l" rows="2">size l</textarea>
-<textarea class="hb-textarea hb-textarea_size_xl" rows="2">size xl</textarea>
+<textarea class="hb-textarea hb-textarea_size_m" rows="2" aria-label="Theme notes (size m)">size m</textarea>
+<textarea class="hb-textarea hb-textarea_size_l" rows="2" aria-label="Theme notes (size l)">size l</textarea>
+<textarea class="hb-textarea hb-textarea_size_xl" rows="2" aria-label="Theme notes (size xl)">size xl</textarea>
 ```
 
 ## Resize
 
 ```html demo
-<textarea class="hb-textarea hb-textarea_resize_none" rows="2">resize none</textarea>
-<textarea class="hb-textarea hb-textarea_resize_vertical" rows="2">resize vertical</textarea>
-<textarea class="hb-textarea hb-textarea_resize_horizontal" rows="2">resize horizontal</textarea>
-<textarea class="hb-textarea hb-textarea_resize_both" rows="2">resize both</textarea>
+<textarea class="hb-textarea hb-textarea_resize_none" rows="2" aria-label="Theme notes">resize none</textarea>
+<textarea class="hb-textarea hb-textarea_resize_vertical" rows="2" aria-label="Theme notes">resize vertical</textarea>
+<textarea class="hb-textarea hb-textarea_resize_horizontal" rows="2" aria-label="Notes">resize horizontal</textarea>
+<textarea class="hb-textarea hb-textarea_resize_both" rows="2" aria-label="Theme notes">resize both</textarea>
 ```
 
 ## States
 
 ```html demo
 <textarea class="hb-textarea" rows="3" placeholder="Default"></textarea>
-<textarea class="hb-textarea" rows="3" aria-invalid="true">Invalid value</textarea>
-<textarea class="hb-textarea" rows="3" readonly>Readonly value</textarea>
-<textarea class="hb-textarea" rows="3" disabled>Disabled value</textarea>
+<textarea class="hb-textarea" rows="3" aria-label="Theme notes (invalid)" aria-invalid="true">Invalid value</textarea>
+<textarea class="hb-textarea" rows="3" aria-label="Theme notes (readonly)" readonly>Readonly value</textarea>
+<textarea class="hb-textarea" rows="3" aria-label="Theme notes (disabled)" disabled>Disabled value</textarea>
 ```
 
 ## Field Composition
@@ -95,7 +95,12 @@ Required before export.</textarea
 | `--hb-textarea-resize`            | Native resize value.  |
 
 ```html demo
-<textarea class="hb-textarea" rows="2" style="--hb-textarea-min-height: 12rem; --hb-textarea-resize: none">
+<textarea
+  class="hb-textarea"
+  rows="2"
+  aria-label="Theme notes (custom height)"
+  style="--hb-textarea-min-height: 12rem; --hb-textarea-resize: none"
+>
 Custom height</textarea
 >
 ```

@@ -12,7 +12,7 @@
  * Host 1: native `<dialog class="hb-modal__panel">` opened with `dialog.showModal()`; the veil
  * is `::backdrop` (top-layer owns stacking, no z-index needed), centering is UA `margin: auto`.
  * Host 2: headless-lib div — `<div class="hb-modal" data-state="open"><div class="hb-modal__panel">`.
- * Opening/closing, focus-trap, and scroll lock (div host) are consumer behavior. Content
+ * Opening/closing, focus-trap, and background scroll policy (both hosts) are consumer behavior. Content
  * structure (header/body/footer/close) is the separate `dialog` block placed inside `__panel`.
  */
 
