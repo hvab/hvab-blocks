@@ -36,6 +36,51 @@ Notification card (`hb-toast`) plus the `hb-toaster` region the consumer stacks 
 </div>
 ```
 
+## Long content
+
+Titles and messages wrap unbroken text. A card is bounded by the dynamic viewport height minus both block insets of its toaster; its border and padding are included in that limit. Only `hb-toast__content` scrolls, including the title, message and actions. The icon and close slot stay outside this scrollport.
+
+When a direct `hb-toast__close` child exists, `--hb-toast-close-space` reserves space at the content's inline end throughout scrolling. It also narrows short messages/actions; title end padding remains an independent additional inset. This keeps a transparent close button clear of the scrolling text. Coordinate the reserve with custom close sizes, close offsets and card padding; CSS cannot measure an arbitrary absolutely positioned close control. The default reserve fits the illustrated small button. Keep the close control as a direct card child, after the content in keyboard order.
+
+The scrollport has a compensated gutter so action focus outlines remain visible without shifting the normal text position. Its default follows inherited `--hb-button-focus-ring-width` (otherwise `--hb-focus-ring-width`), with zero outline offset. Coordinate `--hb-toast-content-gutter` with nonzero focus offsets, larger element-local rings or other controls: for example, a 4px ring with a 3px offset needs a gutter of at least 7px. Button offset values `0` and `0px` both retain the default gutter.
+
+Give a text-only scrollport `tabindex="0"` and an accessible name so keyboard users can scroll it across browsers. The examples are static: the consumer supplies dismissal, focus management and announcements. Avoid announcing an entire long document as a live status; choose appropriate semantics for the actual notification.
+
+```html demo
+<div class="hb-toaster" style="position: static">
+  <div class="hb-toast" role="status">
+    <div class="hb-toast__content">
+      <div class="hb-toast__title">QuarterlyReportWithoutSpacesForTheEntireOrganization2026.pdf</div>
+      <div class="hb-toast__message">
+        https://example.org/reports/QuarterlyReportWithoutSpacesForTheEntireOrganization2026.pdf
+      </div>
+    </div>
+    <button type="button" class="hb-toast__close hb-button hb-button_view_flat hb-button_size_s" aria-label="Close">
+      ×
+    </button>
+  </div>
+</div>
+<div class="hb-toaster" style="position: static">
+  <div class="hb-toast" style="--hb-toast-max-height: 240px">
+    <div class="hb-toast__content" tabindex="0" role="region" aria-label="Import details">
+      <div class="hb-toast__title">Import details</div>
+      <div class="hb-toast__message">
+        The import contains many records. Review the source, check the field mappings, and confirm the destination
+        before continuing. Existing records are preserved. New records will appear after processing finishes. Large
+        attachments may take longer to process. If a record needs attention, its details will appear in the import log.
+        Review the final summary and download that log before closing this notification.
+      </div>
+      <div class="hb-toast__actions">
+        <button type="button" class="hb-button hb-button_view_outlined hb-button_size_s">Download log</button>
+      </div>
+    </div>
+    <button type="button" class="hb-toast__close hb-button hb-button_view_flat hb-button_size_s" aria-label="Close">
+      ×
+    </button>
+  </div>
+</div>
+```
+
 ## Themes
 
 Messages use `text-primary` in every theme; status tints and icon colors are unchanged. The default float surface and status tints over page/float/modal underlays support small message text in both schemes; see the [color contrast contract](../../tokens/README.md#functional-text-contrast). Custom backgrounds need their own contrast check. `--hb-toast-message-color` still overrides the default independently of the title.
@@ -76,29 +121,32 @@ Messages use `text-primary` in every theme; status tints and icon colors are unc
 
 ### `hb-toast`
 
-| Token                                 | Controls                                      |
-| ------------------------------------- | --------------------------------------------- |
-| `--hb-toast-gap`                      | Gap between icon and content.                 |
-| `--hb-toast-padding`                  | Card padding.                                 |
-| `--hb-toast-text-color`               | Card text color.                              |
-| `--hb-toast-background`               | Card background.                              |
-| `--hb-toast-border-width`             | Card border width.                            |
-| `--hb-toast-border-color`             | Card border color.                            |
-| `--hb-toast-radius`                   | Card corner radius.                           |
-| `--hb-toast-shadow`                   | Card shadow.                                  |
-| `--hb-toast-icon-color`               | Icon color.                                   |
-| `--hb-toast-title-padding-inline-end` | Title end padding (keeps clear of `__close`). |
-| `--hb-toast-title-size`               | Title font size.                              |
-| `--hb-toast-title-weight`             | Title font weight.                            |
-| `--hb-toast-title-line`               | Title line height.                            |
-| `--hb-toast-message-size`             | Message font size.                            |
-| `--hb-toast-message-line`             | Message line height.                          |
-| `--hb-toast-message-color`            | Message color.                                |
-| `--hb-toast-message-indent`           | Space between title and message.              |
-| `--hb-toast-actions-gap`              | Gap between action buttons.                   |
-| `--hb-toast-actions-indent`           | Space above `__actions`.                      |
-| `--hb-toast-close-offset-block`       | Close slot offset from the top.               |
-| `--hb-toast-close-offset-inline`      | Close slot offset from the end edge.          |
+| Token                                 | Controls                                        |
+| ------------------------------------- | ----------------------------------------------- |
+| `--hb-toast-max-height`               | Maximum card height (including padding/border). |
+| `--hb-toast-content-gutter`           | Compensated space for content focus outlines.   |
+| `--hb-toast-close-space`              | Content end reserve with a direct close slot.   |
+| `--hb-toast-gap`                      | Gap between icon and content.                   |
+| `--hb-toast-padding`                  | Card padding.                                   |
+| `--hb-toast-text-color`               | Card text color.                                |
+| `--hb-toast-background`               | Card background.                                |
+| `--hb-toast-border-width`             | Card border width.                              |
+| `--hb-toast-border-color`             | Card border color.                              |
+| `--hb-toast-radius`                   | Card corner radius.                             |
+| `--hb-toast-shadow`                   | Card shadow.                                    |
+| `--hb-toast-icon-color`               | Icon color.                                     |
+| `--hb-toast-title-padding-inline-end` | Title end padding (keeps clear of `__close`).   |
+| `--hb-toast-title-size`               | Title font size.                                |
+| `--hb-toast-title-weight`             | Title font weight.                              |
+| `--hb-toast-title-line`               | Title line height.                              |
+| `--hb-toast-message-size`             | Message font size.                              |
+| `--hb-toast-message-line`             | Message line height.                            |
+| `--hb-toast-message-color`            | Message color.                                  |
+| `--hb-toast-message-indent`           | Space between title and message.                |
+| `--hb-toast-actions-gap`              | Gap between action buttons.                     |
+| `--hb-toast-actions-indent`           | Space above `__actions`.                        |
+| `--hb-toast-close-offset-block`       | Close slot offset from the top.                 |
+| `--hb-toast-close-offset-inline`      | Close slot offset from the end edge.            |
 
 ## Token Override
 
@@ -120,5 +168,7 @@ The toast block does not provide JavaScript behavior. The consumer owns:
 - portal and stacking policy, and the toaster's screen corner.
 
 ## Limits
+
+The height limit covers one card, not the combined stack. The consumer must limit the queue/stack to the available viewport. Outside a toaster, the default height limit uses the whole viewport; override `--hb-toast-max-height` for other containers. Explicit height overrides and excessive padding/insets can exceed the available screen space and need consumer validation.
 
 Only the bottom-end corner is positioned by default — corner variants via modifiers, a mobile full-width layout, and built-in entrance keyframes are deferred.

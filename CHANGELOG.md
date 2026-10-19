@@ -10,6 +10,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ### Fixed
 
+- Dialog titles and toast titles/messages wrap unbroken text. Long toast content scrolls within a viewport-bounded card while its close slot stays visible, with a configurable content reserve.
 - `hb-spin` stops rotating under `prefers-reduced-motion: reduce`, preserving its appearance and ordinary-mode customization. The loading example includes visible status text.
 - Text skeletons honor `--hb-skeleton-height` and center using the effective height. Skeleton pulse/shimmer stop under reduced motion even with a public animation override.
 - Tabs consistently use the hover/active text role when selected, including with an idle color override; disabled keeps hint text across hover and selected states.

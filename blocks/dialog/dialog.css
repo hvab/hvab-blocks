@@ -63,10 +63,12 @@
 }
 
 .hb-dialog__title {
+  min-width: 0;
   font-size: var(--hb-dialog-title-size, var(--_dialog-title-size));
   font-weight: var(--hb-dialog-title-weight, var(--_dialog-title-weight));
   line-height: var(--hb-dialog-title-line, var(--_dialog-title-line));
   color: var(--hb-dialog-title-color, var(--_dialog-title-color));
+  overflow-wrap: anywhere;
 }
 
 .hb-dialog__body {

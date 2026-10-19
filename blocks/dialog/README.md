@@ -40,6 +40,24 @@ Content layout for a modal: header, body, footer, and an optional close slot. Th
 </div>
 ```
 
+## Long titles
+
+Titles wrap even when a filename or identifier has no spaces. Keep the close control in its documented slot and use wrapping text inside the title.
+
+```html demo
+<div class="hb-modal__panel" style="max-inline-size: 272px">
+  <div class="hb-dialog">
+    <button type="button" class="hb-dialog__close hb-button hb-button_view_flat hb-button_size_s" aria-label="Close">
+      ×
+    </button>
+    <div class="hb-dialog__header">
+      <div class="hb-dialog__title">QuarterlyReportWithoutSpacesForTheEntireOrganization2026.pdf</div>
+    </div>
+    <div class="hb-dialog__body">Review the file before sharing.</div>
+  </div>
+</div>
+```
+
 ## Footer actions
 
 Place `hb-button` actions directly inside `hb-dialog__footer`. Below 480px of actual dialog width they stack at full width; from 480px they form an end-aligned row. The breakpoint matches the default dialog width and uses a named CSS size container, so a narrow dialog also stacks on a wide screen. Browsers without size-container queries keep the stacked layout.

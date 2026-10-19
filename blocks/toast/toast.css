@@ -34,6 +34,7 @@
 
 /* --- Card --- */
 .hb-toast {
+  --_toast-max-height: calc(100dvh - 2 * var(--hb-toaster-inset-block, var(--_toaster-inset-block, 0px)));
   --_toast-padding: var(--hb-gap-4);
   --_toast-radius: var(--hb-radius-l);
   --_toast-gap: var(--hb-gap-2);
@@ -53,6 +54,8 @@
   --_toast-message-indent: var(--hb-gap-1);
   --_toast-actions-gap: var(--hb-gap-2);
   --_toast-actions-indent: var(--hb-gap-3);
+  --_toast-content-gutter: var(--hb-button-focus-ring-width, var(--hb-focus-ring-width));
+  --_toast-close-space: var(--hb-gap-5);
   --_toast-close-offset-block: var(--hb-gap-2);
   --_toast-close-offset-inline: var(--hb-gap-2);
 
@@ -61,6 +64,7 @@
   display: flex;
   gap: var(--hb-toast-gap, var(--_toast-gap));
   width: 100%;
+  max-height: var(--hb-toast-max-height, var(--_toast-max-height));
   padding: var(--hb-toast-padding, var(--_toast-padding));
   color: var(--hb-toast-text-color, var(--_toast-text-color));
   background-color: var(--hb-toast-background, var(--_toast-background));
@@ -78,6 +82,14 @@
 .hb-toast__content {
   flex: 1 1 auto;
   min-width: 0;
+  min-height: 0;
+  padding: var(--hb-toast-content-gutter, var(--_toast-content-gutter));
+  margin: calc(-1 * var(--hb-toast-content-gutter, var(--_toast-content-gutter)));
+  overflow: auto;
+}
+
+.hb-toast:has(> .hb-toast__close) > .hb-toast__content {
+  margin-inline-end: var(--hb-toast-close-space, var(--_toast-close-space));
 }
 
 .hb-toast__title {
@@ -85,12 +97,14 @@
   font-size: var(--hb-toast-title-size, var(--_toast-title-size));
   font-weight: var(--hb-toast-title-weight, var(--_toast-title-weight));
   line-height: var(--hb-toast-title-line, var(--_toast-title-line));
+  overflow-wrap: anywhere;
 }
 
 .hb-toast__message {
   font-size: var(--hb-toast-message-size, var(--_toast-message-size));
   line-height: var(--hb-toast-message-line, var(--_toast-message-line));
   color: var(--hb-toast-message-color, var(--_toast-message-color));
+  overflow-wrap: anywhere;
 }
 
 .hb-toast__title + .hb-toast__message {
@@ -108,6 +122,7 @@
   position: absolute;
   inset-block-start: var(--hb-toast-close-offset-block, var(--_toast-close-offset-block));
   inset-inline-end: var(--hb-toast-close-offset-inline, var(--_toast-close-offset-inline));
+  z-index: 1;
 }
 
 /* Themes tint the whole surface (base-*-light) and icon color (text-*-heavy),
