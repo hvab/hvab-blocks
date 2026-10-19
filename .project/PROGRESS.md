@@ -108,8 +108,8 @@ Plan and definition of done:
 2. Compare the public API with v0.3.0, move Unreleased into a dated 0.4.0 entry, document compatibility and commit release preparation. Run npm version minor from a clean tree to create the version commit and matching v0.4.0 tag.
 3. Push main and the matching tag, create a GitHub Release from the version changelog, and verify remote tag/commit/release metadata. Check the independent Pages deployment and hosted catalogue. Record evidence and leave the repository clean.
 
-Release preflight passed: lint:styles, demo CSS lint, full format:check, docs:check, demo:check, pack:check and whitespace checks. Origin/main is seven reviewed commits behind local main with no remote-only commits; the latest release/tag is v0.3.0. Public-surface comparison with v0.3.0 retains all 238 hb-* class names, all 41 attribute/state selector forms and every previous public token; only the three documented toast tokens are added. Exports and runtime dependencies are unchanged. The package contains 80 files and 55 local documentation links; all 1330 local HTML references resolve in the catalogue and isolated Pages build.
+Release preflight passed: lint:styles, demo CSS lint, full format:check, docs:check, demo:check, pack:check and whitespace checks. Origin/main is seven reviewed commits behind local main with no remote-only commits; the latest release/tag is v0.3.0. Public-surface comparison with v0.3.0 retains all 238 hb-\* class names, all 41 attribute/state selector forms and every previous public token; only the three documented toast tokens are added. Exports and runtime dependencies are unchanged. The package contains 80 files and 55 local documentation links; all 1330 local HTML references resolve in the catalogue and isolated Pages build.
 
 ## Next step
 
-Commit the accepted demo changes, then prepare and publish 0.4.0.
+The accepted demo changes are committed as 25f7428. Changelog changes are now assigned to the dated 0.4.0 release, with upgrade notes covering additive toast controls, reduced motion and tab state overrides. Commit this preparation, create the version commit/tag, and run the final checks before publication.

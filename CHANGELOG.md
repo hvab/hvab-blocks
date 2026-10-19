@@ -8,6 +8,8 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-19
+
 ### Added
 
 - Toast controls: `--hb-toast-max-height` bounds the card, `--hb-toast-content-gutter` reserves space for content focus outlines, and `--hb-toast-close-space` keeps scrolling content clear of a direct close slot.
@@ -29,6 +31,11 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 - Browser targets use Browserslist `defaults and fully supports css-has`, keeping automatic version selection while excluding browsers without full `:has()` support.
 - Added narrow-container composition examples for bounded popovers, brief tooltips and sheets with wrapping text/actions, including positioning and scrolling limits.
 - Clarified the token contract: overrides apply within each role, with explicit state/accessibility policies, local geometry defaults and bounded structure/motion exceptions. Updated block examples and the usage catalogue.
+
+### Upgrade notes
+
+- Existing public classes, tokens, state attributes and package exports remain available. The three new toast controls are optional; existing markup benefits from bounded scrolling and narrow-screen sizing.
+- Reduced-motion preferences stop spin and skeleton animation, including custom skeleton animation overrides. Selected/disabled tab text now follows the documented state roles; review custom themes that previously relied on idle colors overriding those states.
 
 ## [0.3.0] - 2026-10-19
 
