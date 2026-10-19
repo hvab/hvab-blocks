@@ -23,7 +23,7 @@ The contract contains decision history and rationale. The `pale`/`viby`/`balder`
 - **Plain CSS and BEM, no build step.** Core source files are regular `.css`; do not add SCSS, CSS Modules, or preprocessor syntax.
 - **Configuration is copied inline from `dotfiles25` base**, not consumed as a dependency. See `AGENTS.local.md` for the preset path.
 - **Gravity UI is the donor for values and structure.** Take only the subset needed by a real screen. Follow contract section 11 for ports.
-- **The first consumer is the Selecta sidebar** (`src/components/ThemeControls/ThemeControls.vue`, Vue 3). It consumes the CSS core through thin Vue wrappers located in Selecta's `src/ui/`, not in this repository.
+- **The first consumer is the Selecta sidebar** (`src/components/ThemeControls/ThemeControls.vue`, Vue 3). It consumes the CSS core through thin Vue wrappers located in Selecta's `src/ui/`, not in this repository. This is historical consumer context. Release adoption, framework integration and compatibility acceptance belong to the consumer repository/chat; do not add them to the core backlog or use them as release gates unless explicitly requested here.
 - **Two-line tokens** (contract section 1.3): public `--hb-<block>-*` tokens are the consumer override API; private `--_<block>-*` tokens are modified internally.
 - **`hb-`-prefixed classes** (`.hb-button`, `.hb-button__icon`, `.hb-button_size_m`) are the stable namespace across consumers. The prefix is not repeated in elements or modifiers.
 - **States use attributes** (`:disabled`, `[aria-*]`, `[data-*]`), not BEM modifiers.

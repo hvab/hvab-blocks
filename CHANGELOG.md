@@ -10,6 +10,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ### Fixed
 
+- Toaster regions shrink to fit between both inline insets on narrow screens, preserving the preferred width override and inline-end anchoring.
 - Dialog titles and toast titles/messages wrap unbroken text. Long toast content scrolls within a viewport-bounded card while its close slot stays visible, with a configurable content reserve.
 - `hb-spin` stops rotating under `prefers-reduced-motion: reduce`, preserving its appearance and ordinary-mode customization. The loading example includes visible status text.
 - Text skeletons honor `--hb-skeleton-height` and center using the effective height. Skeleton pulse/shimmer stop under reduced motion even with a public animation override.

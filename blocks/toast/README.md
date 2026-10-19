@@ -14,6 +14,24 @@ Notification card (`hb-toast`) plus the `hb-toaster` region the consumer stacks 
 </div>
 ```
 
+## Narrow containers
+
+The region prefers 320px and shrinks to fit between both inline insets (12px by default), remaining anchored at the inline end. At a 320px viewport it is 296px wide. `--hb-toaster-width` changes the preferred maximum: smaller values remain exact when they fit; larger values still shrink to the available space. Both width and inset overrides can be inherited or set inline. Insets accept `0` and `0px` equally.
+
+This example uses a positioned 320px container instead of the viewport so the same constraint is visible in the catalogue. `position: static` examples follow their normal containing block and do not apply the positioned insets.
+
+```html demo
+<div style="position: relative; width: 320px; max-width: 100%; height: 160px">
+  <div class="hb-toaster" style="position: absolute">
+    <div class="hb-toast" role="status">
+      <div class="hb-toast__content">
+        <div class="hb-toast__message">Changes saved within the available width.</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 ## With icon, title, and actions
 
 ```html demo
@@ -115,9 +133,9 @@ Messages use `text-primary` in every theme; status tints and icon colors are unc
 | Token                       | Controls                                          |
 | --------------------------- | ------------------------------------------------- |
 | `--hb-toaster-inset-block`  | Distance from the block edge (bottom by default). |
-| `--hb-toaster-inset-inline` | Distance from the inline edge (end by default).   |
+| `--hb-toaster-inset-inline` | Minimum distance from both inline edges.          |
 | `--hb-toaster-gap`          | Gap between stacked toasts.                       |
-| `--hb-toaster-width`        | Region width.                                     |
+| `--hb-toaster-width`        | Preferred maximum region width (default 320px).   |
 
 ### `hb-toast`
 
@@ -171,4 +189,4 @@ The toast block does not provide JavaScript behavior. The consumer owns:
 
 The height limit covers one card, not the combined stack. The consumer must limit the queue/stack to the available viewport. Outside a toaster, the default height limit uses the whole viewport; override `--hb-toast-max-height` for other containers. Explicit height overrides and excessive padding/insets can exceed the available screen space and need consumer validation.
 
-Only the bottom-end corner is positioned by default — corner variants via modifiers, a mobile full-width layout, and built-in entrance keyframes are deferred.
+Only the bottom-end corner is positioned by default — corner variants via modifiers, a separate mobile full-width variant, and built-in entrance keyframes are deferred. Width fitting uses the toaster's containing block; an ancestor that establishes a fixed-position containing block changes that boundary. Excessive inline insets or card padding can leave insufficient space and need consumer validation.

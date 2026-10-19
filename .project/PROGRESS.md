@@ -1,3 +1,41 @@
+# V04 — toaster width and scope documentation commit (2026-10-19)
+
+The owner requested committing the completed changes and a recommendation for the next step. Commit the accepted toaster width fix, its README/catalogue/Unreleased entry and the previously approved V06 core-scope documentation together. Keep the branch and version unchanged; no push or release. The preceding independent browser acceptance remains applicable because source CSS has not changed since verification. Remaining useful V04 work is documented narrow-screen composition for popover/tooltip and sheet; optional full-width/corner variants remain deferred until a real screen needs them.
+
+Pre-commit verification: lint:styles, full format:check, docs:check, demo:check and git diff --check pass. Catalogue serving and independent browser verification are recorded below. This local commit contains all eight reviewed working-tree files, with the completed V06 scope decision included; remote publication stays deferred.
+
+# V04 — toaster width implementation (2026-10-19)
+
+The owner approved the next scoped step: fit the toaster region inside narrow screens while preserving its preferred desktop width and public width/inset controls. Continue Sol6.1 implementation with parent review/acceptance. No commit/push/release, consumer integration or other V04 changes requested. Preserve the pre-existing uncommitted V06 scope-documentation changes.
+
+Plan and definition of done:
+
+1. Delegate minimal toaster-width CSS and relevant README/example/Unreleased documentation to Sol6.1. No new public API unless required; keep existing toast height, wrapping, dismissal and focus behavior.
+2. Parent checks both schemes, narrow/wide viewports and live resizing; default 320px at viewport 320px with 12px insets must become 296px at x=12px. Public smaller/wider preferred widths must work within the available space, including inline/ancestor insets and zero values.
+3. Check long-content scrolling/close/focus regressions and ordinary wide geometry, plus required style/format/docs/demo gates and catalogue serving. Record limits and leave work uncommitted for the later batch release.
+
+Implementation and parent acceptance:
+
+- Sol 6.1 subagent toaster_width implemented the scoped CSS, README/example, generated toast catalogue and Unreleased entry. The parent independently reviewed and verified the result. The region now uses both inline insets, automatic width, the existing public width as its maximum and an automatic start margin. No new token, viewport-unit calculation or JavaScript was introduced.
+- Default width is 296px with 12px gutters at a 320px viewport; ordinary wide rendering is byte-identical to baseline screenshots in both schemes. Smaller preferred widths remain exact when space permits; larger widths shrink to the available containing block. Inline and inherited overrides, percentage/calc widths, rem insets and unitless 0/0px work.
+- Parent Chrome diagnostics passed 4812 assertions across 510 width cases in light/dark at 280–1280px widths, plus 34 scrollbar/containing-block/live-resize assertions. Long and unbroken messages wrap; scrolling reaches the final action, dismissal stays visible and works by pointer and keyboard. A forced 17px classic scrollbar at viewport 320px leaves a 303px layout viewport and a correctly fitted 279px region. A transformed 280px containing block fits a 256px region between its 12px insets.
+- Visually inspected both narrow-theme screenshots. The generated catalogue example also renders at 296px with 12px gutters in both schemes. lint:styles, format:check, docs:check, demo:check and git diff --check pass; npm start serves /demo/ and /demo/toast.html with HTTP 200.
+- Evidence and temporary verification scripts are outside the repository at /Users/hob/.codex/visualizations/2026/10/18/01a14e49-61af-7311-bfb6-de191e520538/v04/toaster-width/. Baseline source was extracted from HEAD ad1e6f0 without switching branches. Verification is local Chrome evidence; other browsers, actual browser zoom and physical mobile behavior were not checked in this step.
+
+Result: toaster width fitting is implemented and independently accepted locally. Public --hb-toaster-width now means preferred maximum width; pathological insets/padding still require composition validation. Other V04 areas remain unchanged: separate full-width/corner variants and floating-panel/sheet composition recipes are deferred. No commit, push, version bump or release. Preserve prior V06 documentation edits; next small step is the scoped local commit when requested, with publication kept for the later batch release.
+
+# V06 — consumer handoff closed in core (2026-10-19)
+
+The owner confirmed the Selecta handoff is complete and owns all future adoption/integration/compatibility work in the consumer repository/chat. Core changes here accumulate for the next batch release; the consumer adopts that release separately. Closing V06 here records the work boundary, not a claim that unreleased changes already passed consumer acceptance.
+
+Plan and definition of done:
+
+1. Remove V06 consumer integration from the core backlog and check whether a matching open core issue exists.
+2. Make AGENTS/SPEC explicit that the Selecta pilot is historical context; ongoing consumer integration is outside core scope unless requested here.
+3. Preserve historical evidence and current CSS/release state. Record any additional handoff information the owner needs; no unsolicited messages to the consumer chat and no commit/push/release.
+
+Result: V06 is closed in the core backlog. AGENTS and SPEC now explicitly keep consumer adoption/integration/compatibility in the consumer repository/chat; the original pilot evidence remains historical. GitHub currently has no open issues in hvab/hvab-blocks, so there is no separate remote V06 issue to close. No additional consumer handoff is needed now: the next batch of core changes is recorded in CHANGELOG Unreleased, and the owner will adopt the eventual release separately. No consumer files/chat were accessed or messaged. CSS, package version, branch and remote state are unchanged; these scope-documentation edits remain uncommitted. Verification: lint:styles, format:check, docs:check and git diff --check pass; npm start serves /demo/ with HTTP 200. Next core work remains the deferred toaster-width/layout recipe scope, not consumer integration.
+
 # V04 — local commit and browser policy (2026-10-19)
 
 The owner requested committing the completed work after the proposed modern-browser query. Apply defaults and fully supports css-has, verify its resolved targets, and commit the scoped V04 CSS/docs/examples and recorded browser/RTL decisions. No branch switch, push, version bump or release.

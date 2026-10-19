@@ -24,12 +24,14 @@
 
   position: fixed;
   inset-block-end: var(--hb-toaster-inset-block, var(--_toaster-inset-block));
-  inset-inline-end: var(--hb-toaster-inset-inline, var(--_toaster-inset-inline));
+  inset-inline: var(--hb-toaster-inset-inline, var(--_toaster-inset-inline));
   display: flex;
   flex-direction: column;
   gap: var(--hb-toaster-gap, var(--_toaster-gap));
   align-items: flex-end;
-  width: var(--hb-toaster-width, var(--_toaster-width));
+  width: auto;
+  max-width: var(--hb-toaster-width, var(--_toaster-width));
+  margin-inline-start: auto;
 }
 
 /* --- Card --- */
