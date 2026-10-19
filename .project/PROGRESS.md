@@ -5,7 +5,7 @@ Updated 2026-10-19.
 ## State
 
 - The original audit and agreed post-audit fixes are complete. Both findings from the combined changelog/API/package review were corrected in a6c9ddd. See [history/AUDIT-2026-10.md](history/AUDIT-2026-10.md) for completion evidence and recovery of the original reports.
-- Package version is currently 0.3.0. The owner authorized committing the reviewed demo work and releasing the accumulated Unreleased batch; release preparation is active below.
+- Version 0.4.0 is released: tag v0.4.0 at 9813f7f, GitHub Release published and Pages deployed. The accepted demo and previous accumulated fixes are included; Unreleased is empty.
 - The core has no outstanding implementation gate from this audit. Optional ideas belong in [IDEAS.md](IDEAS.md); consumer adoption/compatibility work belongs in the consumer repository.
 - Local component acceptance is bounded by the recorded environments. Historical missing-device coverage is not a new blanket manual gate for every change.
 
@@ -110,6 +110,13 @@ Plan and definition of done:
 
 Release preflight passed: lint:styles, demo CSS lint, full format:check, docs:check, demo:check, pack:check and whitespace checks. Origin/main is seven reviewed commits behind local main with no remote-only commits; the latest release/tag is v0.3.0. Public-surface comparison with v0.3.0 retains all 238 hb-\* class names, all 41 attribute/state selector forms and every previous public token; only the three documented toast tokens are added. Exports and runtime dependencies are unchanged. The package contains 80 files and 55 local documentation links; all 1330 local HTML references resolve in the catalogue and isolated Pages build.
 
+Completed:
+
+- Accepted demo changes committed as 25f7428; release notes as 7107579. npm version minor created Release 0.4.0 at 9813f7f664a476eee1d58e2554c8c567beafa118 and annotated tag v0.4.0, updating both manifest/lock versions to 0.4.0 from a clean main.
+- Repeated the required release checks at 0.4.0: docs:check, demo:check, lint:styles, full format:check, pack:check and whitespace checks pass. The verified archive has 80 files and 55 local documentation links. The isolated Pages build retains all 1330 local HTML references.
+- Atomically pushed main and v0.4.0. Remote main and the peeled tag match 9813f7f. Published [GitHub Release v0.4.0](https://github.com/hvab/hvab-blocks/releases/tag/v0.4.0) on 2026-10-19 with the exact changelog entry; draft/prerelease are both false. npm registry publication was not part of this release.
+- Independent [Pages deployment 39264572812](https://github.com/hvab/hvab-blocks/actions/runs/39264572812) succeeded for the release commit. Verified 82 public files byte-for-byte against the release sources: all 34 HTML pages, shared demo script/style, CSS sources, project license and distributed top-level documentation at https://hvab.github.io/hvab-blocks/.
+
 ## Next step
 
-The accepted demo changes are committed as 25f7428. Changelog changes are now assigned to the dated 0.4.0 release, with upgrade notes covering additive toast controls, reduced motion and tab state overrides. Commit this preparation, create the version commit/tag, and run the final checks before publication.
+The release is complete. Future accepted changes accumulate under Unreleased until another batch release is explicitly requested. No audit implementation or consumer-integration gate is open in this repository.
