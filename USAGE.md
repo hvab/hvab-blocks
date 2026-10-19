@@ -150,4 +150,4 @@ The static HTML catalogue is available under `demo/` when running `npm start`. I
 - [VENDOR.md](VENDOR.md) — copy-first provenance and resync workflow.
 - [tokens/README.md](tokens/README.md) — token layers and consumer theme overrides.
 - [CHANGELOG.md](CHANGELOG.md) — public changes between releases.
-- [AGENTS.md](https://github.com/hvab/hvab-blocks/blob/v0.2.0/AGENTS.md) and [SPEC.md](https://github.com/hvab/hvab-blocks/blob/v0.2.0/SPEC.md) — library authoring contract, not required for normal consumption.
+- [AGENTS.md](https://github.com/hvab/hvab-blocks/blob/main/AGENTS.md) and [SPEC.md](https://github.com/hvab/hvab-blocks/blob/main/SPEC.md) — current library authoring contract, not required for normal consumption.

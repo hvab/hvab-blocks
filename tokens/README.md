@@ -46,13 +46,13 @@ When adding color roles, add both light and dark values in the same change.
 
 ### Functional text contrast
 
-`--hb-color-text-info-contrast`, `--hb-color-text-positive-contrast` and `--hb-color-text-warning-contrast` are local semantic roles for small functional text. Their values come from the Gravity UI palette at `7d187fd0a108edda969266f85ab33a54b13fb36e` (8.0.0-beta.2); these role names are an intentional hvab addition, not a verbatim port of Gravity semantic roles.
+`--hb-color-text-info-contrast`, `--hb-color-text-positive-contrast` and `--hb-color-text-warning-contrast` are semantic roles for small functional text. Their light/dark values are verified against the supported surfaces below.
 
-| Role suffix         | Light value / Gravity source        | Dark value / Gravity source             |
-| ------------------- | ----------------------------------- | --------------------------------------- |
-| `info-contrast`     | `rgb(44 90 138)` / blue-800-solid   | `rgb(134 193 247)` / blue-750-solid     |
-| `positive-contrast` | `rgb(42 108 76)` / green-800-solid  | `rgb(130 200 185)` / green-700-solid    |
-| `warning-contrast`  | `rgb(145 74 17)` / orange-800-solid | `rgb(255 197 108)` / text-warning-heavy |
+| Role suffix         | Light value      | Dark value         |
+| ------------------- | ---------------- | ------------------ |
+| `info-contrast`     | `rgb(44 90 138)` | `rgb(134 193 247)` |
+| `positive-contrast` | `rgb(42 108 76)` | `rgb(130 200 185)` |
+| `warning-contrast`  | `rgb(145 74 17)` | `rgb(255 197 108)` |
 
 The existing `secondary`, `hint`, ordinary status and `*-heavy` roles retain their values. Simply substituting existing heavy roles is insufficient: on white, positive-heavy is 4.232:1 and warning-heavy is 4.469:1, below the 4.5:1 threshold for ordinary text. The new roles preserve colored text without changing the palette used by other components, placeholders or disabled states.
 

@@ -22,7 +22,7 @@ node --test tests/forced-colors.test.mjs
 
 This suite checks light/dark forced-color emulation independently of the library's light/dark scheme: 224 native/ARIA/data state combinations plus keyboard, label activation, focus, system-color public overrides, native select behavior and AX role/name/state comparisons. It reads the browser's system colors rather than hardcoding RGB values. The switch intentionally retains native checkbox semantics.
 
-For byte-identical normal-mode screenshot comparisons and paired before/after artifacts, point to an unchanged local checkout of main before this PR (`3b211d4223e153e0aad210cf4fa5d3fcbbd96b96`):
+For byte-identical normal-mode screenshot comparisons and paired before/after artifacts, point to an unchanged local checkout of the historical pre-fix revision `3b211d4223e153e0aad210cf4fa5d3fcbbd96b96`:
 
 ```sh
 HB_BASELINE_ROOT=/path/to/main-checkout HB_TEST_ARTIFACTS=/tmp/hvab-forced-artifacts node --test tests/forced-colors.test.mjs
@@ -30,7 +30,7 @@ HB_BASELINE_ROOT=/path/to/main-checkout HB_TEST_ARTIFACTS=/tmp/hvab-forced-artif
 
 Without `HB_BASELINE_ROOT`, the four normal-paint comparisons are reported as skipped, not passed. `HB_TEST_ARTIFACTS` is optional and writes screenshots outside the repository. To replay the final assertions against the unmodified CSS as a negative control, set `HB_CONTROL_ROOT=/path/to/main-checkout`; failures are expected there.
 
-The browser helper is shared by both suites and uses isolated profiles. Forced-color emulation is not physical Windows high-contrast verification. Windows Edge/Chrome screenshots, keyboard/assistive-technology smoke, Firefox/Safari forced-color behavior and full consumer builds remain separate checks before closing Issues #2 and #7. A second Chromium build exercises the same engine family and does not replace them.
+The browser helper is shared by both suites and uses isolated profiles. Forced-color emulation is not physical Windows high-contrast verification. The owner accepted and closed the original #2/#7 scope; see the [historical completion record](../.project/history/AUDIT-2026-10.md). These regression checks do not recreate that closed manual gate or claim fresh cross-browser/device certification. A second Chromium build exercises the same engine family.
 
 ## Field/color-input regression
 

@@ -13,7 +13,6 @@ for (const entry of [
   'tokens',
   'index.css',
   'LICENSE',
-  'THIRD_PARTY_NOTICES.md',
   'CHANGELOG.md',
   'VENDOR.md',
   'USAGE.md',

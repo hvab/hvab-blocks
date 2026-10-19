@@ -24,15 +24,7 @@ try {
   const packedManifest = JSON.parse(readFileSync(path.join(packed, 'package.json'), 'utf8'));
   assert.deepEqual(packedManifest.exports, sourceManifest.exports, 'Package exports must be preserved');
 
-  const required = [
-    'index.css',
-    'README.md',
-    'USAGE.md',
-    'VENDOR.md',
-    'CHANGELOG.md',
-    'LICENSE',
-    'THIRD_PARTY_NOTICES.md',
-  ];
+  const required = ['index.css', 'README.md', 'USAGE.md', 'VENDOR.md', 'CHANGELOG.md', 'LICENSE'];
   for (const directory of ['tokens', 'blocks']) {
     for (const file of readdirSync(path.join(root, directory), { recursive: true })) {
       if (/\.(css|md)$/.test(file)) required.push(path.join(directory, file));

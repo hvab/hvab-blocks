@@ -9,7 +9,7 @@ This guide covers provenance and resyncing. For class, token, and state rules, s
 1. Copy `tokens/` in full. Blocks reference `--hb-*` tokens, so a block cannot work without them.
 2. Copy the required `blocks/<name>/` directories. A directory includes its CSS and README.
 3. Copy `index.css` only when taking the complete catalogue. Otherwise create a local entry point that imports tokens first and selected blocks second.
-4. Preserve the canonical-source comment in the first line of each CSS file. Copy [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) alongside the source, including when taking only selected blocks. The latter records Gravity provenance and the upstream MIT notice.
+4. Preserve the canonical-source comment in the first line of each CSS file. Copy the project's [LICENSE](LICENSE) alongside the source, including when taking only selected blocks.
 5. Record the upstream version, commit, copied paths, and any local deviations in the consumer repository.
 
 For example, keep a record next to the copied source:
@@ -17,14 +17,16 @@ For example, keep a record next to the copied source:
 ```markdown
 ## vendor: hvab-blocks
 
-- version: 0.1.0
+- version: <upstream release version, or Unreleased>
 - commit: <upstream commit SHA>
-- copied on: 2026-07-10
+- copied on: <YYYY-MM-DD>
 - paths: tokens/ (all), blocks/button/, blocks/field/
 - local deviations: none
 ```
 
 The CSS files cannot know which upstream revision was copied, so this record is required for a reliable resync.
+
+For an untagged snapshot, record `Unreleased` and its exact commit instead of presenting the unchanged package manifest version as a new release.
 
 ## Resync
 

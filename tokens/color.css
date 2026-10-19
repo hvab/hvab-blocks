@@ -34,7 +34,7 @@
   --hb-color-text-warning-heavy: rgb(189 92 10);
   --hb-color-text-danger-heavy: rgb(189 9 53);
 
-  /* Local functional-text roles from Gravity palette values; see tokens/README.md. */
+  /* Functional-text roles with verified surface contrast; see tokens/README.md. */
   --hb-color-text-info-contrast: rgb(44 90 138);
   --hb-color-text-positive-contrast: rgb(42 108 76);
   --hb-color-text-warning-contrast: rgb(145 74 17);
@@ -105,7 +105,7 @@
   --hb-color-text-warning-heavy: rgb(255 197 108);
   --hb-color-text-danger-heavy: rgb(232 71 109);
 
-  /* Local functional-text roles from Gravity palette values; see tokens/README.md. */
+  /* Functional-text roles with verified surface contrast; see tokens/README.md. */
   --hb-color-text-info-contrast: rgb(134 193 247);
   --hb-color-text-positive-contrast: rgb(130 200 185);
   --hb-color-text-warning-contrast: rgb(255 197 108);

@@ -20,7 +20,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 - `hb-spin` stops rotating under `prefers-reduced-motion: reduce`, preserving its appearance and ordinary-mode customization. The loading example includes visible status text.
 - Text skeletons honor `--hb-skeleton-height` and center using the effective height. Skeleton pulse/shimmer stop under reduced motion even with a public animation override.
 - Tabs consistently use the hover/active text role when selected, including with an idle color override; disabled keeps hint text across hover and selected states.
-- GitHub Pages includes the source license notices and linked usage/vendor/changelog documentation alongside the CSS catalogue.
+- GitHub Pages includes the project license and linked usage/vendor/changelog documentation alongside the CSS catalogue.
 
 ### Changed
 
@@ -34,7 +34,6 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 - Light/dark functional-text roles: `--hb-color-text-info-contrast`, `--hb-color-text-positive-contrast` and `--hb-color-text-warning-contrast`.
 - Dialog footer overrides `--hb-dialog-footer-button-padding-block` and `--hb-dialog-footer-button-line` for multiline actions.
-- A Gravity source inventory and upstream MIT notice in `THIRD_PARTY_NOTICES.md`, included in the optional npm archive and copy-first instructions.
 
 ### Fixed
 
@@ -53,7 +52,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 ### Upgrade notes
 
 - No existing public class, token or state attribute is removed or renamed. Custom themes that override ordinary status-text tokens should also set the new contrast roles to customize the updated field, label and text assignments. Component color overrides still take precedence; see [tokens/README.md](tokens/README.md) for the supported surface combinations.
-- Copy-first consumers must retain both `LICENSE` and `THIRD_PARTY_NOTICES.md`. The notice distinguishes the historical donor comparison baseline from the exact later contrast-value revision; original per-port donor SHAs were not recorded for the initial imported catalogue.
+- Copy-first consumers must retain the project's `LICENSE` alongside copied source files.
 
 ## [0.2.0] - 2026-07-14
 

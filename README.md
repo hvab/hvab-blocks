@@ -42,17 +42,27 @@ Read [USAGE.md](USAGE.md) before integrating blocks. It covers the two integrati
 
 The library styles structure and documented states. Consumers supply framework bindings and interactive behaviour such as positioning, focus traps, keyboard handling, portals, timers, and page layout.
 
+## Browser scope
+
+The target policy is Browserslist `defaults and fully supports css-has`, recorded in `.browserslistrc`. Versions follow the browser database rather than a manually pinned list. Blocks use native modern CSS, including `:has()`, container queries, dynamic viewport units and typed custom properties; there is no compatibility build for older browsers. The supported direction is LTR.
+
 ## Documentation
 
 - [USAGE.md](USAGE.md) — consumer integration guide and block catalogue.
 - [tokens/README.md](tokens/README.md) — token layers and theme overrides.
 - [VENDOR.md](VENDOR.md) — copy-first provenance and resync workflow.
 - [CHANGELOG.md](CHANGELOG.md) — public changes between releases.
-- [RELEASE.md](https://github.com/hvab/hvab-blocks/blob/v0.2.0/RELEASE.md) — maintainer release flow.
+- [RELEASE.md](https://github.com/hvab/hvab-blocks/blob/main/RELEASE.md) — current maintainer release flow.
 
 ## Demo
 
 The static catalogue is deployed to [GitHub Pages](https://hvab.github.io/hvab-blocks/).
+
+The Pages workflow follows `main` independently of release tags, so the catalogue can include Unreleased changes.
+
+## Release cadence
+
+Completed changes accumulate in [CHANGELOG.md](CHANGELOG.md) under Unreleased and are released as a batch when explicitly requested. The package version changes during release preparation, not after every fix. Pushing ordinary commits does not create a version tag or GitHub Release.
 
 ## Local development
 
@@ -71,7 +81,3 @@ npm run pack:check
 npm run lint:styles
 npm run format:check
 ```
-
-## License
-
-[MIT](LICENSE). Adapted Gravity UI CSS values and structures retain their upstream attribution in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
