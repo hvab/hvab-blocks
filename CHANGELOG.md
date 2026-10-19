@@ -18,6 +18,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ### Changed
 
+- Added narrow-container composition examples for bounded popovers, brief tooltips and sheets with wrapping text/actions, including positioning and scrolling limits.
 - Clarified the token contract: overrides apply within each role, with explicit state/accessibility policies, local geometry defaults and bounded structure/motion exceptions. Updated block examples and the usage catalogue.
 
 ## [0.3.0] - 2026-10-19

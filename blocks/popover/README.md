@@ -29,6 +29,46 @@ The consumer or positioning library owns anchor coordinates. The inline position
 </div>
 ```
 
+## Narrow containers and long content
+
+Fit the panel to the space available at its actual position. Flip/shift can move a panel but cannot make oversized content fit. The consumer should update the existing `--hb-popover-max-width` from the available inline space and apply a local `max-block-size` with scrolling. Reduce `--hb-popover-min-width` as well when the available width can be less than the default 160px; CSS minimum width otherwise wins over maximum width.
+
+This static example uses a 320px by 240px positioned container with 16px gutters instead of live anchor coordinates. Its percentage limits refer to that container. In a real overlay, use the positioning boundary's available dimensions after placement, accounting for the anchor, gaps and any containing block; do not copy the fixed coordinates as collision handling. Recompute the limits when placement or available space changes.
+
+```html demo
+<div style="position: relative; width: 320px; max-width: 100%; height: 240px">
+  <div
+    class="hb-popover"
+    role="region"
+    aria-label="Export details"
+    tabindex="0"
+    style="
+      --hb-popover-min-width: 0;
+      --hb-popover-max-width: min(360px, calc(100% - 32px));
+      position: absolute;
+      inset-block-start: 16px;
+      inset-inline-start: 16px;
+      width: max-content;
+      max-block-size: calc(100% - 32px);
+      overflow: auto;
+      overscroll-behavior: contain;
+    "
+  >
+    <p style="margin-block-start: 0; overflow-wrap: anywhere">
+      theme_configuration_production_customer_workspace_2026.json
+    </p>
+    <p>The export includes the current theme, saved preferences and workspace settings.</p>
+    <p>Review the destination and confirm that you want to include all of these settings.</p>
+    <p>Scroll to the final action. The entire explanation remains available without truncation.</p>
+    <button type="button" class="hb-button hb-button_view_outlined hb-button_size_xl">Export</button>
+  </div>
+</div>
+```
+
+The named scroll region is keyboard focusable; tabbing to the final button also scrolls it into view. The example is a content panel, not an ARIA menu. Opening, dismissal, focus placement/return and any dialog semantics remain consumer behavior. Keep sufficient panel padding for child focus outlines, including with custom focus tokens.
+
+Apply `overflow-wrap: anywhere` only to plain-text slots that need it. Tables, code and interactive compositions need their own overflow policy. If even a scrollable anchored panel leaves too little usable space, use a larger surface such as a dialog or sheet.
+
 ## State Examples
 
 ```html demo

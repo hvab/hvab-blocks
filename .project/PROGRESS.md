@@ -1,3 +1,29 @@
+# V04 — composition documentation local commit (2026-10-19)
+
+The owner requested a local commit and the next-step recommendation. Commit the nine reviewed README/catalogue/Unreleased/backlog/progress files for the completed composition examples. Canonical CSS and the prior browser acceptance are unchanged. Keep the branch, version and remote state unchanged; no release. The agreed post-audit implementation scope is complete. Optional variants, the label gap token and new blocks remain deferred; the next useful preparation is one review of the accumulated Unreleased batch before a separately authorized release.
+
+Pre-commit verification: lint:styles, full format:check, docs:check, demo:check and git diff --check pass. npm start serves the catalogue and all three updated pages with HTTP 200 at localhost:8152. No CSS, package manifest or lockfile changes are included.
+
+# V04 — narrow-screen composition documentation (2026-10-19)
+
+The owner approved completing the next V04 step with documentation and catalogue examples for popover/tooltip and sheet. Scope: demonstrate available width/height, long-content scrolling and intentional text/action wrapping through consumer composition. Keep canonical CSS, public API, version and release state unchanged; no commit or push requested.
+
+Plan and definition of done:
+
+1. Add README examples using existing public tokens and local composition styles: bounded scrollable popover, brief width-bounded tooltip and sheet with wrapping text/actions. Distinguish static catalogue bounds from real positioning and keep large/interactive tooltip content in a popover.
+2. Regenerate the three catalogue pages and record the addition in Unreleased. Check both schemes, narrow/short layouts, inherited/inline public overrides, complete text and final-action reachability. Do not add permanent test infrastructure.
+3. Run required style/format/docs/demo gates, serve the catalogue and record results and limits. Update the remaining V04 scope; keep optional full-width/corner variants deferred until a real need.
+
+Implementation and verification:
+
+- Added scoped README recipes and generated catalogue examples for popover, tooltip and sheet. Popover uses existing public minimum/maximum width controls plus a local block-size limit and scrollable named region; only its plain-text filename wraps. Tooltip remains brief/noninteractive, fits the placed width and explains why larger content needs another surface. Sheet uses its existing scroll container with local plain-text/action wrapping, automatic multiline button height and an inherited 44px button height for touch targets.
+- Parent Chrome diagnostics passed 1350 assertions across 90 cases: both schemes, viewport widths 280/320/375/568/1280px, including 320px-high layouts, plus inline/inherited public overrides. Confirmed actual public width/padding/block-size/button-height values, no horizontal overflow, full filename visibility and complete final-action reachability. Keyboard Tab and Space and pointer clicks reach/activate the final buttons; default focus outlines fit inside their scrollports.
+- Verification caught the final sheet button's focus outline touching the clip edge after Tab under a short host/public geometry override. Added local scroll-padding-block alongside action padding in the example; the corrected case passes. Canonical sheet/button CSS is unchanged. Visually inspected all three examples in light and dark schemes.
+- Generated examples also fit their actual catalogue previews over HTTP in both schemes. lint:styles, full format:check, docs:check, demo:check and git diff --check pass. npm start serves /demo/, /demo/popover.html, /demo/tooltip.html and /demo/sheet.html with HTTP 200. Evidence, screenshots and the temporary diagnostic script are outside the repository at /Users/hob/.codex/visualizations/2026/10/18/01a14e49-61af-7311-bfb6-de191e520538/v04/composition/.
+- Limits are explicit: preview coordinates/percentage bounds demonstrate a positioned container, not live collision handling. A real positioning integration must use the space remaining at the actual placement and update it as conditions change. Arbitrary tables/code, oversized custom focus/padding geometry, live overlay dismissal/focus behavior and physical mobile keyboard/safe areas remain composition-specific; no screen-reader, Safari/Firefox or physical-device acceptance is claimed here.
+
+Result: the agreed V04 floating-panel/sheet documentation scope is complete and recorded in Unreleased. Optional full-width/corner variants remain deferred until a real screen needs them; device-specific limitations are documented rather than presented as a new mandatory gate. Canonical CSS, public API, dependencies and version remain unchanged. No commit, push or release. Next small step is a local documentation commit when requested; accumulate the changes for the later batch release.
+
 # V04 — toaster width and scope documentation commit (2026-10-19)
 
 The owner requested committing the completed changes and a recommendation for the next step. Commit the accepted toaster width fix, its README/catalogue/Unreleased entry and the previously approved V06 core-scope documentation together. Keep the branch and version unchanged; no push or release. The preceding independent browser acceptance remains applicable because source CSS has not changed since verification. Remaining useful V04 work is documented narrow-screen composition for popover/tooltip and sheet; optional full-width/corner variants remain deferred until a real screen needs them.

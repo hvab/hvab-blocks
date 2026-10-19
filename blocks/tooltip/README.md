@@ -40,6 +40,33 @@ Render a tooltip near its anchor and position it from consumer code. Use `role="
 <span class="hb-tooltip" role="tooltip" data-side="left">Left<span class="hb-tooltip__arrow"></span></span>
 ```
 
+## Narrow containers
+
+Keep a tooltip brief and noninteractive. Bound its width using `--hb-tooltip-max-width` and the space available at the placed bubble. The existing text wrapping can break a long filename; do not clip the text or turn a tooltip into a scrollable panel. Longer explanations or content with actions belong in a popover or dialog.
+
+This static preview uses a 320px container and 16px gutters. The percentage is relative to that positioned container. Real positioning code must supply the available dimensions for the chosen side, including room for an arrow when present, and update them on resize or placement changes. A width limit alone cannot guarantee that an arbitrary tooltip fits vertically.
+
+```html demo
+<div style="position: relative; width: 320px; max-width: 100%; height: 140px">
+  <span
+    class="hb-tooltip"
+    role="tooltip"
+    style="
+      --hb-tooltip-max-width: min(360px, calc(100% - 32px));
+      position: absolute;
+      inset-block-start: 16px;
+      inset-inline-start: 16px;
+      display: block;
+      width: max-content;
+    "
+  >
+    Saves theme_configuration_production_customer_workspace_2026.json.
+  </span>
+</div>
+```
+
+The preview is always visible to demonstrate geometry; it does not implement a trigger. Use the `aria-describedby` association shown in Usage and consumer-owned keyboard/pointer show and dismiss behavior on a real control.
+
 ## States
 
 | State  | Markup                              | Notes                                                                           |
