@@ -15,6 +15,13 @@
  * the region (fixed, bottom-end corner by default).
  */
 
+/* Normalize unitless zero before using the inset in height calculations. */
+@property --_toast-inset-block {
+  syntax: '<length-percentage>';
+  inherits: false;
+  initial-value: 0;
+}
+
 /* --- Region --- */
 .hb-toaster {
   --_toaster-width: 320px;
@@ -36,7 +43,8 @@
 
 /* --- Card --- */
 .hb-toast {
-  --_toast-max-height: calc(100dvh - 2 * var(--hb-toaster-inset-block, var(--_toaster-inset-block, 0px)));
+  --_toast-inset-block: var(--hb-toaster-inset-block, var(--_toaster-inset-block, 0px));
+  --_toast-max-height: calc(100dvh - 2 * var(--_toast-inset-block));
   --_toast-padding: var(--hb-gap-4);
   --_toast-radius: var(--hb-radius-l);
   --_toast-gap: var(--hb-gap-2);

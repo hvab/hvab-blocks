@@ -8,16 +8,23 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ## [Unreleased]
 
+### Added
+
+- Toast controls: `--hb-toast-max-height` bounds the card, `--hb-toast-content-gutter` reserves space for content focus outlines, and `--hb-toast-close-space` keeps scrolling content clear of a direct close slot.
+
 ### Fixed
 
+- Toast height limits treat a zero block inset (`--hb-toaster-inset-block: 0`, `0px` or `var(--hb-gap-0)`) equally, keeping long content scrollable and dismissal visible.
 - Toaster regions shrink to fit between both inline insets on narrow screens, preserving the preferred width override and inline-end anchoring.
 - Dialog titles and toast titles/messages wrap unbroken text. Long toast content scrolls within a viewport-bounded card while its close slot stays visible, with a configurable content reserve.
 - `hb-spin` stops rotating under `prefers-reduced-motion: reduce`, preserving its appearance and ordinary-mode customization. The loading example includes visible status text.
 - Text skeletons honor `--hb-skeleton-height` and center using the effective height. Skeleton pulse/shimmer stop under reduced motion even with a public animation override.
 - Tabs consistently use the hover/active text role when selected, including with an idle color override; disabled keeps hint text across hover and selected states.
+- GitHub Pages includes the source license notices and linked usage/vendor/changelog documentation alongside the CSS catalogue.
 
 ### Changed
 
+- Browser targets use Browserslist `defaults and fully supports css-has`, keeping automatic version selection while excluding browsers without full `:has()` support.
 - Added narrow-container composition examples for bounded popovers, brief tooltips and sheets with wrapping text/actions, including positioning and scrolling limits.
 - Clarified the token contract: overrides apply within each role, with explicit state/accessibility policies, local geometry defaults and bounded structure/motion exceptions. Updated block examples and the usage catalogue.
 

@@ -58,6 +58,8 @@ This example uses a positioned 320px container instead of the viewport so the sa
 
 Titles and messages wrap unbroken text. A card is bounded by the dynamic viewport height minus both block insets of its toaster; its border and padding are included in that limit. Only `hb-toast__content` scrolls, including the title, message and actions. The icon and close slot stay outside this scrollport.
 
+Block insets `0`, `0px` and `var(--hb-gap-0)` all leave the full viewport height available. Set `--hb-toaster-inset-block` on the region or an ancestor; inherited and inline overrides retain the same height policy. An explicit `--hb-toast-max-height` still replaces that default limit.
+
 When a direct `hb-toast__close` child exists, `--hb-toast-close-space` reserves space at the content's inline end throughout scrolling. It also narrows short messages/actions; title end padding remains an independent additional inset. This keeps a transparent close button clear of the scrolling text. Coordinate the reserve with custom close sizes, close offsets and card padding; CSS cannot measure an arbitrary absolutely positioned close control. The default reserve fits the illustrated small button. Keep the close control as a direct card child, after the content in keyboard order.
 
 The scrollport has a compensated gutter so action focus outlines remain visible without shifting the normal text position. Its default follows inherited `--hb-button-focus-ring-width` (otherwise `--hb-focus-ring-width`), with zero outline offset. Coordinate `--hb-toast-content-gutter` with nonzero focus offsets, larger element-local rings or other controls: for example, a 4px ring with a 3px offset needs a gutter of at least 7px. Button offset values `0` and `0px` both retain the default gutter.
