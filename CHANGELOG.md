@@ -14,6 +14,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ### Fixed
 
+- Demo compositions give vertical dividers a horizontal container, clickable card text theme-aware link styling, standalone dialogs correctly sized surfaces, and sheet content explicit layout and bottom spacing.
 - Toast height limits treat a zero block inset (`--hb-toaster-inset-block: 0`, `0px` or `var(--hb-gap-0)`) equally, keeping long content scrollable and dismissal visible.
 - Toaster regions shrink to fit between both inline insets on narrow screens, preserving the preferred width override and inline-end anchoring.
 - Dialog titles and toast titles/messages wrap unbroken text. Long toast content scrolls within a viewport-bounded card while its close slot stays visible, with a configurable content reserve.
@@ -24,6 +25,7 @@ The public API consists of `hb-*` block classes, public `--hb-*` system and comp
 
 ### Changed
 
+- The demo catalogue renders full block documentation and the token guide alongside live examples with expandable HTML source. Theme selection persists across pages; narrow screens use compact navigation and locally scrollable tables/code/examples. Shared semantic groups sort entries alphabetically, with visible link/card hover feedback.
 - Browser targets use Browserslist `defaults and fully supports css-has`, keeping automatic version selection while excluding browsers without full `:has()` support.
 - Added narrow-container composition examples for bounded popovers, brief tooltips and sheets with wrapping text/actions, including positioning and scrolling limits.
 - Clarified the token contract: overrides apply within each role, with explicit state/accessibility policies, local geometry defaults and bounded structure/motion exceptions. Updated block examples and the usage catalogue.

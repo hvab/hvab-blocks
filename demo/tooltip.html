@@ -4,10 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>hvab-blocks - Tooltip</title>
+    <link rel="icon" href="data:," />
+    <script src="./demo.js"></script>
     <link rel="stylesheet" href="../index.css" />
     <link rel="stylesheet" href="./demo.css" />
   </head>
   <body>
+    <a class="demo-skip-link" href="#main-content">Skip to content</a>
     <div class="demo-shell">
       <aside class="demo-sidebar" aria-label="Blocks">
         <a
@@ -15,239 +18,385 @@
           href="./index.html"
           >hvab-blocks</a
         >
-        <nav class="demo-nav">
-          <ul class="demo-nav__list">
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./text.html"
-                >text</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./button.html"
-                >button</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./field.html"
-                >field</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./text-input.html"
-                >text-input</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./textarea.html"
-                >textarea</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./select.html"
-                >select</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./range-input.html"
-                >range-input</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./color-input.html"
-                >color-input</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./checkbox.html"
-                >checkbox</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./radio.html"
-                >radio</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./radio-group.html"
-                >radio-group</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./switch.html"
-                >switch</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./skeleton.html"
-                >skeleton</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./progress.html"
-                >progress</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./label.html"
-                >label</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./alert.html"
-                >alert</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./card.html"
-                >card</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./table.html"
-                >table</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./breadcrumbs.html"
-                >breadcrumbs</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./pagination.html"
-                >pagination</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./tabs.html"
-                >tabs</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_primary hb-text hb-text_typography_body-2"
-                href="./tooltip.html"
-                aria-current="page"
-                >tooltip</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./popover.html"
-                >popover</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./modal.html"
-                >modal</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./dialog.html"
-                >dialog</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./sheet.html"
-                >sheet</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./toast.html"
-                >toast</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./link.html"
-                >link</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./spin.html"
-                >spin</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./divider.html"
-                >divider</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./icon.html"
-                >icon</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./hotkey.html"
-                >hotkey</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <button type="button" id="scheme-toggle" class="hb-button hb-button_view_normal hb-button_size_m">
-          Toggle scheme
+        <button
+          type="button"
+          id="scheme-toggle"
+          class="hb-button hb-button_view_outlined hb-button_size_xl"
+          aria-pressed="false"
+        >
+          Dark theme
         </button>
+        <label class="demo-mobile-nav">
+          Browse
+          <select id="block-select" class="hb-select">
+            <option value="./index.html">All blocks</option>
+            <optgroup label="Foundation">
+              <option value="./tokens.html">tokens</option>
+            </optgroup>
+            <optgroup label="Typography">
+              <option value="./hotkey.html">hotkey</option>
+              <option value="./icon.html">icon</option>
+              <option value="./text.html">text</option>
+            </optgroup>
+            <optgroup label="Forms">
+              <option value="./button.html">button</option>
+              <option value="./checkbox.html">checkbox</option>
+              <option value="./color-input.html">color-input</option>
+              <option value="./field.html">field</option>
+              <option value="./radio.html">radio</option>
+              <option value="./radio-group.html">radio-group</option>
+              <option value="./range-input.html">range-input</option>
+              <option value="./select.html">select</option>
+              <option value="./switch.html">switch</option>
+              <option value="./text-input.html">text-input</option>
+              <option value="./textarea.html">textarea</option>
+            </optgroup>
+            <optgroup label="Content">
+              <option value="./card.html">card</option>
+              <option value="./divider.html">divider</option>
+              <option value="./label.html">label</option>
+              <option value="./table.html">table</option>
+            </optgroup>
+            <optgroup label="Feedback">
+              <option value="./alert.html">alert</option>
+              <option value="./progress.html">progress</option>
+              <option value="./skeleton.html">skeleton</option>
+              <option value="./spin.html">spin</option>
+              <option value="./toast.html">toast</option>
+            </optgroup>
+            <optgroup label="Navigation">
+              <option value="./breadcrumbs.html">breadcrumbs</option>
+              <option value="./link.html">link</option>
+              <option value="./pagination.html">pagination</option>
+              <option value="./tabs.html">tabs</option>
+            </optgroup>
+            <optgroup label="Overlays">
+              <option value="./dialog.html">dialog</option>
+              <option value="./modal.html">modal</option>
+              <option value="./popover.html">popover</option>
+              <option value="./sheet.html">sheet</option>
+              <option value="./tooltip.html" selected>tooltip</option>
+            </optgroup>
+          </select>
+        </label>
+        <nav class="demo-nav" aria-label="Blocks">
+          <section aria-labelledby="nav-foundation">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-foundation">Foundation</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tokens.html"
+                  >tokens</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-typography">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-typography">Typography</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./hotkey.html"
+                  >hotkey</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./icon.html"
+                  >icon</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./text.html"
+                  >text</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-forms">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-forms">Forms</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./button.html"
+                  >button</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./checkbox.html"
+                  >checkbox</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./color-input.html"
+                  >color-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./field.html"
+                  >field</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./radio.html"
+                  >radio</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./radio-group.html"
+                  >radio-group</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./range-input.html"
+                  >range-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./select.html"
+                  >select</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./switch.html"
+                  >switch</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./text-input.html"
+                  >text-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./textarea.html"
+                  >textarea</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-content">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-content">Content</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./card.html"
+                  >card</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./divider.html"
+                  >divider</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./label.html"
+                  >label</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./table.html"
+                  >table</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-feedback">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-feedback">Feedback</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./alert.html"
+                  >alert</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./progress.html"
+                  >progress</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./skeleton.html"
+                  >skeleton</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./spin.html"
+                  >spin</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./toast.html"
+                  >toast</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-navigation">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-navigation">Navigation</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./breadcrumbs.html"
+                  >breadcrumbs</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./link.html"
+                  >link</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./pagination.html"
+                  >pagination</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tabs.html"
+                  >tabs</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-overlays">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-overlays">Overlays</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./dialog.html"
+                  >dialog</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./modal.html"
+                  >modal</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./popover.html"
+                  >popover</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./sheet.html"
+                  >sheet</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tooltip.html"
+                  aria-current="page"
+                  >tooltip</a
+                >
+              </li>
+            </ul>
+          </section>
+        </nav>
       </aside>
-      <main class="demo-page">
+      <main class="demo-page" id="main-content" tabindex="-1">
         <header class="demo-header">
           <h1 class="demo-title hb-text hb-text_typography_display-1">Tooltip</h1>
-          <p class="demo-lead hb-text hb-text_typography_body-3 hb-text_color_secondary">
+          <p class="demo-lead hb-text hb-text_typography_body-3">
             Overlay skin for a small contextual hint. The block styles the bubble, optional arrow, visibility state, and
             side-dependent arrow placement. Positioning, mounting, delay, collision handling, and aria-describedby
             wiring stay in the consumer or a positioning library such as Floating UI.
           </p>
         </header>
-        <div class="demo-sections">
-          <section class="demo-card">
-            <h2 class="demo-card__title hb-text hb-text_typography_header-1">Anatomy</h2>
+        <article class="demo-docs">
+          <h2 id="docs-usage">Usage</h2>
+          <p>
+            Render a tooltip near its anchor and position it from consumer code. Use
+            <code>role=&quot;tooltip&quot;</code> and connect it to the trigger with <code>aria-describedby</code> when
+            the tooltip describes a control.
+          </p>
+          <pre
+            tabindex="0"
+          ><code>&lt;button type=&quot;button&quot; class=&quot;hb-button hb-button_view_outlined&quot; aria-describedby=&quot;save-tip&quot;&gt;Save&lt;/button&gt;
+&lt;span id=&quot;save-tip&quot; class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-side=&quot;top&quot;&gt;
+  Saves the current draft
+  &lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+          <h2 id="docs-anatomy">Anatomy</h2>
+          <div class="demo-table" tabindex="0" role="region" aria-label="Anatomy table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Part</th>
+                  <th>Required</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>.hb-tooltip</code></td>
+                  <td>Yes</td>
+                  <td>Tooltip bubble.</td>
+                </tr>
+                <tr>
+                  <td><code>.hb-tooltip__arrow</code></td>
+                  <td>No</td>
+                  <td>Side-aware arrow. Requires <code>data-side</code> on the root.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="demo-card">
             <div
               class="demo-card__preview demo-card__preview_block_tooltip demo-card__preview_variant_anatomy demo-card__preview_example_tooltip_anatomy"
             >
@@ -257,16 +406,24 @@
                 <span class="hb-tooltip__arrow"></span>
               </span>
             </div>
-            <pre
-              class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot;&gt;Tooltip without arrow&lt;/span&gt;
+            <details class="demo-card__source">
+              <summary>HTML source</summary>
+              <pre
+                class="demo-card__code"
+                tabindex="0"
+              ><code>&lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot;&gt;Tooltip without arrow&lt;/span&gt;
 &lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-side=&quot;top&quot;&gt;
   Tooltip with arrow
   &lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;
 &lt;/span&gt;</code></pre>
-          </section>
-          <section class="demo-card">
-            <h2 class="demo-card__title hb-text hb-text_typography_header-1">Side</h2>
+            </details>
+          </div>
+          <h2 id="docs-side">Side</h2>
+          <p>
+            <code>data-side</code> describes the side where the tooltip content is placed relative to the trigger. The
+            arrow is drawn on the opposite edge of the bubble.
+          </p>
+          <div class="demo-card">
             <div
               class="demo-card__preview demo-card__preview_block_tooltip demo-card__preview_variant_side demo-card__preview_example_tooltip_side"
             >
@@ -281,15 +438,31 @@
                 >Left<span class="hb-tooltip__arrow"></span
               ></span>
             </div>
-            <pre
-              class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-side=&quot;top&quot;&gt;Top&lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+            <details class="demo-card__source">
+              <summary>HTML source</summary>
+              <pre
+                class="demo-card__code"
+                tabindex="0"
+              ><code>&lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-side=&quot;top&quot;&gt;Top&lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-side=&quot;right&quot;&gt;Right&lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-side=&quot;bottom&quot;&gt;Bottom&lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-side=&quot;left&quot;&gt;Left&lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;&lt;/span&gt;</code></pre>
-          </section>
-          <section class="demo-card">
-            <h2 class="demo-card__title hb-text hb-text_typography_header-1">Narrow containers</h2>
+            </details>
+          </div>
+          <h2 id="docs-narrow-containers">Narrow containers</h2>
+          <p>
+            Keep a tooltip brief and noninteractive. Bound its width using <code>--hb-tooltip-max-width</code> and the
+            space available at the placed bubble. The existing text wrapping can break a long filename; do not clip the
+            text or turn a tooltip into a scrollable panel. Longer explanations or content with actions belong in a
+            popover or dialog.
+          </p>
+          <p>
+            This static preview uses a 320px container and 16px gutters. The percentage is relative to that positioned
+            container. Real positioning code must supply the available dimensions for the chosen side, including room
+            for an arrow when present, and update them on resize or placement changes. A width limit alone cannot
+            guarantee that an arbitrary tooltip fits vertically.
+          </p>
+          <div class="demo-card">
             <div
               class="demo-card__preview demo-card__preview_block_tooltip demo-card__preview_variant_narrow-containers demo-card__preview_example_tooltip_narrow-containers"
             >
@@ -310,9 +483,12 @@
                 </span>
               </div>
             </div>
-            <pre
-              class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;div style=&quot;position: relative; width: 320px; max-width: 100%; height: 140px&quot;&gt;
+            <details class="demo-card__source">
+              <summary>HTML source</summary>
+              <pre
+                class="demo-card__code"
+                tabindex="0"
+              ><code>&lt;div style=&quot;position: relative; width: 320px; max-width: 100%; height: 140px&quot;&gt;
   &lt;span
     class=&quot;hb-tooltip&quot;
     role=&quot;tooltip&quot;
@@ -328,22 +504,126 @@
     Saves theme_configuration_production_customer_workspace_2026.json.
   &lt;/span&gt;
 &lt;/div&gt;</code></pre>
-          </section>
-          <section class="demo-card">
-            <h2 class="demo-card__title hb-text hb-text_typography_header-1">States</h2>
+            </details>
+          </div>
+          <p>
+            The preview is always visible to demonstrate geometry; it does not implement a trigger. Use the
+            <code>aria-describedby</code> association shown in Usage and consumer-owned keyboard/pointer show and
+            dismiss behavior on a real control.
+          </p>
+          <h2 id="docs-states">States</h2>
+          <div class="demo-table" tabindex="0" role="region" aria-label="States table">
+            <table>
+              <thead>
+                <tr>
+                  <th>State</th>
+                  <th>Markup</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Open</td>
+                  <td>no attribute or <code>data-state=&quot;open&quot;</code></td>
+                  <td>The tooltip is visible by default.</td>
+                </tr>
+                <tr>
+                  <td>Closed</td>
+                  <td><code>data-state=&quot;closed&quot;</code></td>
+                  <td>
+                    Sets <code>visibility: hidden</code> and <code>opacity: 0</code>. Consumers may also unmount
+                    instead.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="demo-card">
             <div
               class="demo-card__preview demo-card__preview_block_tooltip demo-card__preview_variant_states demo-card__preview_example_tooltip_states"
             >
               <span class="hb-tooltip" role="tooltip" data-state="open">Open</span>
               <span class="hb-tooltip" role="tooltip" data-state="closed">Closed</span>
             </div>
-            <pre
-              class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-state=&quot;open&quot;&gt;Open&lt;/span&gt;
+            <details class="demo-card__source">
+              <summary>HTML source</summary>
+              <pre
+                class="demo-card__code"
+                tabindex="0"
+              ><code>&lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-state=&quot;open&quot;&gt;Open&lt;/span&gt;
 &lt;span class=&quot;hb-tooltip&quot; role=&quot;tooltip&quot; data-state=&quot;closed&quot;&gt;Closed&lt;/span&gt;</code></pre>
-          </section>
-          <section class="demo-card">
-            <h2 class="demo-card__title hb-text hb-text_typography_header-1">Public Tokens</h2>
+            </details>
+          </div>
+          <h2 id="docs-public-tokens">Public Tokens</h2>
+          <p>
+            Override public tokens on the tooltip itself or on an ancestor. Do not set private
+            <code>--_tooltip-*</code> variables from consumer code.
+          </p>
+          <div class="demo-table" tabindex="0" role="region" aria-label="Public Tokens table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Token</th>
+                  <th>Controls</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>--hb-tooltip-max-width</code></td>
+                  <td>Maximum bubble width.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-padding-block</code></td>
+                  <td>Block padding.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-padding-inline</code></td>
+                  <td>Inline padding.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-radius</code></td>
+                  <td>Border radius.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-font-size</code></td>
+                  <td>Font size.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-line</code></td>
+                  <td>Line height.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-font-weight</code></td>
+                  <td>Font weight.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-text-color</code></td>
+                  <td>Text color.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-background</code></td>
+                  <td>Bubble and arrow background.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-shadow</code></td>
+                  <td>Bubble shadow.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-arrow-size</code></td>
+                  <td>Arrow square size before rotation.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-visibility</code></td>
+                  <td>Visibility value.</td>
+                </tr>
+                <tr>
+                  <td><code>--hb-tooltip-opacity</code></td>
+                  <td>Opacity value.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="demo-card">
             <div
               class="demo-card__preview demo-card__preview_block_tooltip demo-card__preview_variant_public-tokens demo-card__preview_example_tooltip_public-tokens"
             >
@@ -361,9 +641,9 @@
                 <span class="hb-tooltip__arrow"></span>
               </span>
             </div>
-            <pre
-              class="demo-card__code hb-card hb-card_view_filled"
-            ><code class="hb-text hb-text_typography_code-2">&lt;span
+            <details class="demo-card__source">
+              <summary>HTML source</summary>
+              <pre class="demo-card__code" tabindex="0"><code>&lt;span
   class=&quot;hb-tooltip&quot;
   role=&quot;tooltip&quot;
   data-side=&quot;top&quot;
@@ -376,15 +656,34 @@
   Danger background
   &lt;span class=&quot;hb-tooltip__arrow&quot;&gt;&lt;/span&gt;
 &lt;/span&gt;</code></pre>
-          </section>
-        </div>
+            </details>
+          </div>
+          <h2 id="docs-behavior-boundary">Behavior Boundary</h2>
+          <p>The tooltip block does not provide JavaScript behavior. The consumer owns:</p>
+          <ul>
+            <li>trigger events and delays;</li>
+            <li>mounting and unmounting;</li>
+            <li>coordinates, flip, shift, and collision handling;</li>
+            <li>portal and stacking policy;</li>
+            <li><code>aria-describedby</code> and focus behavior.</li>
+          </ul>
+          <h2 id="docs-visual-notes">Visual Notes</h2>
+          <p>
+            The default surface uses the inverse brand pair: <code>--hb-color-base-brand</code> with
+            <code>--hb-color-text-brand-contrast</code>. This keeps the tooltip distinct from the page in both light and
+            dark schemes, so the arrow can be a simple solid diamond without a border.
+          </p>
+          <p>
+            The arrow center overlaps the bubble by 1px. This hides side corners and leaves only the tip outside the
+            bubble.
+          </p>
+          <h2 id="docs-limits">Limits</h2>
+          <p>
+            Only the brand surface is included in v1. A float-surface variant and line clamp are intentionally deferred
+            until a real screen needs them.
+          </p>
+        </article>
       </main>
     </div>
-    <script>
-      const root = document.documentElement;
-      document.getElementById('scheme-toggle').addEventListener('click', () => {
-        root.dataset.colorScheme = root.dataset.colorScheme === 'dark' ? 'light' : 'dark';
-      });
-    </script>
   </body>
 </html>

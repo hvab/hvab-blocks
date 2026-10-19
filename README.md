@@ -60,6 +60,10 @@ The static catalogue is deployed to [GitHub Pages](https://hvab.github.io/hvab-b
 
 The Pages workflow follows `main` independently of release tags, so the catalogue can include Unreleased changes.
 
+The catalogue includes the full block documentation, live HTML examples with expandable source, and the foundation token guide. The index, sidebar and compact mobile selector share semantic groups with alphabetical entries. Light/dark selection is saved locally and restored when navigating between pages.
+
+Examples demonstrate CSS structure and states; interactive application behaviour remains consumer-owned. Markdown is rendered only by the development-time generator, with no Markdown library shipped to the browser or CSS package.
+
 ## Release cadence
 
 Completed changes accumulate in [CHANGELOG.md](CHANGELOG.md) under Unreleased and are released as a batch when explicitly requested. The package version changes during release preparation, not after every fix. Pushing ordinary commits does not create a version tag or GitHub Release.

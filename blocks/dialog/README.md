@@ -4,8 +4,10 @@ Content layout for a modal: header, body, footer, and an optional close slot. Th
 
 ## Usage
 
+These standalone examples use `width: fit-content` and a container-width limit on the surface. In a live modal, the flex host supplies the surrounding layout; outside that host an ordinary block panel would stretch wider than its dialog.
+
 ```html demo
-<div class="hb-modal__panel">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: 100%">
   <div class="hb-dialog">
     <div class="hb-dialog__header">
       <div class="hb-dialog__title">Delete project</div>
@@ -24,7 +26,7 @@ Content layout for a modal: header, body, footer, and an optional close slot. Th
 ## With close slot
 
 ```html demo
-<div class="hb-modal__panel">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: 100%">
   <div class="hb-dialog">
     <button type="button" class="hb-dialog__close hb-button hb-button_view_flat hb-button_size_s" aria-label="Close">
       ×
@@ -45,7 +47,7 @@ Content layout for a modal: header, body, footer, and an optional close slot. Th
 Titles wrap even when a filename or identifier has no spaces. Keep the close control in its documented slot and use wrapping text inside the title.
 
 ```html demo
-<div class="hb-modal__panel" style="max-inline-size: 272px">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: min(272px, 100%)">
   <div class="hb-dialog">
     <button type="button" class="hb-dialog__close hb-button hb-button_view_flat hb-button_size_s" aria-label="Close">
       ×
@@ -65,7 +67,7 @@ Place `hb-button` actions directly inside `hb-dialog__footer`. Below 480px of ac
 Visual and keyboard order follow the DOM in both layouts. Labels wrap without truncation, including unbroken strings. Button sizes and `--hb-button-height` supply the minimum height; the footer lets buttons grow with their text. The footer's block padding and line height apply only to these direct button children. Use plain text or wrapping inline content, without consumer-side ellipsis or fixed-height text wrappers.
 
 ```html demo
-<div class="hb-modal__panel" style="max-inline-size: 272px">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: min(272px, 100%)">
   <div class="hb-dialog">
     <div class="hb-dialog__header">
       <div class="hb-dialog__title">Reset theme</div>
@@ -88,13 +90,13 @@ Keep dividers as direct children of the unpadded dialog root, between sections. 
 Sizes control the dialog width; the surrounding panel width follows.
 
 ```html demo
-<div class="hb-modal__panel">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: 100%">
   <div class="hb-dialog hb-dialog_size_s"><div class="hb-dialog__body">Size s (480px)</div></div>
 </div>
-<div class="hb-modal__panel">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: 100%">
   <div class="hb-dialog hb-dialog_size_m"><div class="hb-dialog__body">Size m (720px)</div></div>
 </div>
-<div class="hb-modal__panel">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: 100%">
   <div class="hb-dialog hb-dialog_size_l"><div class="hb-dialog__body">Size l (900px)</div></div>
 </div>
 ```
@@ -128,7 +130,7 @@ Sizes control the dialog width; the surrounding panel width follows.
 | `--hb-dialog-close-offset-inline`         | Close slot offset from the end edge.                           |
 
 ```html demo
-<div class="hb-modal__panel">
+<div class="hb-modal__panel" style="width: fit-content; max-inline-size: 100%">
   <div class="hb-dialog" style="--hb-dialog-side-padding: var(--hb-gap-4)">
     <div class="hb-dialog__body">Narrow side padding</div>
   </div>

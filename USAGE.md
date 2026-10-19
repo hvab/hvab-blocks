@@ -143,7 +143,7 @@ Read the block README before using a block. It contains copy-paste examples and 
 - [Toast](blocks/toast/README.md)
 - [Tooltip](blocks/tooltip/README.md)
 
-The static HTML catalogue is available under `demo/` when running `npm start`. It is generated from the block README examples and must not be edited by hand.
+The static HTML catalogue is available under `demo/` when running `npm start`. It includes the full block READMEs and token guide, live examples and expandable HTML source. Theme selection persists across page navigation. Generated HTML must not be edited by hand; update the corresponding README and run `npm run demo:build`. Examples demonstrate CSS structure and states, with application behaviour supplied by consumers.
 
 ## More references
 

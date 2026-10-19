@@ -25,11 +25,13 @@ Use `role="separator"` when the host is not `hr`.
 Vertical dividers stretch inside a horizontal layout.
 
 ```html demo
-<span>Left</span>
-<div class="hb-divider hb-divider_orientation_vertical" role="separator"></div>
-<span>Right</span>
-<div class="hb-divider hb-divider_orientation_vertical" role="separator">or</div>
-<span>Next</span>
+<div style="display: flex; gap: var(--hb-gap-4); min-height: 48px; align-items: center">
+  <span>Left</span>
+  <div class="hb-divider hb-divider_orientation_vertical" role="separator" aria-orientation="vertical"></div>
+  <span>Right</span>
+  <div class="hb-divider hb-divider_orientation_vertical" role="separator" aria-orientation="vertical">or</div>
+  <span>Next</span>
+</div>
 ```
 
 ## Modifiers

@@ -20,10 +20,10 @@ The unmodified block is the `outlined` view: transparent background with a gener
 
 ## Clickable
 
-Set `[data-clickable]` when the card host is a link or button, to get hover feedback and a focus ring.
+Set `[data-clickable]` when the card host is a link or button, to get hover feedback and a focus ring. Compose a link host with `hb-link` to style its text in both color schemes.
 
 ```html demo
-<a class="hb-card hb-card_view_filled" href="#" data-clickable>Clickable filled card</a>
+<a class="hb-card hb-card_view_filled hb-link hb-link_view_normal" href="#" data-clickable>Clickable filled card</a>
 ```
 
 ## Selected

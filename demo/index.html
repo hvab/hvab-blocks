@@ -4,10 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>hvab-blocks - demo</title>
+    <link rel="icon" href="data:," />
+    <script src="./demo.js"></script>
     <link rel="stylesheet" href="../index.css" />
     <link rel="stylesheet" href="./demo.css" />
   </head>
   <body>
+    <a class="demo-skip-link" href="#main-content">Skip to content</a>
     <div class="demo-shell">
       <aside class="demo-sidebar" aria-label="Blocks">
         <a
@@ -15,415 +18,677 @@
           href="./index.html"
           >hvab-blocks</a
         >
-        <nav class="demo-nav">
-          <ul class="demo-nav__list">
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./text.html"
-                >text</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./button.html"
-                >button</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./field.html"
-                >field</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./text-input.html"
-                >text-input</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./textarea.html"
-                >textarea</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./select.html"
-                >select</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./range-input.html"
-                >range-input</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./color-input.html"
-                >color-input</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./checkbox.html"
-                >checkbox</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./radio.html"
-                >radio</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./radio-group.html"
-                >radio-group</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./switch.html"
-                >switch</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./skeleton.html"
-                >skeleton</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./progress.html"
-                >progress</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./label.html"
-                >label</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./alert.html"
-                >alert</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./card.html"
-                >card</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./table.html"
-                >table</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./breadcrumbs.html"
-                >breadcrumbs</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./pagination.html"
-                >pagination</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./tabs.html"
-                >tabs</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./tooltip.html"
-                >tooltip</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./popover.html"
-                >popover</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./modal.html"
-                >modal</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./dialog.html"
-                >dialog</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./sheet.html"
-                >sheet</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./toast.html"
-                >toast</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./link.html"
-                >link</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./spin.html"
-                >spin</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./divider.html"
-                >divider</a
-              >
-            </li>
-            <li>
-              <a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./icon.html"
-                >icon</a
-              >
-            </li>
-            <li>
-              <a
-                class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
-                href="./hotkey.html"
-                >hotkey</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <button type="button" id="scheme-toggle" class="hb-button hb-button_view_normal hb-button_size_m">
-          Toggle scheme
+        <button
+          type="button"
+          id="scheme-toggle"
+          class="hb-button hb-button_view_outlined hb-button_size_xl"
+          aria-pressed="false"
+        >
+          Dark theme
         </button>
+        <label class="demo-mobile-nav">
+          Browse
+          <select id="block-select" class="hb-select">
+            <option value="./index.html">All blocks</option>
+            <optgroup label="Foundation">
+              <option value="./tokens.html">tokens</option>
+            </optgroup>
+            <optgroup label="Typography">
+              <option value="./hotkey.html">hotkey</option>
+              <option value="./icon.html">icon</option>
+              <option value="./text.html">text</option>
+            </optgroup>
+            <optgroup label="Forms">
+              <option value="./button.html">button</option>
+              <option value="./checkbox.html">checkbox</option>
+              <option value="./color-input.html">color-input</option>
+              <option value="./field.html">field</option>
+              <option value="./radio.html">radio</option>
+              <option value="./radio-group.html">radio-group</option>
+              <option value="./range-input.html">range-input</option>
+              <option value="./select.html">select</option>
+              <option value="./switch.html">switch</option>
+              <option value="./text-input.html">text-input</option>
+              <option value="./textarea.html">textarea</option>
+            </optgroup>
+            <optgroup label="Content">
+              <option value="./card.html">card</option>
+              <option value="./divider.html">divider</option>
+              <option value="./label.html">label</option>
+              <option value="./table.html">table</option>
+            </optgroup>
+            <optgroup label="Feedback">
+              <option value="./alert.html">alert</option>
+              <option value="./progress.html">progress</option>
+              <option value="./skeleton.html">skeleton</option>
+              <option value="./spin.html">spin</option>
+              <option value="./toast.html">toast</option>
+            </optgroup>
+            <optgroup label="Navigation">
+              <option value="./breadcrumbs.html">breadcrumbs</option>
+              <option value="./link.html">link</option>
+              <option value="./pagination.html">pagination</option>
+              <option value="./tabs.html">tabs</option>
+            </optgroup>
+            <optgroup label="Overlays">
+              <option value="./dialog.html">dialog</option>
+              <option value="./modal.html">modal</option>
+              <option value="./popover.html">popover</option>
+              <option value="./sheet.html">sheet</option>
+              <option value="./tooltip.html">tooltip</option>
+            </optgroup>
+          </select>
+        </label>
+        <nav class="demo-nav" aria-label="Blocks">
+          <section aria-labelledby="nav-foundation">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-foundation">Foundation</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tokens.html"
+                  >tokens</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-typography">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-typography">Typography</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./hotkey.html"
+                  >hotkey</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./icon.html"
+                  >icon</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./text.html"
+                  >text</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-forms">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-forms">Forms</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./button.html"
+                  >button</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./checkbox.html"
+                  >checkbox</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./color-input.html"
+                  >color-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./field.html"
+                  >field</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./radio.html"
+                  >radio</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./radio-group.html"
+                  >radio-group</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./range-input.html"
+                  >range-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./select.html"
+                  >select</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./switch.html"
+                  >switch</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./text-input.html"
+                  >text-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./textarea.html"
+                  >textarea</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-content">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-content">Content</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./card.html"
+                  >card</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./divider.html"
+                  >divider</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./label.html"
+                  >label</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./table.html"
+                  >table</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-feedback">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-feedback">Feedback</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./alert.html"
+                  >alert</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./progress.html"
+                  >progress</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./skeleton.html"
+                  >skeleton</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./spin.html"
+                  >spin</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./toast.html"
+                  >toast</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-navigation">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-navigation">Navigation</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./breadcrumbs.html"
+                  >breadcrumbs</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./link.html"
+                  >link</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./pagination.html"
+                  >pagination</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tabs.html"
+                  >tabs</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-overlays">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-overlays">Overlays</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./dialog.html"
+                  >dialog</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./modal.html"
+                  >modal</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./popover.html"
+                  >popover</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./sheet.html"
+                  >sheet</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tooltip.html"
+                  >tooltip</a
+                >
+              </li>
+            </ul>
+          </section>
+        </nav>
       </aside>
-      <main class="demo-page">
+      <main class="demo-page" id="main-content" tabindex="-1">
         <header class="demo-header">
           <h1 class="demo-title hb-text hb-text_typography_display-1">hvab-blocks</h1>
-          <p class="demo-lead hb-text hb-text_typography_body-3 hb-text_color_secondary">
-            Generated demo index for the CSS/BEM block library. README-backed pages are built from fenced HTML examples
-            in block documentation.
+          <p class="demo-lead hb-text hb-text_typography_body-3">
+            Browse the block documentation and live HTML examples. Each page includes usage, states, public tokens and
+            implementation limits.
           </p>
         </header>
-        <ul class="demo-grid">
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./text.html">
-              <span class="hb-text hb-text_typography_subheader-3">text</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./button.html">
-              <span class="hb-text hb-text_typography_subheader-3">button</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./field.html">
-              <span class="hb-text hb-text_typography_subheader-3">field</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./text-input.html">
-              <span class="hb-text hb-text_typography_subheader-3">text-input</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./textarea.html">
-              <span class="hb-text hb-text_typography_subheader-3">textarea</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./select.html">
-              <span class="hb-text hb-text_typography_subheader-3">select</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
-              href="./range-input.html"
-            >
-              <span class="hb-text hb-text_typography_subheader-3">range-input</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
-              href="./color-input.html"
-            >
-              <span class="hb-text hb-text_typography_subheader-3">color-input</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./checkbox.html">
-              <span class="hb-text hb-text_typography_subheader-3">checkbox</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./radio.html">
-              <span class="hb-text hb-text_typography_subheader-3">radio</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
-              href="./radio-group.html"
-            >
-              <span class="hb-text hb-text_typography_subheader-3">radio-group</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./switch.html">
-              <span class="hb-text hb-text_typography_subheader-3">switch</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./skeleton.html">
-              <span class="hb-text hb-text_typography_subheader-3">skeleton</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./progress.html">
-              <span class="hb-text hb-text_typography_subheader-3">progress</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./label.html">
-              <span class="hb-text hb-text_typography_subheader-3">label</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./alert.html">
-              <span class="hb-text hb-text_typography_subheader-3">alert</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./card.html">
-              <span class="hb-text hb-text_typography_subheader-3">card</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./table.html">
-              <span class="hb-text hb-text_typography_subheader-3">table</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
-              href="./breadcrumbs.html"
-            >
-              <span class="hb-text hb-text_typography_subheader-3">breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./pagination.html">
-              <span class="hb-text hb-text_typography_subheader-3">pagination</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./tabs.html">
-              <span class="hb-text hb-text_typography_subheader-3">tabs</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./tooltip.html">
-              <span class="hb-text hb-text_typography_subheader-3">tooltip</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./popover.html">
-              <span class="hb-text hb-text_typography_subheader-3">popover</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./modal.html">
-              <span class="hb-text hb-text_typography_subheader-3">modal</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./dialog.html">
-              <span class="hb-text hb-text_typography_subheader-3">dialog</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./sheet.html">
-              <span class="hb-text hb-text_typography_subheader-3">sheet</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./toast.html">
-              <span class="hb-text hb-text_typography_subheader-3">toast</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./link.html">
-              <span class="hb-text hb-text_typography_subheader-3">link</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./spin.html">
-              <span class="hb-text hb-text_typography_subheader-3">spin</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./divider.html">
-              <span class="hb-text hb-text_typography_subheader-3">divider</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./icon.html">
-              <span class="hb-text hb-text_typography_subheader-3">icon</span>
-            </a>
-          </li>
-          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./hotkey.html">
-              <span class="hb-text hb-text_typography_subheader-3">hotkey</span>
-            </a>
-          </li>
-        </ul>
+        <section class="demo-group" aria-labelledby="group-foundation">
+          <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-foundation">Foundation</h2>
+          <ul class="demo-grid">
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./tokens.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">tokens</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="demo-group" aria-labelledby="group-typography">
+          <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-typography">Typography</h2>
+          <ul class="demo-grid">
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./hotkey.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">hotkey</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./icon.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">icon</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./text.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">text</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="demo-group" aria-labelledby="group-forms">
+          <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-forms">Forms</h2>
+          <ul class="demo-grid">
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./button.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">button</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./checkbox.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">checkbox</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./color-input.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">color-input</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./field.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">field</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./radio.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">radio</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./radio-group.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">radio-group</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./range-input.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">range-input</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./select.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">select</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./switch.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">switch</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./text-input.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">text-input</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./textarea.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">textarea</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="demo-group" aria-labelledby="group-content">
+          <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-content">Content</h2>
+          <ul class="demo-grid">
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./card.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">card</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./divider.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">divider</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./label.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">label</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./table.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">table</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="demo-group" aria-labelledby="group-feedback">
+          <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-feedback">Feedback</h2>
+          <ul class="demo-grid">
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./alert.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">alert</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./progress.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">progress</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./skeleton.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">skeleton</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./spin.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">spin</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./toast.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">toast</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="demo-group" aria-labelledby="group-navigation">
+          <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-navigation">Navigation</h2>
+          <ul class="demo-grid">
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./breadcrumbs.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">breadcrumbs</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./link.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">link</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./pagination.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">pagination</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./tabs.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">tabs</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="demo-group" aria-labelledby="group-overlays">
+          <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-overlays">Overlays</h2>
+          <ul class="demo-grid">
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./dialog.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">dialog</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./modal.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">modal</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./popover.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">popover</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./sheet.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">sheet</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal"
+                href="./tooltip.html"
+                data-clickable
+              >
+                <span class="hb-text hb-text_typography_subheader-3">tooltip</span>
+              </a>
+            </li>
+          </ul>
+        </section>
       </main>
     </div>
-    <script>
-      const root = document.documentElement;
-      document.getElementById('scheme-toggle').addEventListener('click', () => {
-        root.dataset.colorScheme = root.dataset.colorScheme === 'dark' ? 'light' : 'dark';
-      });
-    </script>
   </body>
 </html>

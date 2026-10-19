@@ -2,6 +2,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import prettier from 'prettier';
+import { lexer, parser, Renderer } from 'marked';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
@@ -12,12 +13,46 @@ const blockOrder = Array.from(
 );
 
 const documentedBlocks = blockOrder.filter((block) => existsSync(readmePath(block)));
+const pages = ['tokens', ...documentedBlocks];
+const groups = [
+  { title: 'Foundation', pages: ['tokens'] },
+  { title: 'Typography', pages: ['hotkey', 'icon', 'text'] },
+  {
+    title: 'Forms',
+    pages: [
+      'button',
+      'checkbox',
+      'color-input',
+      'field',
+      'radio',
+      'radio-group',
+      'range-input',
+      'select',
+      'switch',
+      'text-input',
+      'textarea',
+    ],
+  },
+  { title: 'Content', pages: ['card', 'divider', 'label', 'table'] },
+  { title: 'Feedback', pages: ['alert', 'progress', 'skeleton', 'spin', 'toast'] },
+  { title: 'Navigation', pages: ['breadcrumbs', 'link', 'pagination', 'tabs'] },
+  { title: 'Overlays', pages: ['dialog', 'modal', 'popover', 'sheet', 'tooltip'] },
+];
+for (const group of groups) group.pages.sort();
+const groupedPages = groups.flatMap((group) => group.pages);
+if (
+  groupedPages.length !== pages.length ||
+  new Set(groupedPages).size !== pages.length ||
+  pages.some((page) => !groupedPages.includes(page))
+) {
+  throw new Error('Every documented page must belong to exactly one catalogue group');
+}
 validateDemoCssTokens();
 
 const outputs = new Map(
   await Promise.all([
-    outputHtml(path.join(root, 'demo/index.html'), renderIndex(blockOrder, documentedBlocks)),
-    ...documentedBlocks.map((block) => outputHtml(path.join(root, `demo/${block}.html`), renderBlockPage(block))),
+    outputHtml(path.join(root, 'demo/index.html'), renderIndex()),
+    ...pages.map((block) => outputHtml(path.join(root, `demo/${block}.html`), renderBlockPage(block))),
   ])
 );
 
@@ -38,51 +73,80 @@ if (stale.length > 0) {
   process.exit(1);
 }
 
-function renderIndex(blocks, readmeBlocks) {
-  const links = blocks
+function renderIndex() {
+  const sections = groups
     .map(
-      (block) => `          <li>
-            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./${block}.html">
-              <span class="hb-text hb-text_typography_subheader-3">${escapeHtml(block)}</span>
+      (group) => `      <section class="demo-group" aria-labelledby="group-${slugifyClassPart(group.title)}">
+        <h2 class="demo-group__title hb-text hb-text_typography_header-1" id="group-${slugifyClassPart(group.title)}">${escapeHtml(group.title)}</h2>
+        <ul class="demo-grid">
+          ${group.pages
+            .map(
+              (page) => `<li>
+            <a class="demo-index-link hb-card hb-card_view_filled hb-link hb-link_view_normal" href="./${page}.html" data-clickable>
+              <span class="hb-text hb-text_typography_subheader-3">${escapeHtml(page)}</span>
             </a>
           </li>`
+            )
+            .join('\n')}
+        </ul>
+      </section>`
     )
     .join('\n');
 
   return renderShell({
     title: 'hvab-blocks',
     documentTitle: 'demo',
-    lead: 'Generated demo index for the CSS/BEM block library. README-backed pages are built from fenced HTML examples in block documentation.',
-    body: `      <ul class="demo-grid">\n${links}\n      </ul>`,
-    blocks: readmeBlocks,
+    lead: 'Browse the block documentation and live HTML examples. Each page includes usage, states, public tokens and implementation limits.',
+    body: sections,
   });
 }
 
 function renderBlockPage(block) {
   const readme = readFileSync(readmePath(block), 'utf8');
   const title = readme.match(/^#\s+(.+)$/m)?.[1] ?? block;
-  const lead = firstParagraph(readme);
-  const examples = extractDemoExamples(readme);
+  const tokens = lexer(readme);
+  const intro = tokens.findIndex((token) => token.type === 'paragraph');
+  tokens.splice(intro, 1);
+  tokens.shift();
+  const renderer = new Renderer();
+  const headings = new Map();
+  let heading = 'Example';
+  let examples = 0;
 
-  if (examples.length === 0) {
-    throw new Error(`No \`\`\`html demo examples found in ${path.relative(root, readmePath(block))}`);
+  renderer.heading = function (token) {
+    heading = token.text;
+    const slug = `docs-${slugifyClassPart(token.text)}`;
+    const count = (headings.get(slug) ?? 0) + 1;
+    headings.set(slug, count);
+    return `<h${token.depth} id="${slug}${count > 1 ? `-${count}` : ''}">${this.parser.parseInline(token.tokens)}</h${token.depth}>`;
+  };
+  renderer.code = function (token) {
+    if (token.lang !== 'html demo') return `<pre tabindex="0"><code>${escapeHtml(token.text)}</code></pre>`;
+    examples += 1;
+    return renderExample(block, { title: heading, code: token.text.trim() });
+  };
+  renderer.table = function (token) {
+    return `<div class="demo-table" tabindex="0" role="region" aria-label="${escapeHtml(heading)} table">${Renderer.prototype.table.call(this, token)}</div>`;
+  };
+  renderer.link = function (token) {
+    let href = token.href
+      .replace('../../tokens/README.md', './tokens.html')
+      .replace(/^\.\.\/([a-z0-9-]+)\/README\.md/, './$1.html');
+    if (href !== token.href || href.startsWith('#')) href = href.replace(/#(.+)$/, '#docs-$1');
+    return Renderer.prototype.link.call(this, { ...token, href });
+  };
+
+  // README files and live HTML examples are trusted, repository-authored build input.
+  const body = `      <article class="demo-docs">${parser(tokens, { renderer })}</article>`;
+  if (block !== 'tokens' && examples === 0) {
+    throw new Error(`No live HTML examples found in ${path.relative(root, readmePath(block))}`);
   }
 
-  const body = `      <div class="demo-sections">
-${examples.map((example, index) => renderExample(block, example, index)).join('\n')}
-      </div>`;
-
-  return renderShell({
-    title,
-    lead,
-    body,
-    blocks: documentedBlocks,
-    currentBlock: block,
-  });
+  return renderShell({ title, lead: firstParagraph(readme), body, currentBlock: block });
 }
 
-function renderExample(block, example, index) {
-  const title = example.title ?? `Example ${index + 1}`;
+function renderExample(block, example) {
+  const title = example.title;
   const blockSlug = slugifyClassPart(block);
   const variantSlug = slugifyClassPart(title);
   const previewClass = [
@@ -92,100 +156,78 @@ function renderExample(block, example, index) {
     `demo-card__preview_example_${blockSlug}_${variantSlug}`,
   ].join(' ');
 
-  return `        <section class="demo-card">
-          <h2 class="demo-card__title hb-text hb-text_typography_header-1">${escapeHtml(title)}</h2>
+  return `        <div class="demo-card">
           <div class="${previewClass}">
 ${indent(example.code, 12)}
           </div>
-          <pre class="demo-card__code hb-card hb-card_view_filled"><code class="hb-text hb-text_typography_code-2">${escapeHtml(example.code)}</code></pre>
-        </section>`;
+          <details class="demo-card__source">
+            <summary>HTML source</summary>
+            <pre class="demo-card__code" tabindex="0"><code>${escapeHtml(example.code)}</code></pre>
+          </details>
+        </div>`;
 }
 
-function renderShell({ title, documentTitle = title, lead, body, blocks = [], currentBlock }) {
+function renderShell({ title, documentTitle = title, lead, body, currentBlock }) {
   return `<!doctype html>
 <html lang="en" data-color-scheme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>hvab-blocks - ${escapeHtml(documentTitle)}</title>
+    <link rel="icon" href="data:," />
+    <script src="./demo.js"></script>
     <link rel="stylesheet" href="../index.css" />
     <link rel="stylesheet" href="./demo.css" />
   </head>
   <body>
+    <a class="demo-skip-link" href="#main-content">Skip to content</a>
     <div class="demo-shell">
       <aside class="demo-sidebar" aria-label="Blocks">
         <a class="demo-sidebar__title hb-link hb-link_view_primary hb-text hb-text_typography_subheader-3" href="./index.html">hvab-blocks</a>
-        ${renderSideNav(blocks, currentBlock)}
-        <button type="button" id="scheme-toggle" class="hb-button hb-button_view_normal hb-button_size_m">Toggle scheme</button>
+        <button type="button" id="scheme-toggle" class="hb-button hb-button_view_outlined hb-button_size_xl" aria-pressed="false">Dark theme</button>
+        ${renderSideNav(currentBlock)}
       </aside>
-      <main class="demo-page">
+      <main class="demo-page" id="main-content" tabindex="-1">
         <header class="demo-header">
           <h1 class="demo-title hb-text hb-text_typography_display-1">${escapeHtml(title)}</h1>
-          <p class="demo-lead hb-text hb-text_typography_body-3 hb-text_color_secondary">${escapeHtml(lead)}</p>
+          <p class="demo-lead hb-text hb-text_typography_body-3">${escapeHtml(lead)}</p>
         </header>
 ${body}
       </main>
     </div>
-    <script>
-      const root = document.documentElement;
-      document.getElementById('scheme-toggle').addEventListener('click', () => {
-        root.dataset.colorScheme = root.dataset.colorScheme === 'dark' ? 'light' : 'dark';
-      });
-    </script>
   </body>
 </html>
 `;
 }
 
-function renderSideNav(blocks, currentBlock) {
-  const links = blocks
-    .map((block) => {
-      const current = block === currentBlock ? ' aria-current="page"' : '';
-      const view = block === currentBlock ? 'primary' : 'normal';
-
-      return `          <li><a class="demo-nav__link hb-link hb-link_view_${view} hb-text hb-text_typography_body-2" href="./${block}.html"${current}>${escapeHtml(block)}</a></li>`;
-    })
+function renderSideNav(currentBlock) {
+  const sections = groups
+    .map(
+      (group) => `          <section aria-labelledby="nav-${slugifyClassPart(group.title)}">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-${slugifyClassPart(group.title)}">${escapeHtml(group.title)}</h2>
+            <ul class="demo-nav__list">
+              ${group.pages.map((page) => `<li><a class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2" href="./${page}.html"${page === currentBlock ? ' aria-current="page"' : ''}>${escapeHtml(page)}</a></li>`).join('\n')}
+            </ul>
+          </section>`
+    )
     .join('\n');
 
-  return `        <nav class="demo-nav">
-          <ul class="demo-nav__list">
-${links}
-          </ul>
+  return `        <label class="demo-mobile-nav">
+          Browse
+          <select id="block-select" class="hb-select">
+            <option value="./index.html">All blocks</option>
+            ${groups
+              .map(
+                (group) => `<optgroup label="${escapeHtml(group.title)}">
+              ${group.pages.map((page) => `<option value="./${page}.html"${page === currentBlock ? ' selected' : ''}>${escapeHtml(page)}</option>`).join('\n')}
+            </optgroup>`
+              )
+              .join('\n')}
+          </select>
+        </label>
+        <nav class="demo-nav" aria-label="Blocks">
+${sections}
         </nav>`;
-}
-
-function extractDemoExamples(readme) {
-  const examples = [];
-  let currentHeading = null;
-  const lines = readme.split('\n');
-
-  for (let index = 0; index < lines.length; index += 1) {
-    const heading = lines[index].match(/^#{2,3}\s+(.+)$/);
-
-    if (heading) {
-      currentHeading = heading[1];
-      continue;
-    }
-
-    if (lines[index] !== '```html demo') {
-      continue;
-    }
-
-    const code = [];
-    index += 1;
-
-    while (index < lines.length && lines[index] !== '```') {
-      code.push(lines[index]);
-      index += 1;
-    }
-
-    examples.push({
-      title: currentHeading,
-      code: code.join('\n').trim(),
-    });
-  }
-
-  return examples;
 }
 
 function firstParagraph(markdown) {
@@ -201,7 +243,7 @@ function firstParagraph(markdown) {
 }
 
 function readmePath(block) {
-  return path.join(root, 'blocks', block, 'README.md');
+  return block === 'tokens' ? path.join(root, 'tokens/README.md') : path.join(root, 'blocks', block, 'README.md');
 }
 
 function validateDemoCssTokens() {

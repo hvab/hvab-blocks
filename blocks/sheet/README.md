@@ -4,20 +4,20 @@ Bottom sheet (typically mobile): a veil plus a panel that slides up from the bot
 
 ## Usage
 
-Shown statically open here — no JS runs in this demo.
+Shown statically open inside a small mobile viewport: the grey area is the veil and the bottom panel contains a theme action menu. The actions do not run in this static example. The consumer owns the content layout, action spacing and inner bottom padding; the block supplies the panel, scrolling and safe-area inset.
 
 ```html demo
-<div class="hb-sheet" data-state="open" style="position: static; height: 280px">
+<div class="hb-sheet" data-state="open" style="position: static; width: 360px; max-width: 100%; height: 400px">
   <div class="hb-sheet__panel">
-    <div class="hb-sheet__handle"></div>
+    <div class="hb-sheet__handle" aria-hidden="true"></div>
     <div class="hb-sheet__content">
-      <div class="hb-text hb-text_typography_subheader-2" style="margin-block-end: var(--hb-gap-2)">Theme actions</div>
-      <button type="button" class="hb-button hb-button_view_flat">Rename</button>
-      <button type="button" class="hb-button hb-button_view_flat">Duplicate</button>
-      <button type="button" class="hb-button hb-button_view_flat">Share</button>
-      <button type="button" class="hb-button hb-button_view_outlined" style="margin-block-start: var(--hb-gap-3)">
-        Cancel
-      </button>
+      <div style="display: grid; gap: var(--hb-gap-2); padding-block: var(--hb-gap-3)">
+        <div class="hb-text hb-text_typography_subheader-2">Theme actions</div>
+        <button type="button" class="hb-button hb-button_view_flat hb-button_size_xl">Rename</button>
+        <button type="button" class="hb-button hb-button_view_flat hb-button_size_xl">Duplicate</button>
+        <button type="button" class="hb-button hb-button_view_flat hb-button_size_xl">Share</button>
+        <button type="button" class="hb-button hb-button_view_outlined hb-button_size_xl">Cancel</button>
+      </div>
     </div>
   </div>
 </div>
@@ -25,7 +25,7 @@ Shown statically open here — no JS runs in this demo.
 
 ## Narrow containers and long content
 
-The panel already limits its height and scrolls `.hb-sheet__content`. Compose plain text and long actions to fit the available width: allow the text to break, stack actions and give each multiline button automatic height, wrapping and block padding. These local styles do not change the ordinary single-line button contract.
+The inner layout and padding shown here belong to this composition, not to the sheet block. The panel already limits its height and scrolls `.hb-sheet__content`. Compose plain text and long actions to fit the available width: allow the text to break, stack actions and give each multiline button automatic height, wrapping and block padding. These local styles do not change the ordinary single-line button contract.
 
 ```html demo
 <div
@@ -74,9 +74,13 @@ Wrap only plain-text slots and the actions that need multiple lines. Preserve in
 ## Without handle
 
 ```html demo
-<div class="hb-sheet" data-state="open" style="position: static; height: 160px">
+<div class="hb-sheet" data-state="open" style="position: static; width: 360px; max-width: 100%; height: 160px">
   <div class="hb-sheet__panel">
-    <div class="hb-sheet__content">No drag handle — the sheet is closed by other UI (e.g. a close button).</div>
+    <div class="hb-sheet__content">
+      <div style="padding-block: var(--hb-gap-3)">
+        No drag handle — the sheet is closed by other UI (e.g. a close button).
+      </div>
+    </div>
   </div>
 </div>
 ```
@@ -84,16 +88,20 @@ Wrap only plain-text slots and the actions that need multiple lines. Preserve in
 ## State Examples
 
 ```html demo
-<div class="hb-sheet" data-state="open" style="position: static; height: 160px">
+<div class="hb-sheet" data-state="open" style="position: static; width: 360px; max-width: 100%; height: 160px">
   <div class="hb-sheet__panel">
-    <div class="hb-sheet__handle"></div>
-    <div class="hb-sheet__content">Open</div>
+    <div class="hb-sheet__handle" aria-hidden="true"></div>
+    <div class="hb-sheet__content">
+      <div style="padding-block: var(--hb-gap-3)">Open</div>
+    </div>
   </div>
 </div>
-<div class="hb-sheet" data-state="closed" style="position: static; height: 160px">
+<div class="hb-sheet" data-state="closed" style="position: static; width: 360px; max-width: 100%; height: 160px">
   <div class="hb-sheet__panel">
-    <div class="hb-sheet__handle"></div>
-    <div class="hb-sheet__content">Closed (translated below the fold, kept in flow here)</div>
+    <div class="hb-sheet__handle" aria-hidden="true"></div>
+    <div class="hb-sheet__content">
+      <div style="padding-block: var(--hb-gap-3)">Closed (translated below the fold, kept in flow here)</div>
+    </div>
   </div>
 </div>
 ```
@@ -126,10 +134,12 @@ Wrap only plain-text slots and the actions that need multiple lines. Preserve in
 | `--hb-sheet-content-padding-inline` | Content inline padding (combined with safe-area). |
 
 ```html demo
-<div class="hb-sheet" data-state="open" style="position: static; height: 160px">
+<div class="hb-sheet" data-state="open" style="position: static; width: 360px; max-width: 100%; height: 160px">
   <div class="hb-sheet__panel" style="--hb-sheet-panel-radius: var(--hb-radius-l)">
-    <div class="hb-sheet__handle"></div>
-    <div class="hb-sheet__content">Smaller top radius</div>
+    <div class="hb-sheet__handle" aria-hidden="true"></div>
+    <div class="hb-sheet__content">
+      <div style="padding-block: var(--hb-gap-3)">Smaller top radius</div>
+    </div>
   </div>
 </div>
 ```

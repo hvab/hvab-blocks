@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en" data-color-scheme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hvab-blocks - Tokens</title>
+    <link rel="icon" href="data:," />
+    <script src="./demo.js"></script>
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <a class="demo-skip-link" href="#main-content">Skip to content</a>
+    <div class="demo-shell">
+      <aside class="demo-sidebar" aria-label="Blocks">
+        <a
+          class="demo-sidebar__title hb-link hb-link_view_primary hb-text hb-text_typography_subheader-3"
+          href="./index.html"
+          >hvab-blocks</a
+        >
+        <button
+          type="button"
+          id="scheme-toggle"
+          class="hb-button hb-button_view_outlined hb-button_size_xl"
+          aria-pressed="false"
+        >
+          Dark theme
+        </button>
+        <label class="demo-mobile-nav">
+          Browse
+          <select id="block-select" class="hb-select">
+            <option value="./index.html">All blocks</option>
+            <optgroup label="Foundation">
+              <option value="./tokens.html" selected>tokens</option>
+            </optgroup>
+            <optgroup label="Typography">
+              <option value="./hotkey.html">hotkey</option>
+              <option value="./icon.html">icon</option>
+              <option value="./text.html">text</option>
+            </optgroup>
+            <optgroup label="Forms">
+              <option value="./button.html">button</option>
+              <option value="./checkbox.html">checkbox</option>
+              <option value="./color-input.html">color-input</option>
+              <option value="./field.html">field</option>
+              <option value="./radio.html">radio</option>
+              <option value="./radio-group.html">radio-group</option>
+              <option value="./range-input.html">range-input</option>
+              <option value="./select.html">select</option>
+              <option value="./switch.html">switch</option>
+              <option value="./text-input.html">text-input</option>
+              <option value="./textarea.html">textarea</option>
+            </optgroup>
+            <optgroup label="Content">
+              <option value="./card.html">card</option>
+              <option value="./divider.html">divider</option>
+              <option value="./label.html">label</option>
+              <option value="./table.html">table</option>
+            </optgroup>
+            <optgroup label="Feedback">
+              <option value="./alert.html">alert</option>
+              <option value="./progress.html">progress</option>
+              <option value="./skeleton.html">skeleton</option>
+              <option value="./spin.html">spin</option>
+              <option value="./toast.html">toast</option>
+            </optgroup>
+            <optgroup label="Navigation">
+              <option value="./breadcrumbs.html">breadcrumbs</option>
+              <option value="./link.html">link</option>
+              <option value="./pagination.html">pagination</option>
+              <option value="./tabs.html">tabs</option>
+            </optgroup>
+            <optgroup label="Overlays">
+              <option value="./dialog.html">dialog</option>
+              <option value="./modal.html">modal</option>
+              <option value="./popover.html">popover</option>
+              <option value="./sheet.html">sheet</option>
+              <option value="./tooltip.html">tooltip</option>
+            </optgroup>
+          </select>
+        </label>
+        <nav class="demo-nav" aria-label="Blocks">
+          <section aria-labelledby="nav-foundation">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-foundation">Foundation</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tokens.html"
+                  aria-current="page"
+                  >tokens</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-typography">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-typography">Typography</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./hotkey.html"
+                  >hotkey</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./icon.html"
+                  >icon</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./text.html"
+                  >text</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-forms">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-forms">Forms</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./button.html"
+                  >button</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./checkbox.html"
+                  >checkbox</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./color-input.html"
+                  >color-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./field.html"
+                  >field</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./radio.html"
+                  >radio</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./radio-group.html"
+                  >radio-group</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./range-input.html"
+                  >range-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./select.html"
+                  >select</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./switch.html"
+                  >switch</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./text-input.html"
+                  >text-input</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./textarea.html"
+                  >textarea</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-content">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-content">Content</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./card.html"
+                  >card</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./divider.html"
+                  >divider</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./label.html"
+                  >label</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./table.html"
+                  >table</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-feedback">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-feedback">Feedback</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./alert.html"
+                  >alert</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./progress.html"
+                  >progress</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./skeleton.html"
+                  >skeleton</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./spin.html"
+                  >spin</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./toast.html"
+                  >toast</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-navigation">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-navigation">Navigation</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./breadcrumbs.html"
+                  >breadcrumbs</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./link.html"
+                  >link</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./pagination.html"
+                  >pagination</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tabs.html"
+                  >tabs</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="nav-overlays">
+            <h2 class="demo-nav__heading hb-text hb-text_typography_caption-2" id="nav-overlays">Overlays</h2>
+            <ul class="demo-nav__list">
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./dialog.html"
+                  >dialog</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./modal.html"
+                  >modal</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./popover.html"
+                  >popover</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./sheet.html"
+                  >sheet</a
+                >
+              </li>
+              <li>
+                <a
+                  class="demo-nav__link hb-link hb-link_view_normal hb-text hb-text_typography_body-2"
+                  href="./tooltip.html"
+                  >tooltip</a
+                >
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </aside>
+      <main class="demo-page" id="main-content" tabindex="-1">
+        <header class="demo-header">
+          <h1 class="demo-title hb-text hb-text_typography_display-1">Tokens</h1>
+          <p class="demo-lead hb-text hb-text_typography_body-3">
+            Foundation tokens are the public theme API for hvab-blocks. They are plain CSS custom properties and must be
+            loaded before any block CSS.
+          </p>
+        </header>
+        <article class="demo-docs">
+          <p>
+            Use <code>index.css</code> for the full bundle. If you import blocks manually, import the needed files from
+            <code>tokens/</code> first.
+          </p>
+          <h2 id="docs-files">Files</h2>
+          <ul>
+            <li>
+              <code>ref.css</code> — raw <code>--hb-ref-*</code> values. This layer has no semantic meaning and is not
+              read by blocks directly.
+            </li>
+            <li>
+              <code>color.css</code> — scheme-aware <code>--hb-color-*</code> roles for text, base surfaces, lines, and
+              visual effects.
+            </li>
+            <li>
+              <code>typography.css</code> — <code>--hb-typography-*</code> size, line-height, weight, and mono-family
+              tokens.
+            </li>
+            <li><code>radius.css</code> — <code>--hb-radius-*</code> corner scale.</li>
+            <li>
+              <code>spacing.css</code> — <code>--hb-gap-*</code> component rhythm and the reserved
+              <code>--hb-spacing-*</code> section rhythm namespace.
+            </li>
+            <li>
+              <code>motion.css</code> — <code>--hb-duration-*</code> and <code>--hb-ease-*</code>, with centralized
+              reduced-motion handling for token-based transitions; continuous animations need a local stop guard.
+            </li>
+            <li><code>size.css</code> — <code>--hb-size-*</code> control geometry shared by interactive blocks.</li>
+            <li><code>focus.css</code> — <code>--hb-focus-ring-*</code> focus-ring geometry.</li>
+          </ul>
+          <h2 id="docs-layers">Layers</h2>
+          <p>Tokens follow the project contract:</p>
+          <pre tabindex="0"><code>ref -&gt; system -&gt; component tokens -&gt; block selectors</code></pre>
+          <p>
+            Blocks normally read system tokens through private component defaults, declared on the block or owning
+            element. A private state alias may select the public/private pair for the active role. Shared transition
+            duration/easing and fixed round marks on checkbox/radio/switch are the bounded direct-system exceptions in
+            SPEC section 2. Blocks never read <code>--hb-ref-*</code> directly or assign public component tokens.
+          </p>
+          <p>
+            Public overrides win over private defaults for the same role, not over every state: tabs has separate idle
+            and hover/selected text roles, while disabled retains system hint text. Local reduced-motion guards stop
+            continuous animation even when public animation tokens are set. Block READMEs document these policies.
+          </p>
+          <h2 id="docs-color-schemes">Color Schemes</h2>
+          <p>
+            Color is the only scheme-aware token file. The light scheme is defined on <code>:root</code> and
+            <code>[data-color-scheme=&#39;light&#39;]</code>; the dark scheme is defined on
+            <code>[data-color-scheme=&#39;dark&#39;]</code>.
+          </p>
+          <pre tabindex="0"><code>&lt;html data-color-scheme=&quot;dark&quot;&gt;
+  ...
+&lt;/html&gt;</code></pre>
+          <p>Brand roles are intentionally monochrome and invert between schemes:</p>
+          <ul>
+            <li>light: dark brand surface with light contrast text;</li>
+            <li>dark: light brand surface with dark contrast text.</li>
+          </ul>
+          <p>When adding color roles, add both light and dark values in the same change.</p>
+          <h3 id="docs-functional-text-contrast">Functional text contrast</h3>
+          <p>
+            <code>--hb-color-text-info-contrast</code>, <code>--hb-color-text-positive-contrast</code> and
+            <code>--hb-color-text-warning-contrast</code> are semantic roles for small functional text. Their light/dark
+            values are verified against the supported surfaces below.
+          </p>
+          <div class="demo-table" tabindex="0" role="region" aria-label="Functional text contrast table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Role suffix</th>
+                  <th>Light value</th>
+                  <th>Dark value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>info-contrast</code></td>
+                  <td><code>rgb(44 90 138)</code></td>
+                  <td><code>rgb(134 193 247)</code></td>
+                </tr>
+                <tr>
+                  <td><code>positive-contrast</code></td>
+                  <td><code>rgb(42 108 76)</code></td>
+                  <td><code>rgb(130 200 185)</code></td>
+                </tr>
+                <tr>
+                  <td><code>warning-contrast</code></td>
+                  <td><code>rgb(145 74 17)</code></td>
+                  <td><code>rgb(255 197 108)</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            The existing <code>secondary</code>, <code>hint</code>, ordinary status and <code>*-heavy</code> roles
+            retain their values. Simply substituting existing heavy roles is insufficient: on white, positive-heavy is
+            4.232:1 and warning-heavy is 4.469:1, below the 4.5:1 threshold for ordinary text. The new roles preserve
+            colored text without changing the palette used by other components, placeholders or disabled states.
+          </p>
+          <p>
+            With the default light/dark tokens and no additional opacity, the supported combinations for the updated
+            functional text are:
+          </p>
+          <ul>
+            <li>
+              Field labels/help (<code>text-complementary</code>) and warning (<code>text-warning-contrast</code>) on
+              <code>base-background</code>, <code>base-float</code> or <code>base-modal</code>.
+            </li>
+            <li>Text info/positive/warning modifiers on those same opaque surfaces.</li>
+            <li>
+              Label info/success/warning content on its corresponding default <code>base-*-light</code> tint composited
+              over any of those surfaces.
+            </li>
+            <li>
+              Toast messages (<code>text-primary</code>) on the default opaque float surface or the default status tints
+              composited over any of those surfaces.
+            </li>
+          </ul>
+          <p>
+            These combinations meet 4.5:1 using sRGB luminance after alpha composition. This is a contract for these
+            specific foreground/background pairs, not arbitrary backgrounds or library-wide WCAG conformance. Existing
+            error/danger and normal-label roles are unchanged; their previously verified page-background pairs remain
+            valid, but they are not covered by the new floating-surface contract. Muted label
+            <code>__value</code> opacity is also outside it. Do not use unchanged secondary/hint examples as evidence of
+            sufficient contrast for essential small text.
+          </p>
+          <p>
+            Custom themes should override the new semantic roles as needed; component public color overrides still take
+            precedence. Recalculate against the final background whenever a theme, surface, tint or opacity changes.
+            Consumer CSS that previously changed the ordinary status tokens must also set the new contrast tokens to
+            customize these updated assignments.
+          </p>
+          <h2 id="docs-consumer-theme-example">Consumer Theme Example</h2>
+          <p>
+            Consumers usually do not edit <code>tokens/color.css</code>. They load their theme overrides after
+            <code>hvab-blocks/index.css</code>:
+          </p>
+          <pre tabindex="0"><code>import 'hvab-blocks/index.css';
+import './app-theme.css';</code></pre>
+          <pre tabindex="0"><code>/* app-theme.css */
+:root,
+[data-color-scheme='light'] {
+  --hb-color-base-background: rgb(255 255 255);
+  --hb-color-base-brand: rgb(18 24 38);
+  --hb-color-base-brand-hover: rgb(36 45 64);
+  --hb-color-text-brand: rgb(18 24 38);
+  --hb-color-text-brand-contrast: rgb(255 255 255);
+  --hb-color-line-brand: rgb(18 24 38);
+}
+
+[data-color-scheme='dark'] {
+  --hb-color-base-background: rgb(12 14 18);
+  --hb-color-base-brand: rgb(238 241 247);
+  --hb-color-base-brand-hover: rgb(216 222 232);
+  --hb-color-text-brand: rgb(238 241 247);
+  --hb-color-text-brand-contrast: rgb(12 14 18);
+  --hb-color-line-brand: rgb(238 241 247);
+}</code></pre>
+          <p>
+            Use this for semantic theme roles. Use block public tokens (<code>--hb-button-*</code>,
+            <code>--hb-card-*</code>) only for local one-off overrides.
+          </p>
+          <h2 id="docs-reference-layer-example">Reference Layer Example</h2>
+          <p>
+            <code>ref.css</code> can stay empty until repeated raw values become useful. When a project needs a reusable
+            raw palette, define it in <code>ref.css</code> and consume it from semantic tokens:
+          </p>
+          <pre tabindex="0"><code>/* tokens/ref.css */
+:root {
+  --hb-ref-palette-brand-950: rgb(18 24 38);
+  --hb-ref-palette-brand-100: rgb(238 241 247);
+}</code></pre>
+          <pre tabindex="0"><code>/* tokens/color.css */
+:root,
+[data-color-scheme='light'] {
+  --hb-color-base-brand: var(--hb-ref-palette-brand-950);
+  --hb-color-text-brand-contrast: rgb(255 255 255);
+}
+
+[data-color-scheme='dark'] {
+  --hb-color-base-brand: var(--hb-ref-palette-brand-100);
+  --hb-color-text-brand-contrast: rgb(12 14 18);
+}</code></pre>
+          <p>Blocks still do not read <code>--hb-ref-*</code> directly.</p>
+          <h2 id="docs-adding-tokens">Adding Tokens</h2>
+          <ul>
+            <li>Add a token only when a real block needs it.</li>
+            <li>Port limited scales as complete scales: typography, radius, size, spacing, motion, and focus.</li>
+            <li>Add color roles one by one, but always as light/dark pairs.</li>
+            <li>
+              Keep shared semantic values in <code>tokens/</code>; local component geometry and independent animation
+              periods may be private defaults with public overrides. Structural CSS does not require a token for every
+              declaration. Do not substitute an unrelated system token merely because its value matches.
+            </li>
+            <li>
+              Treat <code>--hb-*</code> token names as public API once they are used by a block or documented here.
+            </li>
+          </ul>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
